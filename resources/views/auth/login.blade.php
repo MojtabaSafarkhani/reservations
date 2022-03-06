@@ -10,18 +10,19 @@
              <div class="col-md-4 bg-white rounded-2 ">
 
                  <h2 class="text-info text-center p-3">ورود</h2>
-                 <form class="">
+                 <form action="/login" method="post">
+                     @csrf
                      <div class="mb-3">
-                         <label for="exampleInputEmail1" class="form-label">ايميل</label>
-                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                         <label for="email" class="form-label">ايميل</label>
+                         <input type="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" id="email" aria-describedby="emailHelp">
                      </div>
                      <div class="mb-3">
-                         <label for="exampleInputPassword1" class="form-label">رمز عبور</label>
-                         <input type="password" class="form-control" id="exampleInputPassword1">
+                         <label for="password" class="form-label">رمز عبور</label>
+                         <input type="password" placeholder="رمز عبور خود را وارد کنید" name="password" class="form-control" id="password">
                      </div>
                      <div class="mb-3 form-check">
-                         <input type="checkbox" class="form-check-input" style="float: right; margin-left: 10px;" id="exampleCheck1">
-                         <label class="form-check-label " for="exampleCheck1">به خاطر سپردن</label>
+                         <input type="checkbox" name="remember" class="form-check-input" style="float: right; margin-left: 10px;" id="remember">
+                         <label class="form-check-label"  for="remember">به خاطر سپردن</label>
                      </div>
                      <div class="mb-4">
                          <a href="#" class="btn btn-danger"> رمز عبور را فراموش کرده ام </a>
