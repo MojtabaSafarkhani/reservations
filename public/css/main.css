@@ -1,11 +1,10 @@
-@font-face {
-    font-family: IRANSans;
-
-}
 
 *{
     font-family: "IRANSans","Times New Roman";
 }
 .authBody{
     background-color: #1a202c;
+}
+.homeHeader{
+    background-color: #010f48;
 }

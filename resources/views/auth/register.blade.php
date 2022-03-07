@@ -17,7 +17,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="email" class="form-label">ايميل</label>
-                        <input type="email" name="email" placeholder="ایمیل خود را وارد کنید" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" dir="rtl" name="email" placeholder="example@gmail.com" class="form-control" id="email">
                     </div>
                     <div class="mb-2">
                         <label for="exampleInputPassword1" class="form-label">رمز عبور</label>
@@ -31,8 +31,8 @@
                     <div class="mb-2">
                         <label for="exampleInputPassword1" class="form-label"> نقش </label>
                         <select class="form-select mb-2" name="role_id" aria-label="Default select example">
-                            <option value="">ميزبان</option>
-                            <option value="">مهمان</option>
+                            <option value="2">ميزبان</option>
+                            <option value="3">مهمان</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary mb-3">تاييد</button>

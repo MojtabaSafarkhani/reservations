@@ -14,7 +14,7 @@
                      @csrf
                      <div class="mb-3">
                          <label for="email" class="form-label">ايميل</label>
-                         <input type="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" id="email" aria-describedby="emailHelp">
+                         <input type="email" name="email" class="form-control" placeholder="example@gmail.com" id="email" aria-describedby="emailHelp">
                      </div>
                      <div class="mb-3">
                          <label for="password" class="form-label">رمز عبور</label>
