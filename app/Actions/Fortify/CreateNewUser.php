@@ -28,8 +28,9 @@ class CreateNewUser implements CreatesNewUsers
                 'email',
                 'max:255',
                 Rule::unique(User::class),
-                'role_id' => ['required', 'exists:roles,id', 'lte:3','gte:2']
+
             ],
+            'role_id' => ['exists:roles,id','required',Rule::notIn(['1'])],
             'password' => $this->passwordRules(),
         ])->validate();
 

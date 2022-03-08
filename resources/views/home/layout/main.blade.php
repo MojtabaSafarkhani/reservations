@@ -14,24 +14,38 @@
         <div class="container-fluid ">
             <div class="row ">
                 <ul class="nav col-12 my-md-0 text-small">
-                    <li>
-                        <p class="nav-link text-white mt-1" >
-                           {{auth()->user()->name}}
-                        </p>
-                    </li>
-                    <li class="">
-                        <a href="{{route('home')}}" class="nav-link text-white mt-1 " >
-                            خانه
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link text-white" >
-                            <form action="/logout" method="post">
-                                @csrf
-                                <input type="submit" value="خروج"  class="btn btn-danger btn-sm">
-                            </form>
-                        </a>
-                    </li>
+                    @if(auth()->user())
+                        <li>
+                            <p class="nav-link text-white mt-1">
+                                {{auth()->user()->name}}
+                            </p>
+                        </li>
+                        <li class="">
+                            <a href="{{route('home')}}" class="nav-link text-white mt-1 ">
+                                خانه
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-white">
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <input type="submit" value="خروج" class="btn btn-danger btn-sm">
+                                </form>
+                            </a>
+                        </li>
+
+                    @else
+                        <li>
+                            <a href="/register" class="nav-link text-white mt-1">
+                                ثبت نام
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login" class="nav-link text-white mt-1">
+                                ورود
+                            </a>
+                        </li>
+                    @endif
 
                 </ul>
 
@@ -40,8 +54,8 @@
     </div>
 
 </header>
-<body>
 
+<body>
 
 
 @yield('content')
