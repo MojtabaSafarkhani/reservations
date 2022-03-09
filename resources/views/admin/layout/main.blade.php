@@ -64,9 +64,19 @@
                 <ul class="nav nav-pills  flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                     id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 text-white">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        <a href="#category" data-bs-toggle="collapse" class="nav-link px-0  text-white">
+                            <i class="bi bi-bookmark-fill"></i> <span class="ms-1 d-none d-sm-inline">دسته بندي</span>
                         </a>
+                        <ul class="collapse  nav flex-column ms-1" id="category" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="{{route('categories.create')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline ">ايجاد دسته بندي</span> </a>
+                            </li>
+                            <li>
+                                <a href="{{route('categories.index')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline">ليست دسته بندي ها</span>  </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
