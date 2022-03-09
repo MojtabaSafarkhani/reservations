@@ -33,6 +33,14 @@
                                 </form>
                             </a>
                         </li>
+                        @if(auth()->user()->role->hasPermissions('read_dashboard'))
+                            <li>
+                                <a href="{{route('admin.dashboard')}}" class="nav-link text-white mt-1">
+                                    پنل مديريت
+                                </a>
+                            </li>
+
+                        @endif
 
                     @else
                         <li>
@@ -54,6 +62,7 @@
     </div>
 
 </header>
+
 
 <body>
 

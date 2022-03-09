@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\client\HomeController;
+use App\Http\Middleware\CheckPermissionsMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,12 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
 //route for admin
+Route::middleware(['auth',CheckPermissionsMiddleware::class.":read_dashboard"])->prefix('/admin')->group(function (){
+
+    Route::get('/',function (){
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+});
+
 

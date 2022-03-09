@@ -25,4 +25,9 @@ class Role extends Model
     {
         return self::query()->where('title', $title)->first()->id;
     }
+
+    public function hasPermissions($title)
+    {
+        return $this->permissions()->where('title', $title)->exists();
+    }
 }
