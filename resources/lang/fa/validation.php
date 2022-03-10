@@ -167,6 +167,7 @@ return array(
         'avatar' => 'تصویر پروفایل',
         'priority' => 'الویت',
         'message' => 'متن پیام',
-        'role_id'=> "نقش"
+        'role_id'=> "نقش",
+        'city_id'=>'شهر'
     ),
 );

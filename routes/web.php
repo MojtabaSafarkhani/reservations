@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Middleware\CheckPermissionsMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::middleware(['auth',CheckPermissionsMiddleware::class.":read_dashboard"])-
     })->name('admin.dashboard');
 
     Route::resource('categories',CategoryController::class);
+    Route::resource('cities',CityController::class);
 
 });
 
