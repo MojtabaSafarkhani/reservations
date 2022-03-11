@@ -17,6 +17,7 @@
                 <table class="table table-hover table-striped table-light table-bordered">
                     <thead>
                     <tr>
+                        <td>#</td>
                         <td>نام</td>
                         <td>نامک</td>
                         <td>استان</td>
@@ -25,8 +26,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($cities as $city)
+                    @foreach($cities as $key=>$city)
                         <tr>
+                            <td>{{$key+1}}</td>
                             <td>{{$city->name}}</td>
                             <td>{{$city->slug}}</td>
                             <td>{{optional($city->state)->name}}</td>

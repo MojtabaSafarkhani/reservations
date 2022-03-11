@@ -13,13 +13,15 @@ class City extends Model
 
     public function state()
     {
-        return $this->belongsTo(__CLASS__);
+        return $this->belongsTo(City::class, 'city_id');
+
     }
 
     public function towns()
     {
 
-        return $this->hasMany(__CLASS__);
+        return $this->hasMany(City::class, 'city_id');
+
     }
 
     public function getRouteKeyName()

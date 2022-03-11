@@ -17,6 +17,7 @@
                 <table class="table table-hover table-striped table-light table-bordered">
                     <thead>
                     <tr>
+                        <td>#</td>
                         <td>عنوان</td>
                         <td>اسلاگ</td>
                         <td>ويرايش</td>
@@ -24,8 +25,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($categories as $category)
+                    @foreach($categories as $key=>$category)
                         <tr>
+                            <td>{{$key+1}}</td>
                             <td>{{$category->title}}</td>
                             <td>{{$category->slug}}</td>
                             <td>

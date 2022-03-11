@@ -53,7 +53,7 @@ class CityController extends Controller
         ]);
     }
 
-    public function update(City $city,UpdateCityRequest $request)
+    public function update(City $city, UpdateCityRequest $request)
     {
         $isSlugUsed = City::query()->where('slug', $request->get('slug'))
             ->where('id', '!=', $city->id)->exists();
@@ -65,9 +65,9 @@ class CityController extends Controller
 
         $city->update([
 
-            'name'=>$request->get('name'),
-            'slug'=>$request->get('slug'),
-            'city_id'=>$request->get('city_id'),
+            'name' => $request->get('name'),
+            'slug' => $request->get('slug'),
+            'city_id' => $request->get('city_id'),
 
         ]);
 
@@ -81,13 +81,22 @@ class CityController extends Controller
 
     public function destroy(City $city)
     {
+
+        if ($city->towns()->count() > 0) {
+
+            session()->flash('delete',
+                "شهر  $city->title به دليل داشتن زيرمجموعه قابل حذف نيست.! "
+            );
+
+            return redirect(route('cities.index'));
+        }
+
         session()->flash('delete',
             "دسته بندي  $city->title حذف شد.! "
         );
 
         //must be search that hotel not in category
 
-        
 
         $city->delete();
 
