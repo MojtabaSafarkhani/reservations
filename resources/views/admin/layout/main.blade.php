@@ -93,6 +93,21 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#slider" data-bs-toggle="collapse" class="nav-link px-0  text-white">
+                            <i class="bi bi-sliders"></i><span class="ms-1 d-none d-sm-inline">اسلايدر</span>
+                        </a>
+                        <ul class="collapse @if(request()->routeIs('sliders.*')) show @endif nav flex-column ms-1 " id="slider" data-bs-parent="#menu" >
+                            <li class="w-100">
+                                <a href="{{route('sliders.create')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline ">ايجاد اسلايدر</span> </a>
+                            </li>
+                            <li>
+                                <a href="{{route('sliders.index')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline">ليست اسلايدرها</span>  </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
