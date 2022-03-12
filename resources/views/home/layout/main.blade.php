@@ -21,7 +21,8 @@
                             </p>
                         </li>
                         <li class="">
-                            <a href="{{route('home')}}" class="nav-link text-white mt-1 ">
+                            <a href="{{route('home')}}"
+                               class="nav-link text-white mt-1  @if(request()->routeIs('home')) disable fw-bolder text-muted pe-none @endif ">
                                 خانه
                             </a>
                         </li>
@@ -35,8 +36,22 @@
                         </li>
                         @if(auth()->user()->role->hasPermissions('read_dashboard'))
                             <li>
-                                <a href="{{route('admin.dashboard')}}" class="nav-link text-white mt-1">
+                                <a href="{{route('admin.dashboard')}}"
+                                   class="nav-link text-white mt-1 "
+                                >
                                     پنل مديريت
+                                </a>
+                            </li>
+
+                        @endif
+
+                        @if(auth()->user()->role->title==='host')
+                            <li>
+                                <a href="{{route('host.register')}}"
+                                   class="nav-link text-white mt-1 @if(request()->routeIs('host.register')) disable fw-bolder text-muted pe-none @endif"
+
+                                >
+                                    ثبت مشخصات
                                 </a>
                             </li>
 
