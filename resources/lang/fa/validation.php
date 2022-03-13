@@ -171,5 +171,7 @@ return array(
         'city_id' => 'شهر',
         'image' => 'تصوير',
         'link' => 'لینک',
+        'national_code' => 'کد ملي',
+        'national_card_photo' => 'عکس کارت ملي',
     ),
 );

@@ -39,7 +39,9 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 //Route For Host
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
+    
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
+    Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');
 
 });
 

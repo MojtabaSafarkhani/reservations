@@ -4,11 +4,11 @@
 
     <div class="container">
 
-        <div class="row vh-100 align-items-center justify-content-center">
-            <h2 class="text-center text-primary"> سامانه رزرو اقامتگاه</h2>
+        <div class="row vh-100 align-items-center justify-content-center p-3">
+            <h2 class="text-center text-dark"> سامانه رزرو اقامتگاه</h2>
             <div class="col-md-4 bg-white rounded-2 ">
 
-                <h2 class="text-info text-center p-2">ثبت نام</h2>
+                <h2 class="text-dark text-center p-2">ثبت نام</h2>
                 <form action="/register" method="post" class="needs-validations was_validated" novalidate>
                     @csrf
                     <div class="mb-2">
@@ -46,7 +46,9 @@
                         </select>
                         @error('role_id') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
-                    <button type="submit" class="btn btn-primary mb-3">تاييد</button>
+                   <div class="d-grid">
+                       <button type="submit" class="btn btn-dark my-3">تاييد</button>
+                   </div>
                 </form>
             </div>
 

@@ -54,7 +54,7 @@
     </div>
 
 </header>
-<body>
+<body class="homeBody">
 
 <div class="container-fluid">
     <div class="row flex-nowrap">

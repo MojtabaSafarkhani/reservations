@@ -20,6 +20,7 @@ class CreateHostsTable extends Migration
             $table->text('address');
             $table->string('national_code', 10)->unique();
             $table->string('national_card_photo');
+            $table->enum('status', ['wait', 'ok', 'nok'])->default('wait');
             $table->timestamps();
         });
     }
