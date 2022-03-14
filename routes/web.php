@@ -39,7 +39,8 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 //Route For Host
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
-    
+    //check the user is not in db if there is then redirect to table and show status
+    Route::get('/host', [HostController::class, 'index'])->name('host.index');
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
     Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');
 

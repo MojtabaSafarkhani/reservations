@@ -47,8 +47,8 @@
 
                         @if(auth()->user()->role->title==='host')
                             <li>
-                                <a href="{{route('host.register')}}"
-                                   class="nav-link text-white mt-1 @if(request()->routeIs('host.register')) disable fw-bolder text-muted pe-none @endif"
+                                <a href="{{route('host.index')}}"
+                                   class="nav-link text-white mt-1 @if(request()->routeIs('host.index')) disable fw-bolder text-muted pe-none @endif"
 
                                 >
                                     ثبت مشخصات
