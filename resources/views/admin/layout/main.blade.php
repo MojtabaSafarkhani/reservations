@@ -67,14 +67,15 @@
                         <a href="#category" data-bs-toggle="collapse" class="nav-link px-0  text-white">
                             <i class="bi bi-bookmark-fill"></i> <span class="ms-1 d-none d-sm-inline">دسته بندي</span>
                         </a>
-                        <ul class="collapse @if(request()->routeIs('categories.*')) show @endif nav flex-column ms-1 " id="category" data-bs-parent="#menu" >
+                        <ul class="collapse @if(request()->routeIs('categories.*')) show @endif nav flex-column ms-1 "
+                            id="category" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="{{route('categories.create')}}" class="nav-link px-0 text-white"> <span
                                         class="d-none d-sm-inline ">ايجاد دسته بندي</span> </a>
                             </li>
                             <li>
                                 <a href="{{route('categories.index')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">ليست دسته بندي ها</span>  </a>
+                                        class="d-none d-sm-inline">ليست دسته بندي ها</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -82,14 +83,15 @@
                         <a href="#cities" data-bs-toggle="collapse" class="nav-link px-0  text-white">
                             <i class="bi bi-signpost-split"></i><span class="ms-1 d-none d-sm-inline">شهر</span>
                         </a>
-                        <ul class="collapse @if(request()->routeIs('cities.*')) show @endif nav flex-column ms-1 " id="cities" data-bs-parent="#menu" >
+                        <ul class="collapse @if(request()->routeIs('cities.*')) show @endif nav flex-column ms-1 "
+                            id="cities" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="{{route('cities.create')}}" class="nav-link px-0 text-white"> <span
                                         class="d-none d-sm-inline ">ايجاد شهر</span> </a>
                             </li>
                             <li>
                                 <a href="{{route('cities.index')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">ليست شهرها</span>  </a>
+                                        class="d-none d-sm-inline">ليست شهرها</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -97,14 +99,15 @@
                         <a href="#slider" data-bs-toggle="collapse" class="nav-link px-0  text-white">
                             <i class="bi bi-sliders"></i><span class="ms-1 d-none d-sm-inline">اسلايدر</span>
                         </a>
-                        <ul class="collapse @if(request()->routeIs('sliders.*')) show @endif nav flex-column ms-1 " id="slider" data-bs-parent="#menu" >
+                        <ul class="collapse @if(request()->routeIs('sliders.*')) show @endif nav flex-column ms-1 "
+                            id="slider" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="{{route('sliders.create')}}" class="nav-link px-0 text-white"> <span
                                         class="d-none d-sm-inline ">ايجاد اسلايدر</span> </a>
                             </li>
                             <li>
                                 <a href="{{route('sliders.index')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">ليست اسلايدرها</span>  </a>
+                                        class="d-none d-sm-inline">ليست اسلايدرها</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -196,6 +199,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+@yield('script')
+
 
 </body>
 </html>

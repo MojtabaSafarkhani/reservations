@@ -15,4 +15,10 @@ class Host extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getImageUrlAttribute()
+    {
+        return str_replace('public', '/storage', $this->national_card_photo);
+
+    }
 }

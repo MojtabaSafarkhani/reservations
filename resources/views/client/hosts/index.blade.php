@@ -48,7 +48,8 @@
                             </a></td>
                         <td>
 
-                           <span class="fw-bolder p-1 rounded-3 d-inline-block  {{$status['class']}}">{{$status['message']}}</span>
+                            <span
+                                class="fw-bolder p-1 rounded-3 d-inline-block  {{$status['class']}}">{{$status['message']}}</span>
 
                         </td>
 
@@ -60,7 +61,7 @@
                 <div class="collapse mb-5" id="collapsePhoto">
                     <div class="card card-body d-block bg-transparent border-0 text-center">
                         <img class="w-auto h-auto"
-                             src="{{str_replace('public','/storage',$host->national_card_photo)}}">
+                             src="{{$host->image_url}}">
                     </div>
                 </div>
                 <div class="collapse mb-5" id="collapseExample">
