@@ -111,6 +111,22 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#hosts" data-bs-toggle="collapse" class="nav-link px-0  text-white">
+                            <i class="bi bi-person-circle"></i> <span class="ms-1 d-none d-sm-inline">ميزبانان</span>
+                        </a>
+                        <ul class="collapse @if(request()->routeIs('hosts.*')) show @endif nav flex-column ms-1 "
+                            id="hosts" data-bs-parent="#menu">
+                            {{--  <li class="w-100">
+                                  <a href="{{route('hosts.create')}}" class="nav-link px-0 text-white"> <span
+                                          class="d-none d-sm-inline "></span> </a>
+                              </li>--}}
+                            <li>
+                                <a href="{{route('hosts.index')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline">ليست ميزبانان</span> </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>

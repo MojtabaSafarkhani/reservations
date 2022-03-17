@@ -34,7 +34,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::resource('categories', CategoryController::class);
     Route::resource('cities', CityController::class);
     Route::resource('sliders', SliderController::class)->except(['show']);
-    Route::get('/hosts', [HostAdminController::class, 'index']);
+    Route::get('/hosts', [HostAdminController::class, 'index'])->name('hosts.index');
     Route::get('/hosts-photo', [HostAdminController::class, 'download'])->name('hosts.photo');
 
 });

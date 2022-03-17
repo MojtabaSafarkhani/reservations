@@ -11,6 +11,8 @@ class Host extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['status_translate'];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -20,5 +22,22 @@ class Host extends Model
     {
         return str_replace('public', '/storage', $this->national_card_photo);
 
+    }
+
+    public function getStatusTranslateAttribute()
+    {
+        if ($this->status === 'wait') {
+
+            $status = "در انتظار تایید";
+
+        } elseif ($this->status === 'ok') {
+
+            $status = "تاييد شده";
+        } else {
+
+            $status = "رد شده";
+        }
+
+        return $status;
     }
 }
