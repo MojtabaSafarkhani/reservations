@@ -86,9 +86,39 @@ class HostController extends Controller
             ];
 
 
-
         }
         return $statusClient;
+    }
+
+    public function edit()
+    {
+        return view('client.hosts.edit', [
+
+            'host' => auth()->user()->host,
+        ]);
+    }
+
+    public function update(Request $request, Host $host)
+    {
+        if ($request->has('national_card_photo')) {
+
+            $path = $request->file('national_card_photo')->storePublicly('public/images/hosts');
+
+        } else {
+
+            $path = $host->national_card_photo;
+        }
+
+        $host->update([
+
+            'phone' => $request->get('phone'),
+            'national_code' => $request->get('national_code'),
+            'national_card_photo' => $path,
+            'address' => $request->get('address'),
+            'status' => 'wait'
+        ]);
+
+        return redirect(route('host.index'));
     }
 
 }

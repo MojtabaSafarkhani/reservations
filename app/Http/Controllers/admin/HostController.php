@@ -42,4 +42,35 @@ class HostController extends Controller
 
 
     }
+
+    public function accept(Request $request)
+    {
+        $host = Host::query()->where('id', $request->get('hostId'))->first();
+
+        $host->update([
+
+            'status' => 'ok'
+
+        ]);
+        return response()->json([
+            'message' => 'ok',
+            'host' => $host
+        ]);
+    }
+
+    public function reject(Request $request)
+    {
+
+        $host = Host::query()->where('id', $request->get('hostId'))->first();
+
+        $host->update([
+
+            'status' => 'nok'
+
+        ]);
+        return response()->json([
+            'message' => 'ok',
+            'host' => $host
+        ]);
+    }
 }

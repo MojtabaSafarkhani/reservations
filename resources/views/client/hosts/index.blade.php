@@ -21,7 +21,7 @@
         <div class="row  align-items-center justify-content-center text-center">
 
             <div class="col-md-12 m-auto">
-                <table class="table table-hover table-striped table-light table-bordered my-5   ">
+                <table class="table table-hover table-striped table-light table-bordered my-5 align-middle   ">
                     <thead>
                     <tr>
 
@@ -46,10 +46,21 @@
                                role="button" aria-expanded="false" aria-controls="collapseExample">
                                 نمايش عکس
                             </a></td>
-                        <td>
+                        <td class="d-flex align-items-center justify-content-evenly">
 
                             <span
-                                class="fw-bolder p-1 rounded-3 d-inline-block  {{$status['class']}}">{{$status['message']}}</span>
+                                class="fw-bolder p-1 rounded-3  {{$status['class']}}">{{$status['message']}}</span>
+
+                            @if($host->status==="nok")
+
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="ويرايش اطلاعات">
+                                    <a href="{{route('host.edit')}}" class="fs-5 text-dark"><i
+                                            class="bi bi-pen-fill"></i>
+                                </button>
+
+                                </a>
+                            @endif
 
                         </td>
 
@@ -58,9 +69,9 @@
                     </tbody>
                 </table>
 
-                <div class="collapse mb-5" id="collapsePhoto">
+                <div class="collapse mb-5"  id="collapsePhoto">
                     <div class="card card-body d-block bg-transparent border-0 text-center">
-                        <img class="w-auto h-auto"
+                        <img class="w-auto h-auto " style="max-height: 500px;max-width: 500px"
                              src="{{$host->image_url}}">
                     </div>
                 </div>

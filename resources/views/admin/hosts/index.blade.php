@@ -70,8 +70,8 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <img class="" src="{{$host->image_url}}">
+                                                <div class="modal-body" style="max-height: 500px;max-width: 500px">
+                                                    <img  class="img-fluid h-auto w-auto" src="{{$host->image_url}}">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <a href="{{route('hosts.photo',['path'=>$host->image_url])}}"
@@ -82,10 +82,13 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td><p>{{$host->status_translate}}</p>
-                                    <button type="button" id="accept" class="btn btn-success btn-sm d-inline">
-                                        <i class="bi bi-check-lg"></i></button>
-                                    <button type="button" id="reject" class="btn btn-danger btn-sm d-inline"><i class="bi bi-x"></i></button>
+                                <td><p id="status-text-{{$host->id}}">{{$host->status_translate}}</p>
+                                    <button type="button" id="accept" onClick="accept({{$host->id}});"
+                                            class="btn btn-success btn-sm d-inline">
+                                        <i class="bi bi-check-lg fs-5"></i></button>
+                                    <button type="button" id="reject" onClick="reject({{$host->id}});"
+                                            class="btn btn-danger btn-sm d-inline"><i
+                                            class="bi bi-x fs-5"></i></button>
 
 
                                 </td>
@@ -102,3 +105,50 @@
 @endsection
 
 
+@section('script')
+
+    <script type="text/javascript">
+
+        function accept(hostId) {
+
+
+            $.ajax({
+                type: "post",
+                url: "{{route('hosts.accept')}}",
+                data: {
+                    _token: "{{csrf_token()}}",
+                    hostId: hostId,
+                },
+                success: function (data) {
+                    console.log(data.host)
+                    $("#status-text-" + data.host['id']).text(data.host['status_translate'])
+
+                }
+            });
+
+
+        }
+
+        function reject(hostId) {
+
+
+            $.ajax({
+                type: "post",
+                url: "{{route('hosts.reject')}}",
+                data: {
+                    _token: "{{csrf_token()}}",
+                    hostId: hostId,
+                },
+                success: function (data) {
+
+                    $("#status-text-" + data.host['id']).text(data.host['status_translate'])
+
+                }
+            });
+
+
+        }
+
+    </script>
+
+@endsection

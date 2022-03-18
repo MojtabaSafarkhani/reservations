@@ -36,6 +36,8 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::resource('sliders', SliderController::class)->except(['show']);
     Route::get('/hosts', [HostAdminController::class, 'index'])->name('hosts.index');
     Route::get('/hosts-photo', [HostAdminController::class, 'download'])->name('hosts.photo');
+    Route::post('/hosts-accept', [HostAdminController::class, 'accept'])->name('hosts.accept');
+    Route::post('/hosts-reject', [HostAdminController::class, 'reject'])->name('hosts.reject');
 
 });
 
@@ -44,8 +46,10 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
     //check the user is not in db if there is then redirect to table and show status
     Route::get('/host', [HostController::class, 'index'])->name('host.index');
+    Route::get('/host/edit', [HostController::class, 'edit'])->name('host.edit');
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
     Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');
+    Route::patch('/host/{host}/update', [HostController::class, 'update'])->name('host.update');
 
 });
 
