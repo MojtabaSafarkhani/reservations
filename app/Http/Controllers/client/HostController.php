@@ -4,9 +4,12 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Host\HostRegisterRequest;
+use App\Http\Requests\Host\UpdateInfoRequest;
 use App\Models\Host;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\Types\True_;
 
 class HostController extends Controller
 {
@@ -39,7 +42,7 @@ class HostController extends Controller
 
             session()->flash('warning', 'اطلاعات شما قبلا ثبت شده است!');
 
-            return redirect(route('host.index'));
+            return redirect(route('client.host.index'));
 
         }
         return view('client.hosts.create');
@@ -61,7 +64,7 @@ class HostController extends Controller
 
         //redirect host to index that table show status of information
 
-        return redirect(route('host.index'));
+        return redirect(route('client.host.index'));
     }
 
 
@@ -92,22 +95,31 @@ class HostController extends Controller
 
     public function edit()
     {
+        if (auth()->user()->host->status !== 'nok') {
+
+            session()->flash('warning', 'اطلاعات شما نیاز به ویرایش ندارد!');
+
+            return redirect(route('client.host.index'));
+        }
+
         return view('client.hosts.edit', [
 
             'host' => auth()->user()->host,
         ]);
     }
 
-    public function update(Request $request, Host $host)
+    public function update(UpdateInfoRequest $request, Host $host)
     {
-        if ($request->has('national_card_photo')) {
+        $codeIsExists = $this->checkCodeUnique($request, $host);
 
-            $path = $request->file('national_card_photo')->storePublicly('public/images/hosts');
+        if ($codeIsExists) {
 
-        } else {
-
-            $path = $host->national_card_photo;
+            return redirect(route('host.edit'))->withErrors(['national_code' => 'کد ملي قبلا انتخاب شده است!']);
+            
         }
+
+
+        $path = $this->checkUpload($request, $host);
 
         $host->update([
 
@@ -118,7 +130,40 @@ class HostController extends Controller
             'status' => 'wait'
         ]);
 
-        return redirect(route('host.index'));
+        return redirect(route('client.host.index'));
     }
+
+    //Check the uploaded host image or used old image
+    private function checkUpload(Request $request, Host $host)
+    {
+        if ($request->has('national_card_photo')) {
+
+            $path = $request->file('national_card_photo')->storePublicly('public/images/hosts');
+
+            Storage::delete($host->national_card_photo);
+
+        } else {
+
+            $path = $host->national_card_photo;
+        }
+
+        return $path;
+    }
+
+
+    // check the national code not exists in hosts
+
+    private function checkCodeUnique(Request $request, Host $host)
+    {
+
+        $codeIsExists = Host::query()->where('national_code', $request->get('national_code'))
+            ->where('id', '!=', $host->id)->exists();
+
+
+        return $codeIsExists;
+
+
+    }
+
 
 }

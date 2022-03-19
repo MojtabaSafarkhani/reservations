@@ -57,9 +57,10 @@
                                         title="ويرايش اطلاعات">
                                     <a href="{{route('host.edit')}}" class="fs-5 text-dark"><i
                                             class="bi bi-pen-fill"></i>
+                                    </a>
                                 </button>
 
-                                </a>
+
                             @endif
 
                         </td>
@@ -71,7 +72,7 @@
 
                 <div class="collapse mb-5"  id="collapsePhoto">
                     <div class="card card-body d-block bg-transparent border-0 text-center">
-                        <img class="w-auto h-auto " style="max-height: 500px;max-width: 500px"
+                        <img class="w-auto h-auto image-fluid " style="max-height: 500px;max-width: 500px"
                              src="{{$host->image_url}}">
                     </div>
                 </div>
