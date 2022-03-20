@@ -23,7 +23,7 @@ class HostController extends Controller
     public function download(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'path' => ['required', 'exists:hosts,national_card_photo']
+            'path' => ['required']
         ]);
 
         if ($validate->fails()) {

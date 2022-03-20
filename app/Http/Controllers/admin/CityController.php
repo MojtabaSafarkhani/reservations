@@ -23,7 +23,7 @@ class CityController extends Controller
     {
         return view('admin.cities.create', [
 
-            'cities' => City::all(),
+            'cities' => City::query()->where('city_id', null)->get(),
         ]);
     }
 

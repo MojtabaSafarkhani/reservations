@@ -12,7 +12,7 @@
 <header>
     <div class="p-1 homeHeader text-white ">
         <div class="container-fluid ">
-            <div class="row ">
+            <div class="row align-middle">
                 <ul class="nav col-12 my-md-0 text-small">
                     @if(auth()->user())
                         <li>
@@ -26,14 +26,7 @@
                                 خانه
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link text-white">
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    <input type="submit" value="خروج" class="btn btn-danger btn-sm">
-                                </form>
-                            </a>
-                        </li>
+
                         @if(auth()->user()->role->hasPermissions('read_dashboard'))
                             <li>
                                 <a href="{{route('admin.dashboard')}}"
@@ -51,11 +44,20 @@
                                    class="nav-link text-white mt-1 @if(request()->routeIs('client.host.index')) disable fw-bolder text-muted pe-none @endif"
 
                                 >
-                                    ثبت مشخصات
+                                     مشخصات
                                 </a>
                             </li>
 
                         @endif
+
+                        <li>
+                            <a class="nav-link text-white">
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <input type="submit" value="خروج" class="btn btn-danger btn-sm">
+                                </form>
+                            </a>
+                        </li>
 
                     @else
                         <li>

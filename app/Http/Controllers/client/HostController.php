@@ -115,7 +115,7 @@ class HostController extends Controller
         if ($codeIsExists) {
 
             return redirect(route('host.edit'))->withErrors(['national_code' => 'کد ملي قبلا انتخاب شده است!']);
-            
+
         }
 
 

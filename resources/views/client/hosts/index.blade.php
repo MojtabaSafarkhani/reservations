@@ -70,7 +70,7 @@
                     </tbody>
                 </table>
 
-                <div class="collapse mb-5"  id="collapsePhoto">
+                <div class="collapse mb-5" id="collapsePhoto">
                     <div class="card card-body d-block bg-transparent border-0 text-center">
                         <img class="w-auto h-auto image-fluid " style="max-height: 500px;max-width: 500px"
                              src="{{$host->image_url}}">
@@ -86,6 +86,24 @@
 
         </div>
     </div>
+    <div class="mb-5"></div>
+    @if($host->status==='ok')
 
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="position-relative">
+                    <div class="position-absolute top-100 start-0">
+                        <div class="col-md-6 align-middle  ">
+                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="افزودن هتل" class="btn btn-success border-5 btn-sm rounded-circle p-3 m-3 text-center">
+                                <i class="bi bi-plus-lg fs-5 "></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
 @endsection
 

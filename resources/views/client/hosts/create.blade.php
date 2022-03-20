@@ -33,7 +33,7 @@
                     <div class="mb-2">
                         <label for="address" class="form-label">نشاني محل سکونت</label>
                         <textarea  name="address" class="form-control @error('address') is-invalid @enderror"
-                                  id="address"></textarea>
+                                  id="address">{{old('address')}}</textarea>
                         @error('address') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="d-grid">
