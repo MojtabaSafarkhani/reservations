@@ -10,4 +10,9 @@ class Feature extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function getImageUrlAttribute()
+    {
+        return str_replace('public','/storage',$this->image);
+    }
 }
