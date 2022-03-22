@@ -31,7 +31,7 @@
                         <label class="form-check-label" for="remember">به خاطر سپردن</label>
                     </div>
                     <div class="mb-4">
-                        <a href="#" class="btn btn-danger"> رمز عبور را فراموش کرده ام </a>
+                        <a href="{{route('password.request')}}" class="btn btn-danger"> رمز عبور را فراموش کرده ام </a>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-dark my-3">تاييد</button>

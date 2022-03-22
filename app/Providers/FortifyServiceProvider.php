@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Contracts\ResetPasswordViewResponse;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -39,26 +40,32 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         RateLimiter::for('login', function (Request $request) {
-            $email = (string) $request->email;
+            $email = (string)$request->email;
 
-            return Limit::perMinute(5)->by($email.$request->ip());
+            return Limit::perMinute(5)->by($email . $request->ip());
         });
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
-        Fortify::loginView(function(){
+        Fortify::loginView(function () {
             return view('auth.login');
         });
 
-        Fortify::authenticateUsing(function(Request $request){
-            $user = User::where('email',$request->email)->first();
-            if($user && Hash::check($request->password,$user->password)){
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+            if ($user && Hash::check($request->password, $user->password)) {
                 return $user;
             }
         });
-        Fortify::registerView(function(){
+        Fortify::registerView(function () {
             return view('auth.register');
+        });
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('auth.password-reset');
+        });
+        Fortify::resetPasswordView(function () {
+            return view('auth.new-password');
         });
     }
 }
