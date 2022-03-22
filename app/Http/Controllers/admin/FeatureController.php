@@ -87,6 +87,7 @@ class FeatureController extends Controller
 
     public function destroy(Feature $feature)
     {
+        // check for hotel that exists or not
         Storage::delete($feature->image);
 
         $feature->delete();
