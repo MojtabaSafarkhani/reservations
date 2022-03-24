@@ -14,3 +14,10 @@
    /* //background-color: #6b7280;*/
     background-color: #adb5bd;
 }
+body {
+    overflow-x: hidden !important;
+}
+.container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
