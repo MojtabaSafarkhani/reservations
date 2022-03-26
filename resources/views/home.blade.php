@@ -10,7 +10,7 @@
         @endphp
         <div class="container">
             <div class="row">
-                <div class="col-md-12 mx-auto mt-2 ">
+                <div class="col-md-8 mx-auto my-2 ">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             </button>

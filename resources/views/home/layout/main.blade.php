@@ -10,10 +10,10 @@
     <title>وبسايت رزرو اقامتگاه</title>
 </head>
 <header>
-    <div class="p-1 homeHeader text-white ">
+    <div class="px-3 homeHeader text-white ">
         <div class="container-fluid ">
             <div class="row align-middle">
-                <ul class="nav col-12 my-md-0 text-small">
+                <ul class="nav col-12 my-md-0 text-small mw-100">
                     @if(auth()->user())
                         <li>
                             <p class="nav-link text-white mt-1">
