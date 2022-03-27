@@ -51,6 +51,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');
+    Route::post('/hotels', [HotelController::class, 'store'])->name('client.hotel.store');
     Route::get('/host/edit', [HostController::class, 'edit'])->name('host.edit');
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
     Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');

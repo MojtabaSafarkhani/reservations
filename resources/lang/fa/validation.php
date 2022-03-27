@@ -79,6 +79,18 @@ return array(
     "exists_phone" => "چنین شماره ای در سیستم ثبت نشده است",
     "recaptcha" => "کپچا اعتبار لازم را ندارد",
     "string" => ":attribute باید رشته باشد.",
+    'lte' => [
+        'numeric' => ' :attribute بايد کوچکتر از  :value باشد',
+        'file' => 'The :attribute must be less than or equal to :value kilobytes.',
+        'string' => 'The :attribute must be less than or equal to :value characters.',
+        'array' => 'The :attribute must not have more than :value items.',
+    ],
+    'gte' => [
+        'numeric' => ' :attribute بايد بزرگتر از  :value باشد',
+        'file' => 'The :attribute must be less than or equal to :value kilobytes.',
+        'string' => 'The :attribute must be less than or equal to :value characters.',
+        'array' => 'The :attribute must not have more than :value items.',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -173,5 +185,6 @@ return array(
         'link' => 'لینک',
         'national_code' => 'کد ملي',
         'national_card_photo' => 'عکس کارت ملي',
+        'cost' => 'مبلغ'
     ),
 );

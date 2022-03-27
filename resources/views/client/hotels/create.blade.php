@@ -7,7 +7,7 @@
 
         <div class="row vh-100 align-items-center justify-content-center m-auto">
             <div class="col-md-8 bg-white rounded-2 p-3 m-3  ">
-                <form action="{{--{{route('client.hotel.store')}}--}}" method="post" class="row g-3 align-middle" novalidate
+                <form action="{{route('client.hotel.store')}}" method="post" class="row g-3 align-middle" novalidate
                       enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6 mb-2">
@@ -19,7 +19,7 @@
                     <div class="col-md-6 mb-2">
                         <label for="phone" class="form-label">تلفن</label>
                         <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone"
-                               id="phone" value="{{old('phone')}}" placeholder="09121212021">
+                               id="phone" name="phone" value="{{old('phone')}}" placeholder="09121212021">
                         @error('phone') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="col-md-6">
@@ -27,9 +27,11 @@
                         <select class="form-select @error('category_id') is-invalid @enderror" name="category_id"
                                 id="category_id"
                                 aria-label="Default select example">
-                            <option selected>دسته بندي اقامتگاه را انتخاب کنيد</option>
+                            <option disabled>دسته بندي اقامتگاه را انتخاب کنيد</option>
                             @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                <option value="{{$category->id}}"
+                                        @if(old('category_id')==$category->id) selected @endif
+                                >{{$category->title}}</option>
                             @endforeach
                         </select>
                         @error('category_id') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
@@ -38,15 +40,17 @@
                         <label for="city_id" class="form-label">شهر</label>
                         <select class="form-select @error('city_id') is-invalid @enderror" name="city_id" id="city_id"
                                 aria-label="Default select example">
-                            <option selected>شهر را انتخاب کنيد</option>
+                            <option disabled>شهر را انتخاب کنيد</option>
                             @foreach($cities as $city)
-                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                <option value="{{$city->id}}"
+                                        @if(old('city_id')==$city->id) selected @endif
+                                >{{$city->name}}</option>
                             @endforeach
                         </select>
                         @error('city_id') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label for="cost" class="form-label">مبلغ براي يک شب</label>
+                        <label for="cost" class="form-label"> مبلغ براي يک شب (تومان)</label>
                         <input type="text" name="cost" class="form-control @error('cost') is-invalid @enderror"
                                id="cost" value="{{old('cost')}}" placeholder="هزينه اقامتگاه را وارد کنيد">
                         @error('cost') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
