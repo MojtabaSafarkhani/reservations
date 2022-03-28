@@ -17,30 +17,49 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4 mb-4 col-md-10 m-auto ">
-            @foreach($hotels as $hotel)
-                <div class="col">
-                    <div class="card h-100">
-                        {{--<img src="..." class="card-img-top" alt="...">--}}
-                        <div class="card-body">
-                            <h5 class="card-title">{{$hotel->name}}</h5>
-                            <p class="card-text">{{$hotel->description}}</p>
-                            <hr>
-                            <p class="card-text">{{$hotel->address}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted d-flex">
-                                <a class="btn btn-success btn-sm me-auto ">نمايش</a>
-                                <a class="btn btn-success btn-sm me-auto ">نمايش</a>
-                                <a class="btn btn-success btn-sm ">نمايش</a>
+    <div class="container mt-5 g-3 ">
+        <div class="row  align-items-center justify-content-center text-center">
 
-                            </small>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-8 m-auto">
+                <table class="table table-hover table-striped table-light table-bordered align-middle ">
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>نام</td>
+                        <td>افزودن ويژگي</td>
+                        <td>گالري</td>
+                        <td>نمايش</td>
+                        <td>وضعيت</td>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-            @endforeach
+                    @foreach($hotels as $key=>$hotel)
+                        <tr>
+                            <td>{{$key+1}}</td>
+                            <td>{{$hotel->name}}</td>
+                            <td><a class="btn btn-dark">ويژگي</a></td>
+                            <td>
+                                <a href=""
+                                   class="btn btn-primary">گالري</a>
+                            </td>
+                            <td>
+                                <a href="{{route('hotels.show',$hotel)}}"
+                                   class="btn btn-success">نمايش</a>
+                            </td>
+                            <td>
+                                @php
+                                    $translate=$hotel->getIsPulishedTranslateAttribute();
+                                @endphp
+
+                                <span
+                                    class="{{$translate['color']}} p-1 fw-bold rounded-3 ">{{$translate['message']}}</span>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>

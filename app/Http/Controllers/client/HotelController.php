@@ -7,6 +7,7 @@ use App\Http\Requests\Client\Hotel\CreateHotelRequest;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Host;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -45,5 +46,13 @@ class HotelController extends Controller
         ]);
 
         return redirect(route('client.hotel.index'));
+    }
+
+    public function show(Hotel $hotel)
+    {
+        return view('client.hotels.show', [
+
+            'hotel' => $hotel,
+        ]);
     }
 }
