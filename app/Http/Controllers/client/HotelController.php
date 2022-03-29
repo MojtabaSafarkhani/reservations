@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\CheckHostOkMiddleware;
 use App\Http\Requests\Client\Hotel\CreateHotelRequest;
 use App\Models\Category;
 use App\Models\City;
@@ -12,6 +13,10 @@ use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckHostOkMiddleware::class);
+    }
     public function index()
     {
 
