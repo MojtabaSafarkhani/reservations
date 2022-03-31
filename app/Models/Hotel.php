@@ -35,6 +35,11 @@ class Hotel extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
     public function getIsPulishedTranslateAttribute()
     {
 

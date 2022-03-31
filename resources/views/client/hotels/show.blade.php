@@ -103,6 +103,17 @@
                 </div>
             </div>
         </div>
+        <div class="my-4"></div>
+        <div class="row">
+            <div class="col-md-7  mx-auto">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h5> ظرفيت</h5>
+                        <p>{{$hotel->capacity}} نفر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <br>

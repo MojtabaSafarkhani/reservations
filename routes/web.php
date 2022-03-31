@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\FeatureController;
+use App\Http\Controllers\client\GalleryController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\HostController;
 use App\Http\Controllers\admin\HostController as HostAdminController;
@@ -54,6 +55,9 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');
     Route::post('/hotels', [HotelController::class, 'store'])->name('client.hotel.store');
     Route::get('/hotels/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
+    Route::get('/hotels/{hotel}/galleries', [GalleryController::class, 'index'])->name('hotels.galleries.index');
+    Route::post('/hotels/{hotel}/galleries', [GalleryController::class, 'store'])->name('hotels.galleries.store');
+    Route::delete('/hotels/{hotel}/galleries/{gallery}', [GalleryController::class, 'destroy'])->name('hotels.galleries.destroy');
     Route::get('/host/edit', [HostController::class, 'edit'])->name('host.edit');
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
     Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');

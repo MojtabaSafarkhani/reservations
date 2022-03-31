@@ -40,7 +40,7 @@
                             <td>{{$hotel->name}}</td>
                             <td><a class="btn btn-dark">ويژگي</a></td>
                             <td>
-                                <a href=""
+                                <a href="{{route('hotels.galleries.index',$hotel)}}"
                                    class="btn btn-primary">گالري</a>
                             </td>
                             <td>

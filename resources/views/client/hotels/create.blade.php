@@ -55,6 +55,12 @@
                                id="cost" value="{{old('cost')}}" placeholder="هزينه اقامتگاه را وارد کنيد">
                         @error('cost') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
+                    <div class="col-md-12 mb-2">
+                        <label for="capacity" class="form-label"> ظرفيت</label>
+                        <input type="text" name="capacity" class="form-control @error('capacity') is-invalid @enderror"
+                               id="capacity" value="{{old('capacity')}}" placeholder="ظرفيت اقامتگاه را وارد کنيد">
+                        @error('capacity') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
+                    </div>
                     <div class="mb-2">
                         <label for="description" class="form-label">توضيحات</label>
                         <textarea name="description" class="form-control @error('description') is-invalid @enderror"

@@ -17,6 +17,7 @@ class HotelController extends Controller
     {
         $this->middleware(CheckHostOkMiddleware::class);
     }
+
     public function index()
     {
 
@@ -48,6 +49,7 @@ class HotelController extends Controller
             'cost' => $request->get('cost'),
             'description' => $request->get('description'),
             'address' => $request->get('address'),
+            'capacity' => $request->get('capacity'),
         ]);
 
         return redirect(route('client.hotel.index'));
