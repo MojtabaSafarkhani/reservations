@@ -9,6 +9,7 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\HostController;
 use App\Http\Controllers\admin\HostController as HostAdminController;
 use App\Http\Controllers\client\HotelController;
+use App\Http\Controllers\client\ProfileController;
 use App\Http\Middleware\CheckPermissionsMiddleware;
 use App\Http\Middleware\HostMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,8 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
     //check the user is not in db if there is then redirect to table and show status
-
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');

@@ -44,7 +44,10 @@
                     @foreach($images as $image)
                         <div class="col">
                             <div class="card h-100">
-                                <img src="{{$image->image_url}}" class="card-img-top" alt="...">
+                                <img src="{{$image->image_url}}" class="card-img-top">
+                                <div class="card-body">
+
+                                </div>
                                 <div class="card-footer text-center">
                                     <form
                                         action="{{route('hotels.galleries.destroy',['hotel'=>$hotel,'gallery'=>$image])}}"
