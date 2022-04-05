@@ -52,6 +52,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     //check the user is not in db if there is then redirect to table and show status
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');
@@ -64,6 +65,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
     Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');
     Route::patch('/host/{host}/update', [HostController::class, 'update'])->name('host.update');
+
 
 
 });
