@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
+use App\Http\Controllers\admin\HotelAdminController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\FeatureController;
 use App\Http\Controllers\client\GalleryController;
@@ -27,6 +28,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+
 
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {
@@ -43,16 +48,18 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::get('/hosts-photo', [HostAdminController::class, 'download'])->name('hosts.photo');
     Route::post('/hosts-accept', [HostAdminController::class, 'accept'])->name('hosts.accept');
     Route::post('/hosts-reject', [HostAdminController::class, 'reject'])->name('hosts.reject');
+    Route::get('/hotels', [HotelAdminController::class, 'index'])->name('hotels.index');
 
 });
+
+
 
 //Route For Host
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
     //check the user is not in db if there is then redirect to table and show status
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+
+
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');

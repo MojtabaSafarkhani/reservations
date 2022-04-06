@@ -14,21 +14,25 @@
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span
-                                class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @can('hostIsOk')
+                        <li>
+                            <a href="#hotels" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="bi bi-house-fill"></i> <span
+                                    class="ms-1 d-none d-sm-inline">هتل</span> </a>
+                            <ul class="collapse  nav flex-column ms-1" id="hotels" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="{{route('client.hotel.create')}}" class="nav-link px-0"> <span
+                                            class="d-none d-sm-inline">افزودن هتل</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('client.hotel.index')}}" class="nav-link px-0"> <span
+                                            class="d-none d-sm-inline">ليست هتل ها</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>

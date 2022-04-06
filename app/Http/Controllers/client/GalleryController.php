@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\CheckHostOkMiddleware;
 use App\Http\Requests\Gallery\CreateGalleryRequest;
 use App\Models\Gallery;
 use App\Models\Hotel;
@@ -11,6 +12,10 @@ use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckHostOkMiddleware::class);
+    }
     public function index(Hotel $hotel)
     {
         return view('client.galleries.index', [
