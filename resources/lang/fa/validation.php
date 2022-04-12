@@ -48,12 +48,12 @@ return array(
         "array" => ":attribute نباید بیشتر از :max آیتم باشد.",
     ),
     "mimes" => ":attribute باید یکی از فرمت های :values باشد.",
-    "min" => array(
+    "min" => [
         "numeric" => ":attribute نباید کوچکتر از :min باشد.",
         "file" => ":attribute نباید کوچکتر از :min کیلوبایت باشد.",
         "string" => ":attribute نباید کمتر از :min کاراکتر باشد.",
         "array" => ":attribute نباید کمتر از :min آیتم باشد.",
-    ),
+    ],
     "not_in" => ":attribute انتخاب شده، معتبر نیست.",
     "numeric" => ":attribute باید شامل عدد باشد.",
     "regex" => ":attribute یک فرمت معتبر نیست",
@@ -64,12 +64,12 @@ return array(
     "required_without" => ":attribute الزامی است زمانی که :values موجود نیست.",
     "required_without_all" => ":attribute الزامی است زمانی که :values موجود نیست.",
     "same" => ":attribute و :other باید مانند هم باشند.",
-    "size" => array(
+    "size" => [
         "numeric" => ":attribute باید برابر با :size باشد.",
         "file" => ":attribute باید برابر با :size کیلوبایت باشد.",
         "string" => ":attribute باید برابر با :size کاراکتر باشد.",
         "array" => ":attribute باسد شامل :size آیتم باشد.",
-    ),
+    ],
     "timezone" => "The :attribute must be a valid zone.",
     "unique" => ":attribute قبلا انتخاب شده است.",
     "url" => "فرمت آدرس :attribute اشتباه است.",
@@ -185,6 +185,7 @@ return array(
         'link' => 'لینک',
         'national_code' => 'کد ملي',
         'national_card_photo' => 'عکس کارت ملي',
-        'cost' => 'مبلغ'
+        'cost' => 'مبلغ',
+        'capacity'=>'ظرفيت',
     ),
 );

@@ -14,7 +14,7 @@
         <div class="row  align-items-center justify-content-center text-center">
 
             <div class="col-md-8 m-auto">
-                <table class="table table-hover table-striped table-light table-bordered">
+                <table class="table table-hover table-striped table-light table-bordered align-middle">
                     <thead>
                     <tr>
                         <td>#</td>
@@ -29,10 +29,10 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$feature->title}}</td>
-                            <td><img src="{{$feature->image_url}}" width="60px"></td>
+                            <td><img src="{{$feature->image_url}}"  width="30px"></td>
 
                             <td>
-                                <a href="{{route('features.edit',$feature)}}" class="btn btn-success">ويرايش</a>
+                                <a href="{{route('features.edit',$feature)}}"  class="btn btn-success">ويرايش</a>
                             </td>
                             <td>
                                 <form action="{{route('features.destroy',$feature)}}" method="post">

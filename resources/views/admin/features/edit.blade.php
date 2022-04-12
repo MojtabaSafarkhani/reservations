@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="my-auto text-center">
-                        <img src="{{$feature->image_url}}" width="95px">
+                        <img src="{{$feature->image_url}}" width="50حط">
                     </div>
 
                     <div class="m-3 ">
