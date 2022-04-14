@@ -120,6 +120,26 @@
                 </div>
             </div>
         </div>
+        <div class="my-4"></div>
+
+        @if($hotel->features()->count()>0)
+            <div class="row">
+                <div class="col-md-7 mx-auto">
+                    <h5 class="mb-2">ويژگي</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            @foreach($hotel->features as $feature)
+                                <p class="ms-3 align-middle ">{{$feature->title}}
+                                    <img src="{{str_replace('public','/storage',$feature->image)}}" alt="" width="25px">
+                                </p>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 
     <br>

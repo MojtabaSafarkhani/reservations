@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\admin\HotelAdminController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\FeatureController;
+use App\Http\Controllers\client\FeatureController as FeatureClientController;
 use App\Http\Controllers\client\GalleryController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\HostController;
@@ -53,7 +54,6 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 });
 
 
-
 //Route For Host
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
@@ -72,7 +72,8 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/host-register', [HostController::class, 'create'])->name('host.register');
     Route::post('/host-register', [HostController::class, 'store'])->name('host.register.post');
     Route::patch('/host/{host}/update', [HostController::class, 'update'])->name('host.update');
-
+    Route::get('/hotels/{hotel}/features', [FeatureClientController::class, 'create'])->name('features.hotel.create');
+    Route::post('/hotels/{hotel}/features', [FeatureClientController::class, 'store'])->name('features.hotel.store');
 
 
 });

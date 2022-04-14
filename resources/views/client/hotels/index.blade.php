@@ -38,7 +38,7 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$hotel->name}}</td>
-                            <td><a class="btn btn-dark">ويژگي</a></td>
+                            <td><a href="{{route('features.hotel.create',$hotel)}}" class="btn btn-dark">ويژگي</a></td>
                             <td>
                                 <a href="{{route('hotels.galleries.index',$hotel)}}"
                                    class="btn btn-primary">گالري</a>

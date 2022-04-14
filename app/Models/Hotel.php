@@ -40,6 +40,11 @@ class Hotel extends Model
         return $this->hasMany(Gallery::class);
     }
 
+    public function features()
+    {
+        return $this->belongsToMany(Feature::class, 'feature_hotel');
+    }
+
     public function getIsPulishedTranslateAttribute()
     {
 
@@ -57,5 +62,10 @@ class Hotel extends Model
         }
 
         return $translate;
+    }
+
+    public function hasFeatures(Feature $feature)
+    {
+        return $this->features()->where('feature_id', $feature->id)->exists();
     }
 }
