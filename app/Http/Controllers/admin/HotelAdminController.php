@@ -17,4 +17,34 @@ class HotelAdminController extends Controller
         ]);
 
     }
+
+    public function accept(Request $request)
+    {
+        $hotel = Hotel::query()
+            ->where('id', $request->get('hotelId'))->firstOrFail();
+
+        $hotel->update([
+            'is_published' => 'ok',
+        ]);
+
+        return response()->json([
+            'message' => 'ok',
+            'hotel' => $hotel
+        ]);
+    }
+
+    public function reject(Request $request)
+    {
+        $hotel = Hotel::query()
+            ->where('id', $request->get('hotelId'))->firstOrFail();
+
+        $hotel->update([
+            'is_published' => 'nok',
+        ]);
+
+        return response()->json([
+            'message' => 'ok',
+            'hotel' => $hotel
+        ]);
+    }
 }

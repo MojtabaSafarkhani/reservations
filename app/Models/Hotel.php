@@ -13,7 +13,7 @@ class Hotel extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $appends = ['is_published_translate'];
+    protected $appends = ['status_translate'];
 
     public function getRouteKeyName()
     {
@@ -62,6 +62,23 @@ class Hotel extends Model
         }
 
         return $translate;
+    }
+
+    public function getStatusTranslateAttribute()
+    {
+        if ($this->is_published === 'wait') {
+
+            $status = "در انتظار تایید";
+
+        } elseif ($this->is_published === 'ok') {
+
+            $status = "تاييد شده";
+        } else {
+
+            $status = "رد شده";
+        }
+
+        return $status;
     }
 
     public function hasFeatures(Feature $feature)
