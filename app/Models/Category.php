@@ -15,4 +15,9 @@ class Category extends Model
     {
         return 'slug';
     }
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class);
+    }
 }

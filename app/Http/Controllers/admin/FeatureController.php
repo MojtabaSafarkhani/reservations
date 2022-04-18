@@ -88,9 +88,16 @@ class FeatureController extends Controller
     public function destroy(Feature $feature)
     {
         // check for hotel that exists or not
-        Storage::delete($feature->image);
 
+        if ($feature->hotels()->count() > 0) {
+
+            session()->flash('delete', 'اين ويژگي به چندين هتل داده شده است!');
+
+            return redirect(route('features.index'));
+        }
         $feature->delete();
+
+        Storage::delete($feature->image);
 
         session()->flash('success', 'ويژگي با موفقيت حذف شد!');
 

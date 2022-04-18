@@ -35,8 +35,6 @@
 
                                     @endif
                                     <li><a class="dropdown-item @if(request()->routeIs('profile.index')) disable fw-bolder text-muted pe-none @endif" href="{{route('profile.index')}}">پروفايل</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                                     <li class="dropdown-divider"></li>
                                     <li>
                                         <a class="dropdown-item">

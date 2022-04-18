@@ -29,9 +29,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
 
 //route for admin
@@ -53,6 +50,16 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 
 });
 
+
+//route must be auth
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+
+});
 
 //Route For Host
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
