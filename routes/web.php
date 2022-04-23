@@ -47,6 +47,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::post('/hosts-accept', [HostAdminController::class, 'accept'])->name('hosts.accept');
     Route::post('/hosts-reject', [HostAdminController::class, 'reject'])->name('hosts.reject');
     Route::get('/hotels', [HotelAdminController::class, 'index'])->name('hotels.index');
+    Route::get('/hotels/{hotel}', [HotelAdminController::class, 'show'])->name('admin.hotels.show');
     Route::post('/hotels-accept', [HotelAdminController::class, 'accept'])->name('hotels.accept');
     Route::post('/hotels-reject', [HotelAdminController::class, 'reject'])->name('hotels.reject');
 

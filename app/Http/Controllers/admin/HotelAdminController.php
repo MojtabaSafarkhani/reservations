@@ -47,4 +47,13 @@ class HotelAdminController extends Controller
             'hotel' => $hotel
         ]);
     }
+
+    public function show(Hotel $hotel)
+    {
+        return view('admin.hotels.show', [
+
+            'hotel' => $hotel
+
+        ]);
+    }
 }

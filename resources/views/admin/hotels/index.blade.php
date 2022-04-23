@@ -29,7 +29,8 @@
                             <tr style="height: 50px">
                                 <td>{{$key+1}}</td>
                                 <td>{{$hotel->name}}</td>
-                                <td><a href="" class="btn btn-success">نمايش</a></td>
+                                <td><a href="{{route('admin.hotels.show',$hotel)}}" class="btn btn-success">نمايش</a>
+                                </td>
                                 <td><p id="status-text-{{$hotel->id}}">{{$hotel->status_translate}}</p>
                                     <button type="button" id="accept-hotels" onClick="accept_hotels({{$hotel->id}});"
                                             class="btn btn-success btn-sm d-inline">
