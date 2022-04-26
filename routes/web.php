@@ -75,6 +75,8 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');
     Route::post('/hotels', [HotelController::class, 'store'])->name('client.hotel.store');
     Route::get('/hotels/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
+    Route::get('/hotels/{hotel}/edit', [HotelController::class, 'edit'])->name('client.hotels.edit');
+
     Route::get('/hotels/{hotel}/galleries', [GalleryController::class, 'index'])->name('hotels.galleries.index');
     Route::post('/hotels/{hotel}/galleries', [GalleryController::class, 'store'])->name('hotels.galleries.store');
     Route::delete('/hotels/{hotel}/galleries/{gallery}', [GalleryController::class, 'destroy'])->name('hotels.galleries.destroy');
@@ -84,6 +86,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::patch('/host/{host}/update', [HostController::class, 'update'])->name('host.update');
     Route::get('/hotels/{hotel}/features', [FeatureClientController::class, 'create'])->name('features.hotel.create');
     Route::post('/hotels/{hotel}/features', [FeatureClientController::class, 'store'])->name('features.hotel.store');
+    Route::patch('/hotels/{hotel}', [HotelController::class, 'update'])->name('client.hotels.update');
 
 
 });

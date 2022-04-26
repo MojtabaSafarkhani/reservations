@@ -8,6 +8,7 @@ use App\Http\Requests\Gallery\CreateGalleryRequest;
 use App\Models\Gallery;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
@@ -18,6 +19,8 @@ class GalleryController extends Controller
     }
     public function index(Hotel $hotel)
     {
+        Gate::authorize('HotelsForRealHost', $hotel);
+
         return view('client.galleries.index', [
 
             'images' => $hotel->galleries,
@@ -28,6 +31,8 @@ class GalleryController extends Controller
 
     public function store(Hotel $hotel, CreateGalleryRequest $request)
     {
+        Gate::authorize('HotelsForRealHost', $hotel);
+
         $path = $request->file('image')->storePublicly('public/images/galleries');
 
         $hotel->galleries()->create([
@@ -43,6 +48,8 @@ class GalleryController extends Controller
 
     public function destroy(Hotel $hotel, Gallery $gallery)
     {
+        Gate::authorize('HotelsForRealHost', $hotel);
+        
         Storage::delete($gallery->image);
 
         $gallery->delete();

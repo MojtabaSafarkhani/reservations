@@ -47,13 +47,25 @@
                                 <a href="{{route('hotels.show',$hotel)}}"
                                    class="btn btn-success">نمايش</a>
                             </td>
-                            <td>
+                            <td class=" @if($hotel->is_published==="nok") d-flex @endif align-items-center justify-content-evenly">
                                 @php
                                     $translate=$hotel->getIsPulishedTranslateAttribute();
                                 @endphp
 
                                 <span
-                                    class="{{$translate['color']}} p-1 fw-bold rounded-3 ">{{$translate['message']}}</span>
+                                    class="{{$translate['color']}} p-1 fw-bold rounded-3 ">{{$translate['message']}}
+                                </span>
+
+                                @if($hotel->is_published==="nok")
+
+                                    <button type="button" class="btn" data-bs-toggle="tooltip"
+                                            data-bs-placement="top"
+                                            title="ويرايش اطلاعات">
+                                        <a href="{{route('client.hotels.edit',$hotel)}}" class="fs-5 text-dark"><i
+                                                class="bi bi-pen-fill"></i>
+                                        </a>
+                                    </button>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
