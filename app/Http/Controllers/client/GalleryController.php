@@ -49,7 +49,7 @@ class GalleryController extends Controller
     public function destroy(Hotel $hotel, Gallery $gallery)
     {
         Gate::authorize('HotelsForRealHost', $hotel);
-        
+
         Storage::delete($gallery->image);
 
         $gallery->delete();
