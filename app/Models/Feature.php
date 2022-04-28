@@ -13,6 +13,11 @@ class Feature extends Model
 
     public function getImageUrlAttribute()
     {
-        return str_replace('public','/storage',$this->image);
+        return str_replace('public', '/storage', $this->image);
+    }
+
+    public function hotels()
+    {
+        return $this->belongsToMany(Hotel::class, 'feature_hotel');
     }
 }

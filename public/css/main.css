@@ -1,16 +1,35 @@
 
-*{
-    font-family: "IRANSans","Times New Roman";
-}
-.authBody{
-    background-color: #adb5bd;
-}
-.homeHeader{
-   /* background-color: #010f48;*/
-    background-color: #212529 ;
+* {
+    font-family: "IRANSans", "Times New Roman";
 }
 
-.homeBody{
-   /* //background-color: #6b7280;*/
+.authBody {
     background-color: #adb5bd;
+}
+
+.homeHeader {
+    /* background-color: #010f48;*/
+    background-color: #212529;
+}
+
+.homeBody {
+    /* //background-color: #6b7280;*/
+    background-color: #adb5bd;
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+.container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+.dropdown-toggle::after {
+    vertical-align: 0px;
+!important;
+}
+.nav-link{
+    color: white;!important;
 }

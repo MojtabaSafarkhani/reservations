@@ -30,4 +30,15 @@ class Role extends Model
     {
         return $this->permissions()->where('title', $title)->exists();
     }
+
+    public function translateTitle()
+    {
+        if ($this->title === 'host') {
+            return 'ميزبان';
+        } elseif ($this->title === 'user') {
+            return 'مهمان';
+        } else {
+            return 'ادمين';
+        }
+    }
 }

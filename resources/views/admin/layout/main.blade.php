@@ -13,26 +13,35 @@
     <div class="p-1 homeHeader text-white ">
         <div class="container-fluid ">
             <div class="row ">
-                <ul class="nav col-12 my-md-0 text-small">
+                <ul class="nav col-12 my-md-0 text-small align-items-center">
                     @if(auth()->user())
                         <li>
-                            <p class="nav-link text-white mt-1">
-                                {{auth()->user()->name}}
-                            </p>
+                            <div class="dropdown nav-link text-white ">
+                                <a class="btn btn-dark dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <spanp>{{auth()->user()->name}}</spanp>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item">
+                                            <form action="/logout" method="post">
+                                                @csrf
+                                                <input type="submit" value="خروج" class="btn btn-danger btn-sm">
+                                            </form>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </li>
                         <li class="">
                             <a href="{{route('home')}}" class="nav-link text-white mt-1 ">
                                 خانه
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link text-white">
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    <input type="submit" value="خروج" class="btn btn-danger btn-sm">
-                                </form>
-                            </a>
-                        </li>
+
 
                     @else
                         <li>
@@ -127,6 +136,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="nav-item">
                         <a href="#features" data-bs-toggle="collapse" class="nav-link px-0  text-white">
                             <i class="bi bi-clipboard2-plus-fill"></i><span class="ms-1 d-none d-sm-inline">ويژگي ها</span>
@@ -143,84 +153,26 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                    <li class="nav-item">
+                        <a href="#hotels" data-bs-toggle="collapse" class="nav-link px-0  text-white">
+                            <i class="bi bi-house-fill"></i><span class="ms-1 d-none d-sm-inline">هتل ها</span>
                         </a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline ">Item</span> 1 </a>
-                            </li>
+                        <ul class="collapse @if(request()->routeIs('hotels.*')) show @endif nav flex-column ms-1 "
+                            id="hotels" data-bs-parent="#menu">
+                            {{--  <li class="w-100">
+                                  <a href="{{route('sliders.create')}}" class="nav-link px-0 text-white"> <span
+                                          class="d-none d-sm-inline ">ايجاد اسلايدر</span> </a>
+                              </li>--}}
                             <li>
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Item</span> 2 </a>
+                                <a href="{{route('hotels.index')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline">ليست هتل ها</span> </a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle text-white">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                    </li>
-                    <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Item</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Item</span> 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Product</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Product</span> 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Product</span> 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">Product</span> 4</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle text-white">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                    </li>
+
                 </ul>
                 <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                       id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
-                             class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">loser</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
         <div class="col py-3">

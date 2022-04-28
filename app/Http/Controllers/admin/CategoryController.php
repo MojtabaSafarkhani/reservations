@@ -17,7 +17,7 @@ class CategoryController extends Controller
             'categories' => Category::all(),
 
         ]);
-       
+
     }
 
     public function create()
@@ -73,6 +73,18 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        if ($category->hotels()->count() > 0) {
+
+            session()->flash('delete',
+                "دسته بندي
+                $category->title
+                به چندین هتل اختصاص داده شده است!
+                "
+            );
+
+            return redirect(route('categories.index'));
+        }
+
         session()->flash('delete',
             "دسته بندي  $category->title حذف شد.! "
         );

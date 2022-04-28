@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Hotel;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +27,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('hostIsOk', function (User $user) {
+
+            return (($user->host) && ($user->host->status === 'ok'));
+        });
+
+        Gate::define('HotelsForRealHost', function (User $user, Hotel $hotel) {
+
+            return $user->host->id === $hotel->host_id;
+
+        });
         //
     }
 }

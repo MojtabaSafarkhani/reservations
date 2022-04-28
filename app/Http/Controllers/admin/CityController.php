@@ -82,10 +82,10 @@ class CityController extends Controller
     public function destroy(City $city)
     {
 
-        if ($city->towns()->count() > 0) {
+        if ($city->towns()->count() > 0 || $city->hotels()->count() > 0) {
 
             session()->flash('delete',
-                "شهر  $city->title به دليل داشتن زيرمجموعه قابل حذف نيست.! "
+                "شهر  $city->title  قابل حذف نيست.! "
             );
 
             return redirect(route('cities.index'));

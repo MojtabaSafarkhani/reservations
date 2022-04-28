@@ -10,15 +10,43 @@
     <title>وبسايت رزرو اقامتگاه</title>
 </head>
 <header>
-    <div class="p-1 homeHeader text-white ">
+    <div class="px-3 homeHeader text-white ">
         <div class="container-fluid ">
             <div class="row align-middle">
-                <ul class="nav col-12 my-md-0 text-small">
+                <ul class="nav col-12 my-md-0 text-small mw-100 align-items-center">
                     @if(auth()->user())
                         <li>
-                            <p class="nav-link text-white mt-1">
-                                {{auth()->user()->name}}
-                            </p>
+                            <div class="dropdown nav-link text-white ">
+                                <a class="btn btn-dark dropdown-toggle " href="#" role="button" id="dropdownMenuLink"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    <spanp>{{auth()->user()->name}}</spanp>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    @if(auth()->user()->role->title==='host')
+                                        <li>
+                                            <a href="{{route('client.host.index')}}"
+                                               class="dropdown-item  mt-1 @if(request()->routeIs('client.host.index')) disable fw-bolder text-muted pe-none @endif"
+
+                                            >
+                                                مشخصات
+                                            </a>
+                                        </li>
+
+                                    @endif
+                                    <li><a class="dropdown-item @if(request()->routeIs('profile.index')) disable fw-bolder text-muted pe-none @endif" href="{{route('profile.index')}}">پروفايل</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item">
+                                            <form action="/logout" method="post">
+                                                @csrf
+                                                <input type="submit" value="خروج" class="btn btn-danger btn-sm">
+                                            </form>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </li>
                         <li class="">
                             <a href="{{route('home')}}"
@@ -38,26 +66,7 @@
 
                         @endif
 
-                        @if(auth()->user()->role->title==='host')
-                            <li>
-                                <a href="{{route('client.host.index')}}"
-                                   class="nav-link text-white mt-1 @if(request()->routeIs('client.host.index')) disable fw-bolder text-muted pe-none @endif"
 
-                                >
-                                     مشخصات
-                                </a>
-                            </li>
-
-                        @endif
-
-                        <li>
-                            <a class="nav-link text-white">
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    <input type="submit" value="خروج" class="btn btn-danger btn-sm">
-                                </form>
-                            </a>
-                        </li>
 
                     @else
                         <li>
