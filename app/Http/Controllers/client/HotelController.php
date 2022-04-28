@@ -44,6 +44,12 @@ class HotelController extends Controller
          **/
         $host = auth()->user()->host;
 
+        if ($this->getNameHotelIsExists($request, $host)) {
+
+            return redirect()->back()->withErrors(['name' => 'این نام قبلا توسط شما انتخاب شده است!'])->withInput();
+        }
+
+
         $host->hotels()->create([
             'name' => $request->get('name'),
             'phone' => $request->get('phone'),
@@ -89,6 +95,14 @@ class HotelController extends Controller
 
         $this->CheckStatusHotel($hotel);
 
+        $host = auth()->user()->host;
+
+        if ($this->getNameHotelIsExistsForUpdate($request, $hotel, $host)) {
+
+
+            return redirect()->back()->withErrors(['name' => 'این نام قبلا توسط شما انتخاب شده است!'])->withInput();
+        }
+
         $hotel->update([
 
             'name' => $request->get('name'),
@@ -106,7 +120,7 @@ class HotelController extends Controller
         return redirect(route('client.hotel.index'));
     }
 
-    /**
+    /** when status is ok or wait do not update
      * @param Hotel $hotel
      * @return void
      */
@@ -117,5 +131,31 @@ class HotelController extends Controller
             abort(403);
 
         }
+    }
+
+    /**  check for unique name for hotel in one city and one host
+     * @param CreateHotelRequest $request
+     * @param Host $host
+     * @return bool
+     */
+    public function getNameHotelIsExists(CreateHotelRequest $request, Host $host): bool
+    {
+        return Hotel::query()->where('name', $request->get('name'))
+            ->where('host_id', $host->id)
+            ->where('city_id', $request->get('city_id'))->exists();
+    }
+
+    /**check for unique name for hotel in one city and one host in update
+     * @param CreateHotelRequest $request
+     * @param Hotel $hotel
+     * @param $host
+     * @return bool
+     */
+    public function getNameHotelIsExistsForUpdate(CreateHotelRequest $request, Hotel $hotel, $host): bool
+    {
+        return Hotel::query()->where('name', $request->get('name'))
+            ->where('id', '!=', $hotel->id)
+            ->where('host_id', $host->id)
+            ->where('city_id', $request->get('city_id'))->exists();
     }
 }
