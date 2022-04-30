@@ -20,6 +20,7 @@
                         <tr>
                             <td>#</td>
                             <td>نام</td>
+                            <td>مجوز بومگردي</td>
                             <td>نمایش</td>
                             <td>وضعيت</td>
                         </tr>
@@ -29,6 +30,8 @@
                             <tr style="height: 50px">
                                 <td>{{$key+1}}</td>
                                 <td>{{$hotel->name}}</td>
+                                <td><a href="{{route('admin.download.license',['path'=>$hotel->license])}}"
+                                       class="btn btn-secondary">دانلود</a></td>
                                 <td><a href="{{route('admin.hotels.show',$hotel)}}" class="btn btn-success">نمايش</a>
                                 </td>
                                 <td><p id="status-text-{{$hotel->id}}">{{$hotel->status_translate}}</p>

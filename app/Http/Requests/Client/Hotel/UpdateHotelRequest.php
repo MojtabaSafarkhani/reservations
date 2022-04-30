@@ -4,7 +4,7 @@ namespace App\Http\Requests\Client\Hotel;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateHotelRequest extends FormRequest
+class UpdateHotelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,11 +28,11 @@ class CreateHotelRequest extends FormRequest
             'phone' => ['required', 'max:30'],
             'category_id' => ['required', 'exists:categories,id', 'numeric'],
             'city_id' => ['required', 'exists:cities,id', 'numeric'],
-            'cost' => ['required','lte:99999999','gte:10000'],
+            'cost' => ['required', 'lte:99999999', 'gte:10000'],
             'description' => ['required', 'max:500', 'min:10'],
             'address' => ['required', 'max:500', 'min:10'],
-            'capacity' => ['required','max:20','regex:/^[1-9]+(تا){0,1}/'],
-            'license'=>['required','max:1024','mimes:pdf,png,jpeg,jpg,gif']
+            'capacity' => ['required', 'max:20', 'regex:/^[1-9]+(تا){0,1}/'],
+            'license' => ['nullable', 'max:1024', 'mimes:pdf,png,jpeg,jpg,gif']
         ];
     }
 }

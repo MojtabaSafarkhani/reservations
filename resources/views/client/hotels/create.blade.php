@@ -62,6 +62,13 @@
                         @error('capacity') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="mb-2">
+                        <label for="license" class="form-label">مجوز بومگردي</label>
+                        <input type="file" dir="rtl" name="license"
+                               class="form-control @error('license') is-invalid @enderror"
+                               id="license">
+                        @error('license') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
+                    </div>
+                    <div class="mb-2">
                         <label for="description" class="form-label">توضيحات</label>
                         <textarea name="description" class="form-control @error('description') is-invalid @enderror"
                                   id="description"

@@ -50,6 +50,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::get('/hotels/{hotel}', [HotelAdminController::class, 'show'])->name('admin.hotels.show');
     Route::post('/hotels-accept', [HotelAdminController::class, 'accept'])->name('hotels.accept');
     Route::post('/hotels-reject', [HotelAdminController::class, 'reject'])->name('hotels.reject');
+    Route::get('/hotels-license', [HotelAdminController::class, 'download'])->name('admin.download.license');
 
 });
 
@@ -87,6 +88,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/hotels/{hotel}/features', [FeatureClientController::class, 'create'])->name('features.hotel.create');
     Route::post('/hotels/{hotel}/features', [FeatureClientController::class, 'store'])->name('features.hotel.store');
     Route::patch('/hotels/{hotel}', [HotelController::class, 'update'])->name('client.hotels.update');
+    Route::get('/hotels-license', [HotelController::class, 'downLoad'])->name('license.download');
 
 
 });

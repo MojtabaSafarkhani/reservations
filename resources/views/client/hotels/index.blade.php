@@ -26,6 +26,7 @@
                     <tr>
                         <td>#</td>
                         <td>نام</td>
+                        <td>مجوز بومگردي</td>
                         <td>افزودن ويژگي</td>
                         <td>گالري</td>
                         <td>نمايش</td>
@@ -38,6 +39,8 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$hotel->name}}</td>
+                            <td><a href="{{route('license.download',['path'=>$hotel->license])}}"
+                                   class="btn btn-secondary">دانلود</a></td>
                             <td><a href="{{route('features.hotel.create',$hotel)}}" class="btn btn-dark">ويژگي</a></td>
                             <td>
                                 <a href="{{route('hotels.galleries.index',$hotel)}}"

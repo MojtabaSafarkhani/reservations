@@ -187,5 +187,6 @@ return array(
         'national_card_photo' => 'عکس کارت ملي',
         'cost' => 'مبلغ',
         'capacity'=>'ظرفيت',
+        'license'=>'مجوز'
     ),
 );
