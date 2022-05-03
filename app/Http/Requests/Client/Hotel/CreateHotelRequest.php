@@ -31,7 +31,8 @@ class CreateHotelRequest extends FormRequest
             'cost' => ['required','lte:99999999','gte:10000'],
             'description' => ['required', 'max:500', 'min:10'],
             'address' => ['required', 'max:500', 'min:10'],
-            'capacity' => ['required','max:20','regex:/^[1-9]+(تا){0,1}/'],
+            'capacity' => ['required','array',],
+            'capacity.*'=>['lte:7','gte:0'],
             'license'=>['required','max:1024','mimes:pdf,png,jpeg,jpg,gif']
         ];
     }
