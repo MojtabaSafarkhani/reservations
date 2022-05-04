@@ -13,7 +13,14 @@ class Hotel extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $appends = ['status_translate'];
+
+    protected $casts = [
+
+        'capacity' => 'array',
+
+    ];
+
+    protected $appends = ['status_translate', 'capacity_in_line'];
 
     public function getRouteKeyName()
     {

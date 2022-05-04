@@ -24,7 +24,7 @@ class CreateHotelsTable extends Migration
             $table->text('address');
             $table->enum('is_published', ['wait', 'ok', 'nok'])->default('wait');
             $table->bigInteger('cost');
-            $table->string('capacity',20);
+            $table->json('capacity');
             $table->timestamps();
         });
     }

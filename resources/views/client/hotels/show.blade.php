@@ -20,8 +20,8 @@
             @endphp
             <div class="row">
                 <div class="col-md-7  mx-auto ">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
+                    <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+                        <div class="carousel-indicators ">
                             @foreach($images as $key=>$image)
                                 <button type="button" data-bs-target="#carouselExampleIndicators"
                                         data-bs-slide-to="{{$key}}"
@@ -38,7 +38,7 @@
                                 @endif
                                     ">
                                     <img src="{{$image->image_url}}"
-                                         class="d-block w-100"
+                                         class="d-block w-100 rounded-3"
                                          alt="...">
                                 </div>
                             @endforeach
@@ -115,7 +115,15 @@
                 <div class="row align-items-center">
                     <div class="col-md-9">
                         <h5> ظرفيت</h5>
-                        <p>{{$hotel->capacity}} نفر</p>
+                        <div class="container">
+                            <div class="row">
+                                @foreach($hotel->capacity as $capacity)
+                                    <div class="col-md-3">
+                                        <p class="ms-1 ">اتاق {{$capacity}} نفره </p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,15 +135,17 @@
                 <div class="col-md-7 mx-auto">
                     <h5 class="mb-2">ويژگي</h5>
                     <div class="row">
-                        <div class="col-md-4">
 
-                            @foreach($hotel->features as $feature)
+
+                        @foreach($hotel->features as $feature)
+                            <div class="col-md-3">
                                 <p class="ms-3 align-middle ">{{$feature->title}}
                                     <img src="{{str_replace('public','/storage',$feature->image)}}" alt="" width="25px">
                                 </p>
-                            @endforeach
+                            </div>
+                        @endforeach
 
-                        </div>
+
                     </div>
                 </div>
             </div>

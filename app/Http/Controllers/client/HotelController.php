@@ -43,7 +43,7 @@ class HotelController extends Controller
 
     public function store(CreateHotelRequest $request)
     {
-        dd($request->all());
+
         /**
          * @var Host $host
          **/
@@ -65,7 +65,7 @@ class HotelController extends Controller
             'cost' => $request->get('cost'),
             'description' => $request->get('description'),
             'address' => $request->get('address'),
-            'capacity' => $request->get('capacity'),
+            'capacity' =>$request->get('capacity'),
             'license' => $path,
         ]);
 
