@@ -114,14 +114,21 @@
             <div class="col-md-7  mx-auto">
                 <div class="row align-items-center">
                     <div class="col-md-9">
-                        <h5> ظرفيت</h5>
+                        <h5 class="mb-2"> ظرفيت</h5>
                         <div class="container">
-                            <div class="row">
-                                @foreach($hotel->capacity as $capacity)
-                                    <div class="col-md-3">
-                                        <p class="ms-1 ">اتاق {{$capacity}} نفره </p>
-                                    </div>
-                                @endforeach
+                            <div class="row  row-cols-md-2">
+
+                                @if(collect($hotel->capacity)->contains(0))
+
+                                  <p>  هيچکدام</p>
+
+                                @else
+                                    @foreach($hotel->capacity as $capacity)
+                                        <div class="cols-12">
+                                            <p class="ms-1 ">اتاق {{$capacity}} نفره </p>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -132,19 +139,26 @@
 
         @if($hotel->features()->count()>0)
             <div class="row">
-                <div class="col-md-7 mx-auto">
-                    <h5 class="mb-2">ويژگي</h5>
-                    <div class="row">
+                <div class="col-md-7 mx-auto ">
 
+                    <div class="row align-items-center">
+                        <div class="col-md-9">
+                            <h5 class="mb-2">ويژگي</h5>
 
-                        @foreach($hotel->features as $feature)
-                            <div class="col-md-3">
-                                <p class="ms-3 align-middle ">{{$feature->title}}
-                                    <img src="{{str_replace('public','/storage',$feature->image)}}" alt="" width="25px">
-                                </p>
+                            <div class="container">
+                                <div class="row row-cols-md-2 ">
+                                    @foreach($hotel->features as $feature)
+                                        <div class="cols-12">
+                                            <p class=" align-middle ">{{$feature->title}}
+                                                <img src="{{str_replace('public','/storage',$feature->image)}}" alt=""
+                                                     width="25px">
+                                            </p>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
-                        @endforeach
 
+                        </div>
 
                     </div>
                 </div>

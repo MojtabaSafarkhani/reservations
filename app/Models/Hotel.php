@@ -20,7 +20,7 @@ class Hotel extends Model
 
     ];
 
-    protected $appends = ['status_translate', 'capacity_in_line'];
+    protected $appends = ['status_translate'];
 
     public function getRouteKeyName()
     {
@@ -50,6 +50,13 @@ class Hotel extends Model
     public function features()
     {
         return $this->belongsToMany(Feature::class, 'feature_hotel');
+    }
+
+    public function isCapacityExists($value)
+    {
+        $exists = collect($this->capacity)->contains($value);
+
+        return $exists;
     }
 
     public function getIsPulishedTranslateAttribute()

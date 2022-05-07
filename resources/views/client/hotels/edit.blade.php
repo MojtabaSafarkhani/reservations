@@ -58,10 +58,52 @@
                         @error('cost') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label for="capacity" class="form-label"> ظرفيت</label>
-                        <input type="text" name="capacity" class="form-control @error('capacity') is-invalid @enderror"
-                               id="capacity" value="{{$hotel->capacity}}" placeholder="ظرفيت اقامتگاه را وارد کنيد">
-                        @error('capacity') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
+                        <label class="col-md-12 control-label mb-2" for="checkboxes">ظرفيت</label>
+                        <br>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4 ">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox1" value="1"
+                                   name="capacity[]" @if($hotel->isCapacityExists(1)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox1">اتاق يک نفره</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox2" value="2"
+                                   name="capacity[]" @if($hotel->isCapacityExists(2)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox2">اتاق دو نفره</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox3" value="3"
+                                   name="capacity[]" @if($hotel->isCapacityExists(3)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox3">اتاق سه نفره</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox4" value="4"
+                                   name="capacity[]" @if($hotel->isCapacityExists(4)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox4">اتاق چهار نفره</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox5" value="5"
+                                   name="capacity[]" @if($hotel->isCapacityExists(5)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox5">اتاق پنج نفره</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox6" value="6"
+                                   name="capacity[]" @if($hotel->isCapacityExists(6)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox6">اتاق شش نفره</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input " type="checkbox" id="inlineCheckbox7" value="7"
+                                   name="capacity[]" @if($hotel->isCapacityExists(7)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox7">اتاق هفت نفره</label>
+                        </div>
+
+                        <div class="form-check form-check-inline mb-1 col-6 col-md-4">
+                            <input class="form-check-input "
+                                   type="checkbox" id="inlineCheckbox0" value="0" name="capacity[]" @if($hotel->isCapacityExists(0)) checked @endif>
+                            <label class="form-check-label" for="inlineCheckbox0">هيچ کدام</label>
+
+                        </div>
+                        @error('capacity')<p class="text-danger my-1">{{$message}}</p> @enderror
+                        @error('capacity.*')<p class="text-danger my-1">{{$message}}</p> @enderror
                     </div>
                     <div class="mb-2">
                         <label for="license" class="form-label">مجوز بومگردي</label>

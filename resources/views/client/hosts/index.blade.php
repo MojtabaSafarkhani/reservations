@@ -49,14 +49,14 @@
                         <td class="d-flex align-items-center justify-content-evenly">
 
                             <span
-                                    class="fw-bolder p-1 rounded-3  {{$status['class']}}">{{$status['message']}}</span>
+                                class="fw-bolder p-1 rounded-3  {{$status['class']}}">{{$status['message']}}</span>
 
                             @if($host->status==="nok")
 
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
                                         title="ويرايش اطلاعات">
                                     <a href="{{route('host.edit')}}" class="fs-5 text-dark"><i
-                                                class="bi bi-pen-fill"></i>
+                                            class="bi bi-pen-fill"></i>
                                     </a>
                                 </button>
 
@@ -94,7 +94,7 @@
             <div class="row align-items-center text-center">
                 <div class="col-md-6 align-middle m-auto">
                     <a href="{{route('client.hotel.create')}}" data-bs-toggle="tooltip" data-bs-placement="top"
-                       title="افزودن هتل"
+                       title="افزودن بومگردي"
                        class="btn btn-success border-5 btn-sm rounded-circle p-3 m-3 text-center">
                         <i class="bi bi-plus-lg fs-5"></i>
                     </a>

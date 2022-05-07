@@ -30,13 +30,13 @@ body {
     vertical-align: 0px;
 !important;
 }
-.nav-link{
-    color: white;!important;
+
+.nav-link {
+    color: white;
+!important;
 }
 
-/*.carousel {
-    width:875px;
-    height:340px;
-    margin: 0 auto;
-}*/
-
+.carousel-inner > .carousel-item > img {
+    width: 650px;
+    height: 360px;
+}

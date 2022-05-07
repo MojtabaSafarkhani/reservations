@@ -57,6 +57,25 @@ class HotelController extends Controller
         $path = $request->file('license')->storePublicly('public/images/license');
 
 
+        /*
+         *
+         *
+         * */
+        if ($this->notZeroAndAnyCapacity($request)) {
+
+            return redirect((route('client.hotel.create')))
+                ->withErrors(['capacity' => 'امکان انتخاب همزمان (هيچ کدام) با باقي ظرفيت ها فراهم نيست!'])
+                ->withInput();
+        }
+
+        /*
+         *
+         *
+         *
+         *
+         * */
+
+
         $host->hotels()->create([
             'name' => $request->get('name'),
             'phone' => $request->get('phone'),
@@ -65,7 +84,7 @@ class HotelController extends Controller
             'cost' => $request->get('cost'),
             'description' => $request->get('description'),
             'address' => $request->get('address'),
-            'capacity' =>$request->get('capacity'),
+            'capacity' => $request->get('capacity'),
             'license' => $path,
         ]);
 
@@ -218,5 +237,15 @@ class HotelController extends Controller
         }
 
         return $path;
+    }
+
+    /**
+     * @param CreateHotelRequest $request
+     * @return bool
+     */
+    public function notZeroAndAnyCapacity(CreateHotelRequest $request): bool
+    {
+        return collect($request->get('capacity'))->contains(0) &&
+            collect($request->get('capacity'))->hasAny([1, 2, 3, 4, 5, 6, 7]);
     }
 }
