@@ -47,6 +47,11 @@ class Hotel extends Model
         return $this->hasMany(Gallery::class);
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes');
+    }
+
     public function features()
     {
         return $this->belongsToMany(Feature::class, 'feature_hotel');

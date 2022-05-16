@@ -11,6 +11,7 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\HostController;
 use App\Http\Controllers\admin\HostController as HostAdminController;
 use App\Http\Controllers\client\HotelController;
+use App\Http\Controllers\client\LikeController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Middleware\CheckPermissionsMiddleware;
 use App\Http\Middleware\HostMiddleware;
@@ -59,6 +60,9 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/likes', [LikeController::class, 'index'])->name('likes.index');
+    Route::post('/likes/{hotel}', [LikeController::class, 'store'])->name('likes.store');
+    Route::delete('/likes/{hotel}', [LikeController::class, 'destroy'])->name('likes.destroy');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');

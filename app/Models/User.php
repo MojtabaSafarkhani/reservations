@@ -52,4 +52,21 @@ class User extends Authenticatable
     {
         return $this->hasOne(Host::class, 'user_id');
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(Hotel::class, 'likes');
+    }
+
+    public function likeHotel(Hotel $hotel)
+    {
+        $hotelIsLiked = $this->likes()->where('id', $hotel->id)->exists();
+
+        if ($hotelIsLiked) {
+            return $this->likes()->detach($hotel);
+        }
+        return $this->likes()->attach($hotel);
+    }
+
+
 }
