@@ -100,6 +100,11 @@ class Hotel extends Model
         return $status;
     }
 
+    public function getIsLikedAttribute()
+    {
+        return $this->likes()->where('user_id', auth()->id())->exists();
+    }
+
     public function hasFeatures(Feature $feature)
     {
         return $this->features()->where('feature_id', $feature->id)->exists();

@@ -40,3 +40,7 @@ body {
     width: 650px;
     height: 360px;
 }
+
+.like {
+    color: red;
+}

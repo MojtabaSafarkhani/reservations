@@ -6,6 +6,9 @@
         <div class="row">
             <div class="col-md-5 ms-2 ms-5">
                 <h4> {{$hotel->name}}</h4>
+                <button class="btn btn-white" onclick="like({{$hotel->id}})"><i id="like-{{$hotel->id}}"
+                                                                                class="bi bi-suit-heart-fill fs-1 @if($hotel->is_liked) like @endif"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -120,7 +123,7 @@
 
                                 @if(collect($hotel->capacity)->contains(0))
 
-                                  <p>  هيچکدام</p>
+                                    <p> هيچکدام</p>
 
                                 @else
                                     @foreach($hotel->capacity as $capacity)
@@ -187,6 +190,34 @@
     <br>
     <br>
 
+@endsection
 
+@section('script')
+
+    <script>
+        function like(HotelId) {
+            console.log(HotelId);
+            $.ajax({
+                type: 'post',
+                url: '/likes/' + HotelId,
+                data: {
+                    _token: "{{csrf_token()}}",
+                },
+                success: function (data) {
+                    var icon = $('#like-' + HotelId);
+                    console.log(icon);
+                    if (icon.hasClass('like')) {
+                        icon.removeClass('like');
+                    } else {
+                        icon.addClass('like');
+                    }
+                    /* $('#like_count').text(data.liked_count);*/
+                }
+
+
+            })
+
+        }
+    </script>
 @endsection
 
