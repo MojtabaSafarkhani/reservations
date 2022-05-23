@@ -71,7 +71,7 @@
                                                             aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body" style="max-height: 500px;max-width: 500px">
-                                                    <img  class="img-fluid h-auto w-auto" src="{{$host->image_url}}">
+                                                    <img class="img-fluid h-auto w-auto" src="{{$host->image_url}}">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <a href="{{route('hosts.photo',['path'=>$host->image_url])}}"
@@ -101,7 +101,15 @@
 
         </div>
     </div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center ">
+            <div class="col-md-10   ">
 
+                {{ $hosts->links() }}
+
+            </div>
+        </div>
+    </div>
 @endsection
 
 

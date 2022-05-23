@@ -14,7 +14,7 @@ class HotelAdminController extends Controller
     {
         return view('admin.hotels.index', [
 
-            'hotels' => Hotel::all(),
+            'hotels' => Hotel::query()->paginate(5),
 
         ]);
 

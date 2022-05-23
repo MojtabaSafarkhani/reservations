@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Host;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,7 @@ class HostController extends Controller
     {
         return view('admin.hosts.index', [
 
-            'hosts' => Host::query()->paginate(5),
+            'hosts' => Host::query()->paginate(3),
 
         ]);
     }

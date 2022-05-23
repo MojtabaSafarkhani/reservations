@@ -53,7 +53,15 @@
 
         </div>
     </div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center ">
+            <div class="col-md-10   ">
 
+                {{ $hotels->links() }}
+
+            </div>
+        </div>
+    </div>
 @endsection
 
 

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Slider;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->share('sliders', Slider::all());
+        Paginator::useBootstrap();
     }
 }
