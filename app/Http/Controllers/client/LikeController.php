@@ -4,14 +4,16 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Hotel;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class LikeController extends Controller
 {
- /*   public function __construct()
-    {
-        $this->middleware('auth');
-    }*/
+    /*   public function __construct()
+       {
+           $this->middleware('auth');
+       }*/
 
     public function index()
     {
@@ -24,6 +26,8 @@ class LikeController extends Controller
 
     public function store(Hotel $hotel)
     {
+
+        Gate::authorize('HotelIsPublishedForLike', $hotel);
 
         auth()->user()->likeHotel($hotel);
 

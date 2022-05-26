@@ -37,6 +37,11 @@ class AuthServiceProvider extends ServiceProvider
             return $user->host->id === $hotel->host_id;
 
         });
+        Gate::define('HotelIsPublishedForLike', function (User $user, Hotel $hotel) {
+
+            return $hotel->is_published === 'ok';
+
+        });
         //
     }
 }

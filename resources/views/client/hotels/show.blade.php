@@ -6,9 +6,11 @@
         <div class="row">
             <div class="col-md-5 ms-2 ms-5">
                 <h4> {{$hotel->name}}</h4>
-                <button class="btn btn-white" onclick="like({{$hotel->id}})"><i id="like-{{$hotel->id}}"
-                                                                                class="bi bi-suit-heart-fill fs-1 @if($hotel->is_liked) like @endif"></i>
-                </button>
+                @can('HotelIsPublishedForLike',$hotel)
+                    <button class="btn btn-white" onclick="like({{$hotel->id}})"><i id="like-{{$hotel->id}}"
+                                                                                    class="bi bi-suit-heart-fill fs-1 @if($hotel->is_liked) like @endif"></i>
+                    </button>
+                @endcan
             </div>
         </div>
     </div>
