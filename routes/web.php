@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\HostController as HostAdminController;
 use App\Http\Controllers\client\HotelController;
 use App\Http\Controllers\client\LikeController;
 use App\Http\Controllers\client\ProfileController;
+use App\Http\Controllers\client\SearchController;
 use App\Http\Middleware\CheckPermissionsMiddleware;
 use App\Http\Middleware\HostMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
+Route::get('/search',[SearchController::class,'search']);
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {
 
