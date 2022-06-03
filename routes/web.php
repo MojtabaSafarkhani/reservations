@@ -32,7 +32,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/search',[SearchController::class,'search']);
+Route::get('/search', [SearchController::class, 'search']);
+Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel']);
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {
 

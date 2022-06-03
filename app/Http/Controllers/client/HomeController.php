@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,20 @@ class HomeController extends Controller
         return view('home', [
             'cities' => $cities,
             'categories' => $categories,
-            'hotels'=>$hotels,
+            'hotels' => $hotels,
         ]);
+    }
+
+    public function showHotel(Hotel $hotel)
+    {
+        if ($hotel->is_published!=='ok') {
+
+            abort(403);
+        }
+
+        return view('client.hotels.show', [
+            'hotel' => $hotel
+        ]);
+
     }
 }
