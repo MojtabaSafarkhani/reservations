@@ -1,5 +1,9 @@
 @extends("home.layout.main")
+@section('link')
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css" />
 
+
+@endsection
 @section('content')
 
     <div class="container-fluid mt-2 p-2">
@@ -169,57 +173,105 @@
                 </div>
             </div>
         @endif
-    </div>
+        <div class="my-4"></div>
+        <div class="row">
+            <div class="col-md-7  mx-auto">
+                <div class="row align-items-center">
+                    <div class="bg-white rounded-2">
+                        <form action="">
+                            <div class="row g-3 my-2">
+                                <div class="col">
+                                    <label for="check_in">روز ورود</label>
+                                    <input data-jdp type="date" id="check_in" name="check_in" class="form-control example1">
+                                </div>
+                                <div class="col">
+                                    <label for="check_out">روز خروج</label>
+                                    <input type="date" class="form-control example1" name="check_out" id="check_out">
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label for="total_person" class="form-label">تعداد نفرات</label>
+                                <input type="number" min="0" max="7" class="form-control" id="total_person" name="total_person">
+                            </div>
+                            <div class="text-center my-2">
+                                <input type="submit" value="ارسال درخواست رزرو" class="btn btn-dark mx-auto">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+        {{--      <div class="container">
+                  <div class="row">
+                      <div class="col-md-8">
+                          p
+                      </div>
+                  </div>
+              </div>
+          </div>--}}
 
-@endsection
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-@section('script')
+        @endsection
 
-    <script>
-        function like(HotelId) {
-            console.log(HotelId);
-            $.ajax({
-                type: 'post',
-                url: '/likes/' + HotelId,
-                data: {
-                    _token: "{{csrf_token()}}",
-                },
-                success: function (data) {
-                    var icon = $('#like-' + HotelId);
-                    console.log(icon);
-                    if (icon.hasClass('like')) {
-                        icon.removeClass('like');
-                    } else {
-                        icon.addClass('like');
-                    }
-                    /* $('#like_count').text(data.liked_count);*/
+        @section('script')
+
+            <script>
+                function like(HotelId) {
+                    console.log(HotelId);
+                    $.ajax({
+                        type: 'post',
+                        url: '/likes/' + HotelId,
+                        data: {
+                            _token: "{{csrf_token()}}",
+                        },
+                        success: function (data) {
+                            var icon = $('#like-' + HotelId);
+                            console.log(icon);
+                            if (icon.hasClass('like')) {
+                                icon.removeClass('like');
+                            } else {
+                                icon.addClass('like');
+                            }
+                            /* $('#like_count').text(data.liked_count);*/
+                        }
+
+
+                    })
+
                 }
+            </script>
+                <script type="text/javascript" src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+                <script type="text/javascript" src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
+                <script src="node_modules/persian-date/dist/persian-date.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    new persianDate().format(); // "۱۳۹۶-۰۱-۱۱ ۲۳:۳۳:۲۷ ب ظ" (when i run in my console)
+                </script>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $(".example1").pDatepicker();
+                    });
+                </script>
 
-
-            })
-
-        }
-    </script>
 @endsection
 

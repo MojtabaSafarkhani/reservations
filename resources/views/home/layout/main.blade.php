@@ -6,6 +6,7 @@
           integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    @yield('link')
 
     <title>وبسايت رزرو اقامتگاه</title>
 </head>
@@ -34,7 +35,9 @@
                                         </li>
 
                                     @endif
-                                    <li><a class="dropdown-item @if(request()->routeIs('profile.index')) disable fw-bolder text-muted pe-none @endif" href="{{route('profile.index')}}">پروفايل</a></li>
+                                    <li>
+                                        <a class="dropdown-item @if(request()->routeIs('profile.index')) disable fw-bolder text-muted pe-none @endif"
+                                           href="{{route('profile.index')}}">پروفايل</a></li>
                                     <li class="dropdown-divider"></li>
                                     <li>
                                         <a class="dropdown-item">
@@ -95,7 +98,7 @@
 
 @yield('content')
 <style>
-    .like{
+    .like {
         color: red;
 
 
