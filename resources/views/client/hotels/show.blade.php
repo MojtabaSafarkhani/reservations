@@ -1,6 +1,10 @@
 @extends("home.layout.main")
 @section('link')
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css" />
+    <link type="text/css" rel="stylesheet"
+          href="https://unpkg.com/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css"/>
+    <script type="text/javascript"
+            src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
 
 
 @endsection
@@ -182,16 +186,18 @@
                             <div class="row g-3 my-2">
                                 <div class="col">
                                     <label for="check_in">روز ورود</label>
-                                    <input data-jdp type="date" id="check_in" name="check_in" class="form-control example1">
+                                    <input type="text" id="check_in" name="check_in"
+                                           class="form-control example1">
                                 </div>
                                 <div class="col">
                                     <label for="check_out">روز خروج</label>
-                                    <input type="date" class="form-control example1" name="check_out" id="check_out">
+                                    <input type="text" class="form-control example1" name="check_out" id="check_out">
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <label for="total_person" class="form-label">تعداد نفرات</label>
-                                <input type="number" min="0" max="7" class="form-control" id="total_person" name="total_person">
+                                <input type="number" min="0" max="7" class="form-control" id="total_person"
+                                       name="total_person">
                             </div>
                             <div class="text-center my-2">
                                 <input type="submit" value="ارسال درخواست رزرو" class="btn btn-dark mx-auto">
@@ -261,17 +267,19 @@
 
                 }
             </script>
-                <script type="text/javascript" src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
-                <script type="text/javascript" src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
-                <script src="node_modules/persian-date/dist/persian-date.js" type="text/javascript"></script>
-                <script type="text/javascript">
-                    new persianDate().format(); // "۱۳۹۶-۰۱-۱۱ ۲۳:۳۳:۲۷ ب ظ" (when i run in my console)
-                </script>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        $(".example1").pDatepicker();
-                    });
-                </script>
+            <script src="node_modules/persian-date/dist/persian-date.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                new persianDate().format(); // "۱۳۹۶-۰۱-۱۱ ۲۳:۳۳:۲۷ ب ظ" (when i run in my console)
+            </script>
+            <script type="text/javascript">
+                $(".example1").persianDatepicker({
+                    observer: true,
+                    initialValue: true,
+                    initialValueType: 'persian',
+                    format: 'YYYY/MM/DD'
+
+                })
+            </script>
 
 @endsection
 
