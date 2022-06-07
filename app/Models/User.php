@@ -58,6 +58,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Hotel::class, 'likes');
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function likeHotel(Hotel $hotel)
     {
         $hotelIsLiked = $this->likes()->where('id', $hotel->id)->exists();

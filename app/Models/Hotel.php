@@ -57,6 +57,11 @@ class Hotel extends Model
         return $this->belongsToMany(Feature::class, 'feature_hotel');
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function isCapacityExists($value)
     {
         $exists = collect($this->capacity)->contains($value);
