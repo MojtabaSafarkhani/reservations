@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Client\Order\CreateOrderRequest;
 use App\Models\Hotel;
 use App\Models\Order;
 use Carbon\Carbon;
@@ -12,18 +13,9 @@ use Hekmatinasser\Verta\Verta;
 
 class OrderController extends Controller
 {
-    function toEngNumbers($string)
-    {
 
-        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        $english = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-        $convertedPersianNums = str_replace($persian, $english, $string);
-
-        return $convertedPersianNums;
-    }
-
-    public function store(Hotel $hotel, Request $request)
+    public function store(Hotel $hotel, CreateOrderRequest $request)
     {
 
         $check_in = $this->getDateInEnglish($request->get('check_in'));
@@ -56,5 +48,16 @@ class OrderController extends Controller
         $date = implode('/', Verta::getGregorian($date[0], $date[1], $date[2]));
 
         return $date;
+    }
+
+    function toEngNumbers($string)
+    {
+
+        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $english = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        $convertedPersianNums = str_replace($persian, $english, $string);
+
+        return $convertedPersianNums;
     }
 }

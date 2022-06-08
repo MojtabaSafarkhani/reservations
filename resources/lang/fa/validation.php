@@ -188,6 +188,9 @@ return array(
         'cost' => 'مبلغ',
         'capacity'=>'ظرفيت',
         'capacity.*'=>'ظرفيت',
-        'license'=>'مجوز'
+        'license'=>'مجوز',
+        'check_in'=>'روز ورود',
+        'check_out'=>'روز خروج',
+        'total_person'=>'تعداد نفرات'
     ),
 );
