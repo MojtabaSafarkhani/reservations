@@ -178,36 +178,40 @@
             </div>
         @endif
         <div class="my-4"></div>
-        <div class="row">
-            <div class="col-md-7  mx-auto">
-                <div class="row align-items-center">
-                    <div class="bg-white rounded-2">
-                        <form action="">
-                            <div class="row g-3 my-2">
-                                <div class="col">
-                                    <label for="check_in">روز ورود</label>
-                                    <input type="text" id="check_in" name="check_in"
-                                           class="form-control example1">
+        @auth()
+            <div class="row">
+                <div class="col-md-7  mx-auto">
+                    <div class="row align-items-center">
+                        <div class="bg-white rounded-2">
+                            <form action="{{route('store.order',$hotel)}}" method="post">
+                                @csrf
+
+                                <div class="row g-3 my-2">
+                                    <div class="col">
+                                        <label for="check_in">روز ورود</label>
+                                        <input type="text" id="check_in" name="check_in"
+                                               class="form-control example1">
+                                    </div>
+                                    <div class="col">
+                                        <label for="check_out">روز خروج</label>
+                                        <input type="text" class="form-control example1" name="check_out"
+                                               id="check_out">
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <label for="check_out">روز خروج</label>
-                                    <input type="text" class="form-control example1" name="check_out" id="check_out">
+                                <div class="mb-2">
+                                    <label for="total_person" class="form-label">تعداد نفرات</label>
+                                    <input type="number" min="0" max="7" class="form-control" id="total_person"
+                                           name="total_person">
                                 </div>
-                            </div>
-                            <div class="mb-2">
-                                <label for="total_person" class="form-label">تعداد نفرات</label>
-                                <input type="number" min="0" max="7" class="form-control" id="total_person"
-                                       name="total_person">
-                            </div>
-                            <div class="text-center my-2">
-                                <input type="submit" value="ارسال درخواست رزرو" class="btn btn-dark mx-auto">
-                            </div>
-                        </form>
+                                <div class="text-center my-2">
+                                    <input type="submit" value="ارسال درخواست رزرو" class="btn btn-dark mx-auto">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
+        @endauth
         {{--      <div class="container">
                   <div class="row">
                       <div class="col-md-8">
@@ -273,9 +277,9 @@
             </script>
             <script type="text/javascript">
                 $(".example1").persianDatepicker({
-                    observer: true,
+                   /* observer: true,
                     initialValue: true,
-                    initialValueType: 'persian',
+                    initialValueType: 'persian',*/
                     format: 'YYYY/MM/DD'
 
                 })

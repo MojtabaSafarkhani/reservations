@@ -12,6 +12,7 @@ use App\Http\Controllers\client\HostController;
 use App\Http\Controllers\admin\HostController as HostAdminController;
 use App\Http\Controllers\client\HotelController;
 use App\Http\Controllers\client\LikeController;
+use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\client\SearchController;
 use App\Http\Middleware\CheckPermissionsMiddleware;
@@ -76,7 +77,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
     //check the user is not in db if there is then redirect to table and show status
 
-
+    Route::post('/store-order/{hotel}', [OrderController::class, 'store'])->name('store.order');
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');
