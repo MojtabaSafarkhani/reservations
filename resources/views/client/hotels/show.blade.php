@@ -9,7 +9,7 @@
 
 @endsection
 @section('content')
-
+    @include('client.notifications.notification')
     <div class="container-fluid mt-2 p-2">
         <div class="row">
             <div class="col-md-5 ms-2 ms-5">
@@ -183,7 +183,7 @@
                 <div class="col-md-7  mx-auto">
                     <div class="row align-items-center">
                         <div class="bg-white rounded-2">
-                            <form action="{{route('store.order',$hotel)}}" method="post"  >
+                            <form action="{{route('store.order',$hotel)}}" method="post">
                                 @csrf
 
                                 <div class="row g-3 my-2">
@@ -196,14 +196,18 @@
 
                                     <div class="col mb-2">
                                         <label for="check_out" class="mb-2">روز خروج</label>
-                                        <input type="text" class="form-control example1 @error('check_out') is-invalid @enderror" name="check_out"
+                                        <input type="text"
+                                               class="form-control example1 @error('check_out') is-invalid @enderror"
+                                               name="check_out"
                                                id="check_out">
                                         @error('check_out') <span class="invalid-feedback">{{$message}}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="mb-2">
                                     <label for="total_person" class="form-label">تعداد نفرات</label>
-                                    <input type="number" min="1" max="7" class="form-control @error('total_person') is-invalid @enderror" id="total_person"
+                                    <input type="number" min="1" max="7"
+                                           class="form-control @error('total_person') is-invalid @enderror"
+                                           id="total_person"
                                            name="total_person">
                                     @error('total_person') <span class="invalid-feedback">{{$message}}</span> @enderror
                                 </div>

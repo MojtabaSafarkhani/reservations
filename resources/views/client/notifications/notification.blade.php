@@ -15,7 +15,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 m-auto">
+            <div class="col-md-6 m-auto mt-2">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{session()->get('success')}}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

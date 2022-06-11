@@ -24,8 +24,8 @@ class CreateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'check_in' => ['required', 'before:check_out', 'persian_num','shamsi_date_between:1400,1410'],
-            'check_out' => ['required', 'after:check_in','persian_num','shamsi_date_between:1400,1410'],
+            'check_in' => ['required', 'shamsi_date_between:1401,1410,persian'],
+            'check_out' => ['required','shamsi_date_between:1401,1410,persian'],
             'total_person' => ['required', 'gte:1', 'lte:7'],
         ];
     }

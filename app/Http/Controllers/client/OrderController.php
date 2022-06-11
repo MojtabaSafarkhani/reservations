@@ -24,6 +24,15 @@ class OrderController extends Controller
 
         $total_days = Carbon::parse($check_in)->diffInDays($check_out);
 
+        $afterOrBefore = Carbon::parse($check_in)->isBefore($check_out);
+
+        if (!$afterOrBefore) {
+
+            return redirect()->back()->withErrors(['check_out' => "روز خروج بايد بعد از روز ورود باشد!"]);
+
+        }
+
+
         Order::query()->create([
             'user_id' => auth()->user()->id,
             'hotel_id' => $hotel->id,
@@ -33,7 +42,9 @@ class OrderController extends Controller
             'total_cost' => $total_days * $hotel->cost,
         ]);
 
-        return back();
+        session()->flash('success', 'درخواست شما باموفقيت ثبت شد!');
+
+        return redirect()->back();
 
     }
 
