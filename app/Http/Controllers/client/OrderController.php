@@ -15,11 +15,22 @@ class OrderController extends Controller
 {
 
 
+    public function index()
+    {
+        $orders = auth()->user()->orders;
+
+
+        return view('client.orders.index',[
+            'orders'=>$orders,
+        ]);
+    }
+
+
     public function store(Hotel $hotel, CreateOrderRequest $request)
     {
         if ($this->getExistsOrder($hotel)) {
 
-             return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
+            return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
         }
 
 

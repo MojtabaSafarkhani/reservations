@@ -10,6 +10,7 @@ use App\Http\Controllers\client\GalleryController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\HostController;
 use App\Http\Controllers\admin\HostController as HostAdminController;
+use App\Http\Controllers\client\HOstOrderController;
 use App\Http\Controllers\client\HotelController;
 use App\Http\Controllers\client\LikeController;
 use App\Http\Controllers\client\OrderController;
@@ -62,22 +63,25 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 //route must be auth
 
 Route::middleware('auth')->group(function () {
-
+    Route::get('/orders',[OrderController::class,'index'])->name('user.orders.index');
     Route::get('/likes', [LikeController::class, 'index'])->name('likes.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/likes/{hotel}', [LikeController::class, 'store'])->name('likes.store');
     Route::delete('/likes/{hotel}', [LikeController::class, 'destroy'])->name('likes.destroy');
+    Route::post('/store-order/{hotel}', [OrderController::class, 'store'])->name('store.order');
 
 });
 
-//Route For Host
+//Route For client
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
-    //check the user is not in db if there is then redirect to table and show status
 
-    Route::post('/store-order/{hotel}', [OrderController::class, 'store'])->name('store.order');
+    Route::get('/host/orders',[HOstOrderController::class,'index'])->name('host.orders.index');
+
+
+    //check the user is not in db if there is then redirect to table and show status
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');
     Route::get('/hotels/create', [HotelController::class, 'create'])->name('client.hotel.create');
