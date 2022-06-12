@@ -17,6 +17,11 @@ class OrderController extends Controller
 
     public function store(Hotel $hotel, CreateOrderRequest $request)
     {
+        if ($this->getExistsOrder($hotel)) {
+
+             return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
+        }
+
 
         $check_in = $this->getDateInEnglish($request->get('check_in'));
 
@@ -70,5 +75,15 @@ class OrderController extends Controller
         $convertedPersianNums = str_replace($persian, $english, $string);
 
         return $convertedPersianNums;
+    }
+
+    /**
+     * @param Hotel $hotel
+     * @return bool
+     */
+    public function getExistsOrder(Hotel $hotel): bool
+    {
+        return Order::query()->where('user_id', auth()->user()->id)
+            ->where('hotel_id', $hotel->id)->where('status', 'wait')->exists();
     }
 }
