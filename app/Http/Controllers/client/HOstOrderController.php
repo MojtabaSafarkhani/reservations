@@ -24,4 +24,24 @@ class HOstOrderController extends Controller
             'orders' => $orders
         ]);
     }
+
+    public function reject(Order $order)
+    {
+        $order->update([
+            'status' => 'nok',
+        ]);
+
+        return redirect(route('host.orders.index'));
+    }
+
+    public function accept(Order $order)
+    {
+        $order->update([
+            'status' => 'ok',
+        ]);
+        /*
+         * route to reserve after status is ok but reserve not implement
+         * */
+        return redirect(route('host.orders.index'));
+    }
 }

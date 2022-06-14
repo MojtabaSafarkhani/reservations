@@ -15,6 +15,19 @@
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="#userOrders" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="bi bi-basket-fill"></i><span
+                                    class="ms-1 d-none d-sm-inline">سفارش های شما</span> </a>
+                            <ul class="collapse  nav flex-column ms-1" id="userOrders" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="{{route('user.orders.index')}}" class="nav-link px-0"> <span
+                                            class="d-none d-sm-inline">ليست سفارش های شما</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
                         @can('hostIsOk')
                             <li>
                                 <a href="#hotels" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
@@ -28,7 +41,7 @@
                                     </li>
                                     <li>
                                         <a href="{{route('client.hotel.index')}}" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline">ليست هتل ها</span>
+                                                class="d-none d-sm-inline">ليست اقامتگاه ها</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -40,7 +53,7 @@
                                 <ul class="collapse  nav flex-column ms-1" id="hostOrders" data-bs-parent="#menu">
                                     <li>
                                         <a href="{{route('host.orders.index')}}" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline">ليست سفارش ها</span>
+                                                class="d-none d-sm-inline">ليست سفارش  اقامتگاه ها</span>
                                         </a>
                                     </li>
                                 </ul>

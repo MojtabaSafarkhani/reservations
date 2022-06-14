@@ -63,7 +63,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
 //route must be auth
 
 Route::middleware('auth')->group(function () {
-    Route::get('/orders',[OrderController::class,'index'])->name('user.orders.index');
+    Route::get('/orders', [OrderController::class, 'index'])->name('user.orders.index');
     Route::get('/likes', [LikeController::class, 'index'])->name('likes.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -78,7 +78,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
 
-    Route::get('/host/orders',[HOstOrderController::class,'index'])->name('host.orders.index');
+    Route::get('/host/orders', [HOstOrderController::class, 'index'])->name('host.orders.index');
+    Route::post('/host/orders/{order}/reject', [HOstOrderController::class, 'reject'])->name('host.orders.reject');
+    Route::post('/host/orders/{order}/accept', [HOstOrderController::class, 'accept'])->name('host.orders.accept');
 
 
     //check the user is not in db if there is then redirect to table and show status

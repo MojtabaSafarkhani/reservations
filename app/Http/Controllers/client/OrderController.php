@@ -9,6 +9,7 @@ use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Facades\Gate;
 
 
 class OrderController extends Controller
@@ -28,6 +29,8 @@ class OrderController extends Controller
 
     public function store(Hotel $hotel, CreateOrderRequest $request)
     {
+        Gate::authorize('HotelIsPublishedForLike', $hotel);
+
         if ($this->getExistsOrder($hotel)) {
 
             return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
@@ -58,7 +61,7 @@ class OrderController extends Controller
             'total_cost' => $total_days * $hotel->cost,
         ]);
 
-        session()->flash('success', 'درخواست شما باموفقيت ثبت شد!');
+        session()->flash('success', 'درخواست شما باموفقيت ثبت شد در صورت تاييد، ايميل پرداخت براي شما ارسال ميشود!');
 
         return redirect()->back();
 
