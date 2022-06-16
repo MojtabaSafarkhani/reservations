@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Hotel;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -40,6 +41,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('HotelIsPublishedForLike', function (User $user, Hotel $hotel) {
 
             return $hotel->is_published === 'ok';
+
+        });
+        Gate::define('JustOneTimeToChangeStatusOfOrder', function (User $user, Order $order) {
+
+            return $order->status === 'wait';
 
         });
         //

@@ -32,8 +32,13 @@
                     <td>{{$order->check_out_to_persian}}</td>
 
                     <td>
-                        <span class="btn btn-{{$order->status_to_persian['class']}} btn-sm " data-bs-toggle="tooltip"
-                              data-bs-placement="top" title="تغيير وضعيت">
+                        <span class="btn btn-{{$order->status_to_persian['class']}} btn-sm "
+                              @can('JustOneTimeToChangeStatusOfOrder',$order)
+                              data-bs-toggle="tooltip"
+                              data-bs-placement="top" title="تغيير وضعيت"
+
+                                @endcan
+                        >
                             <button type="button" class="btn btn-sm {{$order->status_to_persian['class']}}  fw-bold "
                                     data-bs-toggle="modal"
                                     data-bs-target="#order-{{$order->id}}"
@@ -46,38 +51,42 @@
                 </tr>
 
 
+                @can('JustOneTimeToChangeStatusOfOrder',$order)
+                    <div class="modal fade" id="order-{{$order->id}}" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">تغيير وضعيت سفارش</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>شما در حال تغيير دادن وضعيت مهمان به اسم
+                                        {{$order->user->name}}
+                                        هستيد اگر اين مهمان را تاييد کنيد لينک پرداخت براي مهمان ايميل ميشود
+                                        !
+                                        فقط يک بار مي توانيد وضعيت را تغيير دهيد!
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="{{route('host.orders.reject',$order)}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">رد سفارش</button>
+                                    </form>
+                                    <form action="{{route('host.orders.accept',$order)}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">تاييد
+                                            سفارش
+                                        </button>
+                                    </form>
 
-                <div class="modal fade" id="order-{{$order->id}}" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">تغيير وضعيت سفارش</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>شما در حال تغيير دادن وضعيت مهمان به اسم
-                                    {{$order->user->name}}
-                                    هستيد اگر اين مهمان را تاييد کنيد لينک پرداخت براي مهمان ايميل ميشود
-                                    !
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <form action="{{route('host.orders.reject',$order)}}" method="post">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">رد سفارش</button>
-                                </form>
-                                <form action="{{route('host.orders.accept',$order)}}" method="post">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">تاييد سفارش
-                                    </button>
-                                </form>
 
-
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                @endcan
             @endforeach
 
             </tbody>
