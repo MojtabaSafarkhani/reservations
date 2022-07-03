@@ -21,8 +21,8 @@ class OrderController extends Controller
         $orders = auth()->user()->orders;
 
 
-        return view('client.orders.index',[
-            'orders'=>$orders,
+        return view('client.orders.index', [
+            'orders' => $orders,
         ]);
     }
 
@@ -31,15 +31,15 @@ class OrderController extends Controller
     {
         Gate::authorize('HotelIsPublishedForLike', $hotel);
 
-        if ($this->getExistsOrder($hotel)) {
-
-            return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
-        }
-
 
         $check_in = $this->getDateInEnglish($request->get('check_in'));
 
         $check_out = $this->getDateInEnglish($request->get('check_out'));
+
+        if ($this->getExistsOrder($hotel, $check_in, $check_out)) {
+
+            return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
+        }
 
         $total_days = Carbon::parse($check_in)->diffInDays($check_out);
 
@@ -95,9 +95,18 @@ class OrderController extends Controller
      * @param Hotel $hotel
      * @return bool
      */
-    public function getExistsOrder(Hotel $hotel): bool
+    public function getExistsOrder(Hotel $hotel, $check_in, $check_out): bool
     {
+
         return Order::query()->where('user_id', auth()->user()->id)
-            ->where('hotel_id', $hotel->id)->where('status', 'wait')->exists();
+            ->where('hotel_id', $hotel->id)->where('status', 'wait')->exists() ||
+            Order::query()->where('user_id', auth()->user()->id)
+                ->where('hotel_id', $hotel->id)->where('status', 'ok')
+                ->where(function ($query) use ($check_in, $check_out) {
+                    $query->orWhereBetween('check_in', [$check_in, $check_out])
+                        ->orWhereBetween('check_out', [$check_in, $check_out]);
+                })->exists();
     }
+
+
 }

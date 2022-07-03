@@ -19,7 +19,7 @@ class HOstOrderController extends Controller
     {
         $hotelsId = auth()->user()->host->hotels->pluck('id');
 
-        $orders = Order::query()->whereIn('hotel_id', $hotelsId)->get();
+        $orders = Order::query()->whereIn('hotel_id', $hotelsId)->paginate(4);
 
         return view('client.hostOrders.index', [
             'orders' => $orders

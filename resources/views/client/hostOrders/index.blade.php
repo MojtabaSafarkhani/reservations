@@ -93,6 +93,15 @@
 
 
         </table>
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center ">
+                <div class="col-md-10   ">
+
+                    {{ $orders->links() }}
+
+                </div>
+            </div>
+        </div>
     </div>
 
     </div>
