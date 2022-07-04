@@ -25,6 +25,11 @@ class Order extends Model
         return $this->belongsTo(Hotel::class);
     }
 
+    public function reserves()
+    {
+        return $this->belongsToMany(Reserve::class);
+    }
+
     public function getCheckInToPersianAttribute()
     {
         $date = explode('-', $this->check_in);
