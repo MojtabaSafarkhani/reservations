@@ -16,6 +16,7 @@ use App\Http\Controllers\client\LikeController;
 use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\client\SearchController;
+use App\Http\Controllers\client\StoreTransactionIdController;
 use App\Http\Middleware\CheckPermissionsMiddleware;
 use App\Http\Middleware\HostMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -80,9 +81,9 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
     Route::get('/host/orders', [HOstOrderController::class, 'index'])->name('host.orders.index');
     Route::post('/host/orders/{order}/reject', [HOstOrderController::class, 'reject'])->name('host.orders.reject');
-    Route::post('/host/orders/{order}/accept', [HOstOrderController::class, 'accept'])->name('host.orders.accept');
+    Route::get('/host/orders/{order}/accept', [HOstOrderController::class, 'accept'])->name('host.orders.accept');
 
-
+    Route::post('/host/store-transaction-id/{order}', [StoreTransactionIdController::class, 'createInvoice'])->name('host.store.transaction');
     //check the user is not in db if there is then redirect to table and show status
     Route::get('/host', [HostController::class, 'index'])->name('client.host.index');
     Route::get('/hotels', [HotelController::class, 'index'])->name('client.hotel.index');

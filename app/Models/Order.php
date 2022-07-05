@@ -27,7 +27,7 @@ class Order extends Model
 
     public function reserves()
     {
-        return $this->belongsToMany(Reserve::class);
+        return $this->hasMany(Reserve::class);
     }
 
     public function getCheckInToPersianAttribute()

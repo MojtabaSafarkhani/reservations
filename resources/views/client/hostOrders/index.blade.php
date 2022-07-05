@@ -73,7 +73,7 @@
                                         @csrf
                                         <button type="submit" class="btn btn-danger">رد سفارش</button>
                                     </form>
-                                    <form action="{{route('host.orders.accept',$order)}}" method="post">
+                                    <form action="{{route('host.store.transaction',$order)}}" method="post">
                                         @csrf
                                         <button type="submit" class="btn btn-success" data-bs-dismiss="modal">تاييد
                                             سفارش
