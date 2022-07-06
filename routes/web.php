@@ -14,6 +14,7 @@ use App\Http\Controllers\client\HOstOrderController;
 use App\Http\Controllers\client\HotelController;
 use App\Http\Controllers\client\LikeController;
 use App\Http\Controllers\client\OrderController;
+use App\Http\Controllers\client\PaymentController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\client\SearchController;
 use App\Http\Controllers\client\StoreTransactionIdController;
@@ -34,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->name('payment.callback');
 Route::get('/search', [SearchController::class, 'search']);
 Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel']);
 //route for admin
