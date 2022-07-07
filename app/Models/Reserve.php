@@ -11,6 +11,11 @@ class Reserve extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'u_string';
+    }
+
     public function order()
     {
         return $this->belongsTo(Order::class);

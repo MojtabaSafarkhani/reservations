@@ -16,11 +16,11 @@ class TransactionMail extends Mailable
      *
      * @return void
      */
-    public $transactionId;
+    public $reserve;
 
-    public function __construct($transactionId)
+    public function __construct($reserve)
     {
-        $this->transactionId = $transactionId;
+        $this->reserve = $reserve;
     }
 
     /**
@@ -31,7 +31,7 @@ class TransactionMail extends Mailable
     public function build()
     {
         return $this->view('client.mail.transaction', [
-            'transaction' => $this->transactionId
+            'reserve' => $this->reserve,
         ]);
     }
 }

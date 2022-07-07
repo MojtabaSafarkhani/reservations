@@ -19,6 +19,7 @@ class CreateReservesTable extends Migration
             $table->string('transaction_id', 70);
             $table->enum('status', ['ok', 'nok', 'wait'])->default('wait');
             $table->bigInteger('total_cost');
+            $table->string('u_string',20);
             $table->timestamps();
         });
     }

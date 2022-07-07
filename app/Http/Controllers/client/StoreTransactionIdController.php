@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Reserve;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Shetabit\Multipay\Invoice;
 use Shetabit\Payment\Facade\Payment;
 
@@ -20,6 +21,8 @@ class StoreTransactionIdController extends Controller
             $order->reserves()->create([
                 'transaction_id' => $transactionId,
                 'total_cost' => $order->total_cost,
+                'status' => 'wait',
+                'u_string' => Str::random(16),
             ]);
 
 

@@ -11677,8 +11677,16 @@
         </p>
     </div>
 </div>
+
+
 <div class="p-2 text-center">
-    <a class="btn btn-success " href="https://sandbox.zarinpal.com/pg/transaction/pay/{{$transaction}}">لينک پرداخت</a>
+    <a href="{{route('payment.check',$reserve)}}" class="btn btn-success">
+        لينک پرداخت
+    </a>
+
+
 </div>
+
+
 </body>
 </html>
