@@ -28,6 +28,19 @@
 
                             </ul>
                         </li>
+                        <li>
+                            <a href="#userReserve" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="bi bi-basket-fill"></i><span
+                                    class="ms-1 d-none d-sm-inline">ليست پرداختي ها</span> </a>
+                            <ul class="collapse  nav flex-column ms-1" id="userReserve" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="{{route('user.reserve.index')}}" class="nav-link px-0"> <span
+                                            class="d-none d-sm-inline">ليست پرداختي های شما</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
                         @can('hostIsOk')
                             <li>
                                 <a href="#hotels" data-bs-toggle="collapse" class="nav-link px-0 align-middle">

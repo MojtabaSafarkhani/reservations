@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\admin\HotelAdminController;
 use App\Http\Controllers\admin\ReserveController;
+use App\Http\Controllers\client\ReserveController as UserReserveController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\FeatureController;
 use App\Http\Controllers\client\FeatureController as FeatureClientController;
@@ -76,6 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/likes/{hotel}', [LikeController::class, 'store'])->name('likes.store');
     Route::delete('/likes/{hotel}', [LikeController::class, 'destroy'])->name('likes.destroy');
     Route::post('/store-order/{hotel}', [OrderController::class, 'store'])->name('store.order');
+    Route::get('/user/reserve', [UserReserveController::class, 'index'])->name('user.reserve.index');
 
 });
 
