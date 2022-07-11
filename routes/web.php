@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\admin\HotelAdminController;
 use App\Http\Controllers\admin\ReserveController;
+use App\Http\Controllers\client\HostReserveController;
 use App\Http\Controllers\client\ReserveController as UserReserveController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\FeatureController;
@@ -109,6 +110,8 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::post('/hotels/{hotel}/features', [FeatureClientController::class, 'store'])->name('features.hotel.store');
     Route::patch('/hotels/{hotel}', [HotelController::class, 'update'])->name('client.hotels.update');
     Route::get('/hotels-license', [HotelController::class, 'downLoad'])->name('license.download');
+
+    Route::get('/host/reserve', [HostReserveController::class, 'index'])->name('host.reserve.index');
 
 
 });
