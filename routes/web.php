@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\admin\HotelAdminController;
+use App\Http\Controllers\admin\ReserveController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\FeatureController;
 use App\Http\Controllers\client\FeatureController as FeatureClientController;
@@ -59,6 +60,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::post('/hotels-accept', [HotelAdminController::class, 'accept'])->name('hotels.accept');
     Route::post('/hotels-reject', [HotelAdminController::class, 'reject'])->name('hotels.reject');
     Route::get('/hotels-license', [HotelAdminController::class, 'download'])->name('admin.download.license');
+    Route::get('/reserves', [ReserveController::class, 'index'])->name('admin.reserve.index');
 
 });
 

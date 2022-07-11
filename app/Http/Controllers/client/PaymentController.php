@@ -34,6 +34,10 @@ class PaymentController extends Controller
             ]
         );
 
+        $user=$reserve->order->user;
+
+        auth()->login($user);
+
         return redirect(route('home'));
     }
 

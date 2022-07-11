@@ -17,7 +17,8 @@
                     @if(auth()->user())
                         <li>
                             <div class="dropdown nav-link text-white ">
-                                <a class="btn btn-dark dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-dark dropdown-toggle " href="#" role="button" id="dropdownMenuLink"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
                                     <spanp>{{auth()->user()->name}}</spanp>
                                 </a>
 
@@ -139,17 +140,18 @@
 
                     <li class="nav-item">
                         <a href="#features" data-bs-toggle="collapse" class="nav-link px-0  text-white">
-                            <i class="bi bi-clipboard2-plus-fill"></i><span class="ms-1 d-none d-sm-inline">ويژگي ها</span>
+                            <i class="bi bi-clipboard2-plus-fill"></i><span
+                                class="ms-1 d-none d-sm-inline">ويژگي ها</span>
                         </a>
                         <ul class="collapse @if(request()->routeIs('features.*')) show @endif nav flex-column ms-1 "
                             id="features" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="{{route('features.create')}}" class="nav-link px-0 text-white"> <span
-                                            class="d-none d-sm-inline ">ايجاد ويژگي</span> </a>
+                                        class="d-none d-sm-inline ">ايجاد ويژگي</span> </a>
                             </li>
                             <li>
                                 <a href="{{route('features.index')}}" class="nav-link px-0 text-white"> <span
-                                            class="d-none d-sm-inline">ليست ويژگي ها</span> </a>
+                                        class="d-none d-sm-inline">ليست ويژگي ها</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -166,6 +168,18 @@
                             <li>
                                 <a href="{{route('hotels.index')}}" class="nav-link px-0 text-white"> <span
                                         class="d-none d-sm-inline">ليست هتل ها</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#reserve" data-bs-toggle="collapse" class="nav-link px-0  text-white">
+                            <i class="bi bi-currency-dollar"></i> <span class="ms-1 d-none d-sm-inline">پرداختي ها</span>
+                        </a>
+                        <ul class="collapse @if(request()->routeIs('admin.reserve.*')) show @endif nav flex-column ms-1 "
+                            id="reserve" data-bs-parent="#menu">
+                            <li>
+                                <a href="{{route('admin.reserve.index')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline">ليست پرداختي ها</span> </a>
                             </li>
                         </ul>
                     </li>
