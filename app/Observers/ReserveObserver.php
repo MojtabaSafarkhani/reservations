@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\SendEmailJob;
 use App\Mail\TransactionMail;
 use App\Models\Reserve;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,9 @@ class ReserveObserver
     public function created(Reserve $reserve)
     {
 
+        /*$email = $reserve->order->user->email;
+
+        SendEmailJob::dispatchAfterResponse($email, $reserve);*/
 
     }
 

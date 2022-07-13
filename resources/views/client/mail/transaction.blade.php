@@ -11661,7 +11661,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 m-auto">
-            <img src="{{asset('storage/images/icon/moja.png')}}" alt="" class="mt-2" style="
+            <img src="http://127.0.0.1:8000/storage/images/icon/moja.png" alt="" class="mt-2" style="
     width: 30%;
     height: 100%;
     display: block;
@@ -11680,7 +11680,7 @@
 
 
 <div class="p-2 text-center">
-    <a href="{{route('payment.check',$reserve)}}" class="btn btn-success">
+    <a href="http://127.0.0.1:8000/payment/check/{{$reserve->u_string}}" class="btn btn-success">
         لينک پرداخت
     </a>
 

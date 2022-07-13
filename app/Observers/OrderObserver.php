@@ -2,8 +2,10 @@
 
 namespace App\Observers;
 
+use App\Jobs\SendEmailJob;
 use App\Mail\TransactionMail;
 use App\Models\Order;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 
 class OrderObserver
@@ -29,7 +31,13 @@ class OrderObserver
     {
 
         if ($order->status === 'ok') {
-            Mail::to($order->user->email)->send(new TransactionMail($order->reserves->last()));
+            $email = $order->user->email;
+            $reserve = $order->reserves->last();
+
+            SendEmailJob::dispatch($email, $reserve);
+
+
+
         }
     }
 
