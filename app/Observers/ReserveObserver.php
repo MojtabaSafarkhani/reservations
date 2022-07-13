@@ -16,7 +16,7 @@ class ReserveObserver
      */
     public function created(Reserve $reserve)
     {
-        Mail::to($reserve->order->user->email)->send(new TransactionMail($reserve));
+
 
     }
 

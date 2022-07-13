@@ -18,7 +18,9 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = auth()->user()->orders;
+        $ordersIds = auth()->user()->orders->pluck('id');
+
+        $orders = Order::query()->whereIn('id', $ordersIds)->paginate(5);
 
 
         return view('client.orders.index', [
@@ -99,7 +101,7 @@ class OrderController extends Controller
     {
 
         return Order::query()->where('user_id', auth()->user()->id)
-            ->where('hotel_id', $hotel->id)->where('status', 'wait')->exists() ||
+                ->where('hotel_id', $hotel->id)->where('status', 'wait')->exists() ||
             Order::query()->where('user_id', auth()->user()->id)
                 ->where('hotel_id', $hotel->id)->where('status', 'ok')
                 ->where(function ($query) use ($check_in, $check_out) {

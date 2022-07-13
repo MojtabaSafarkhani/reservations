@@ -16,19 +16,26 @@ class StoreTransactionIdController extends Controller
     {
         $invoice = (new Invoice)->amount($order->total_cost);
 
-        Payment::purchase($invoice, function ($driver, $transactionId) use ($order) {
+        $u_string = Str::random(16);
 
-            $order->reserves()->create([
+        Payment::purchase($invoice, function ($driver, $transactionId) use ($order, $u_string) {
+
+            Reserve::query()->create([
                 'transaction_id' => $transactionId,
+                'order_id' => $order->id,
                 'total_cost' => $order->total_cost,
                 'status' => 'wait',
-                'u_string' => Str::random(16),
+                'u_string' => $u_string,
             ]);
 
 
         });
 
-        return redirect(route('host.orders.accept', $order));
+        $order->update([
+            'status' => 'ok'
+        ]);
+
+        return redirect(route('host.orders.index'));
 
 
     }

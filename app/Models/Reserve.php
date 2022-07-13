@@ -12,6 +12,8 @@ class Reserve extends Model
 
     protected $guarded = [];
 
+    protected $with = ['order.user'];
+
     public function getRouteKeyName()
     {
         return 'u_string';
