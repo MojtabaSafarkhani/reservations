@@ -34,7 +34,15 @@ class PaymentController extends Controller
             ]
         );
 
-        $user=$reserve->order->user;
+        if ($reserve->fresh()->status === 'nok') {
+
+            $reserve->order()->update([
+                'status' => 'nok'
+            ]);
+
+        }
+
+        $user = $reserve->order->user;
 
         auth()->login($user);
 
