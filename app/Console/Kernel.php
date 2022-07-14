@@ -18,10 +18,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $jobs = DB::table('jobs')->get();
-        if ($jobs->count() > 0) {
+    /*   $jobs = DB::table('jobs')->get();
+        if ($jobs->count() > 0) {*/
             $schedule->command('queue:work')->everyMinute();
-        }
+     /*   }*/
     }
 
     /**
