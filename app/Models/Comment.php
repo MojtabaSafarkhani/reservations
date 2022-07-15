@@ -21,12 +21,12 @@ class Comment extends Model
         return $this->belongsTo(Hotel::class);
     }
 
-    public function children()
+    public function parent()
     {
         return $this->belongsTo(Comment::class, 'comment_id');
     }
 
-    public function parent()
+    public function children()
     {
         return $this->hasMany(Comment::class, 'comment_id');
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
+use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\HotelAdminController;
 use App\Http\Controllers\admin\ReserveController;
 use App\Http\Controllers\client\HostReserveController;
@@ -53,6 +54,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::resource('cities', CityController::class);
     Route::resource('features', FeatureController::class);
     Route::resource('sliders', SliderController::class)->except(['show']);
+    Route::get('/comments', [CommentController::class, 'index'])->name('admin.comments.index');
     Route::get('/hosts', [HostAdminController::class, 'index'])->name('hosts.index');
     Route::get('/hosts-photo', [HostAdminController::class, 'download'])->name('hosts.photo');
     Route::post('/hosts-accept', [HostAdminController::class, 'accept'])->name('hosts.accept');
@@ -63,6 +65,8 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::post('/hotels-reject', [HotelAdminController::class, 'reject'])->name('hotels.reject');
     Route::get('/hotels-license', [HotelAdminController::class, 'download'])->name('admin.download.license');
     Route::get('/reserves', [ReserveController::class, 'index'])->name('admin.reserve.index');
+
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('admin.comments.destroy');
 
 });
 

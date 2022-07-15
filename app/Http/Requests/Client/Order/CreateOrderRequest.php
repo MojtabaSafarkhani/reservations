@@ -26,7 +26,7 @@ class CreateOrderRequest extends FormRequest
         return [
             'check_in' => ['required', 'shamsi_date_between:1401,1410,persian'],
             'check_out' => ['required','shamsi_date_between:1401,1410,persian'],
-            'total_person' => ['required', 'gte:1', 'lte:7'],
+            'total_person' => ['required','numeric', 'gte:1', 'lte:7'],
         ];
     }
 }
