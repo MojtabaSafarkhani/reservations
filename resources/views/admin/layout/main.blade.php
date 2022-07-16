@@ -183,6 +183,18 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#comments" data-bs-toggle="collapse" class="nav-link px-0  text-white">
+                            <i class="bi bi-chat-square-text-fill"></i> <span class="ms-1 d-none d-sm-inline">کامنت ها</span>
+                        </a>
+                        <ul class="collapse @if(request()->routeIs('admin.comments.*')) show @endif nav flex-column ms-1 "
+                            id="comments" data-bs-parent="#menu">
+                            <li>
+                                <a href="{{route('admin.comments.index')}}" class="nav-link px-0 text-white"> <span
+                                        class="d-none d-sm-inline">ليست کامنت ها</span> </a>
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul>
                 <hr>

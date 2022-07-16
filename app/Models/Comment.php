@@ -21,7 +21,7 @@ class Comment extends Model
         return $this->belongsTo(Hotel::class);
     }
 
-    public function parent()
+  /*  public function parent()
     {
         return $this->belongsTo(Comment::class, 'comment_id');
     }
@@ -29,5 +29,5 @@ class Comment extends Model
     public function children()
     {
         return $this->hasMany(Comment::class, 'comment_id');
-    }
+    }*/
 }

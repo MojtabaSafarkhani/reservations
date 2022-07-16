@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\admin\CommentController;
+use App\Http\Controllers\client\CommentController as ClientCommentController;
 use App\Http\Controllers\admin\HotelAdminController;
 use App\Http\Controllers\admin\ReserveController;
 use App\Http\Controllers\client\HostReserveController;
@@ -41,7 +42,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->name('payment.callback');
 Route::get('/search', [SearchController::class, 'search']);
-Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel']);
+Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel'])->name('client.hotel.show');
 Route::get('/payment/check/{reserve}', [PaymentController::class, 'checkLink'])->name('payment.check');
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {
@@ -78,11 +79,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/likes', [LikeController::class, 'index'])->name('likes.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/user/reserve', [UserReserveController::class, 'index'])->name('user.reserve.index');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/likes/{hotel}', [LikeController::class, 'store'])->name('likes.store');
     Route::delete('/likes/{hotel}', [LikeController::class, 'destroy'])->name('likes.destroy');
     Route::post('/store-order/{hotel}', [OrderController::class, 'store'])->name('store.order');
-    Route::get('/user/reserve', [UserReserveController::class, 'index'])->name('user.reserve.index');
+    Route::post('/comments/{hotel}', [ClientCommentController::class, 'store'])->name('client.comment.store');
+
 
 });
 

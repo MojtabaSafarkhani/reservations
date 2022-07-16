@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends("admin.layout.main")
 
 @section('content')
 
@@ -21,9 +21,7 @@
                             <td>#</td>
                             <td>نام کاربر</td>
                             <td>نام اقامتگاه</td>
-                        {{--    <td>نام گيرنده</td>--}}
                             <td>نمایش متن</td>
-                            <td>حذف</td>
                         </tr>
                         </thead>
                         <tbody>
@@ -32,7 +30,6 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$comment->user->name}}</td>
                                 <td>{{$comment->hotel->name}}</td>
-                             {{--   <td>@if($comment->parent){{$comment->parent->user->name}}@endif</td>--}}
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#address-{{$key}}">
@@ -55,13 +52,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <form action="{{route('admin.comments.destroy',$comment)}}" method="post">
-                                        @csrf
-                                        @method("DELETE")
-                                        <input type="submit" class="btn btn-danger" value="حذف">
-                                    </form>
-                            </tr>
+
                         @endforeach
                         </tbody>
                     </table>

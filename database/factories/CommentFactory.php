@@ -20,7 +20,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => User::query()->inRandomOrder()->value('id'),
             'hotel_id' => Hotel::query()->inRandomOrder()->where('is_published', 'ok')->value('id'),
-            'comment_id' =>Comment::query()->inRandomOrder()->value('id'),
+            /*'comment_id' =>Comment::query()->inRandomOrder()->value('id'),*/
             'comment' => $this->faker->text(150),
             'rating' => random_int(1, 5),
         ];
