@@ -21,23 +21,23 @@ class HostSeeder extends Seeder
             'phone' => '09392063361',
             'address' => 'تهران پيروزي شاه آبادي',
             'national_code' => '0023208996',
-            'national_card_photo' =>storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'national_card_photo' =>"public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
             'status' => 'ok'
         ]);
         Host::query()->create([
             'user_id' => 3,
             'phone' => '09392063361',
-            'address' => 'تهران پيروزي شاه آبادي',
+            'address' => 'مشهد پيروزي شاه آبادي',
             'national_code' => '0023208997',
-            'national_card_photo' =>storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'national_card_photo' =>"public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
             'status' => 'ok'
         ]);
         Host::query()->create([
             'user_id' => 4,
             'phone' => '09392063361',
-            'address' => 'تهران پيروزي شاه آبادي',
+            'address' => 'شيراز پيروزي شاه آبادي',
             'national_code' => '0023208998',
-            'national_card_photo' =>storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'national_card_photo' =>"public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
             'status' => 'ok'
         ]);
     }

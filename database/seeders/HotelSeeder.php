@@ -29,7 +29,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 128000,
             'capacity' => [1, 2, 3],
-            'license' => storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
 
 
         ]);
@@ -44,7 +44,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 228000,
             'capacity' => [3,4,5],
-            'license' => storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
 
 
         ]);
@@ -57,9 +57,9 @@ class HotelSeeder extends Seeder
             'description' => 'هتل شماره سه یکی از بهترین هتل های ایران است که در سال 1360 ساخته شده است.',
             'address' => 'ايران ',
             'is_published' => 'ok',
-            'cost' => 128000,
+            'cost' => 125000,
             'capacity' => [1, 2, 3,4,5,6,7],
-            'license' =>storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'license' =>"public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
 
 
         ]);
@@ -72,9 +72,99 @@ class HotelSeeder extends Seeder
             'description' => 'هتل شماره چهار یکی از بهترین هتل های ایران است که در سال 1380 ساخته شده است.',
             'address' => 'ايران ',
             'is_published' => 'ok',
-            'cost' => 128000,
+            'cost' => 122000,
             'capacity' => [5,6,7],
-            'license' => storage_path('images/hosts/UrA9GWlJPIC943FvVFmjazdWYEaC7XbOMVslEMD7.jpg'),
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 5',
+            'phone' => '02133256555',
+            'description' => 'هتل شماره 5 یکی از بهترین هتل های ایران است که در سال 1355 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 102000,
+            'capacity' => [4,5,6],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 6',
+            'phone' => '0213325666',
+            'description' => 'هتل شماره 6 یکی از بهترین هتل های ایران است که در سال 1360 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 102000,
+            'capacity' => [1,2,3],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 7',
+            'phone' => '02133256777',
+            'description' => 'هتل شماره 6 یکی از بهترین هتل های ایران است که در سال 1360 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 102000,
+            'capacity' => [1,2,3],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 8',
+            'phone' => '02133256777',
+            'description' => 'هتل شماره 8 یکی از بهترین هتل های ایران است که در سال 1308 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,2,3,4,5],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 9',
+            'phone' => '02133256777',
+            'description' => 'هتل شماره 9 یکی از بهترین هتل های ایران است که در سال 1309 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,2,3,4,5,6,7],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 10',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 10 یکی از بهترین هتل های ایران است که در سال 1310 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,2,3,4,5,6,7],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
 
 
         ]);
