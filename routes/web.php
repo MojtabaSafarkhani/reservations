@@ -40,6 +40,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/homeNew', function () {
+    return view('home1');
+});
 Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->name('payment.callback');
 Route::get('/search', [SearchController::class, 'search']);
 Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel'])->name('client.hotel.show');
