@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\City;
 use App\Models\Slider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->share('sliders', Slider::all());
+        view()->share('cities', City::all());
         Paginator::useBootstrap();
     }
 }

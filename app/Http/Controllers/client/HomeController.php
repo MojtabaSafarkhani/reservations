@@ -14,10 +14,11 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $cities = City::all();
-        $hotels = Hotel::query()->where('is_published', 'ok')->get();
+        $cities = City::query()->orderByDesc('id')->limit(10)->get();
+        $hotels = Hotel::query()->where('is_published', 'ok')
+            ->orderByDesc('id')->limit(10)->get();
 
-        return view('home', [
+        return view('home1', [
             'cities' => $cities,
             'categories' => $categories,
             'hotels' => $hotels,
@@ -26,7 +27,7 @@ class HomeController extends Controller
 
     public function showHotel(Hotel $hotel)
     {
-        if ($hotel->is_published!=='ok') {
+        if ($hotel->is_published !== 'ok') {
 
             abort(403);
         }

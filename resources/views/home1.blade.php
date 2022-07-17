@@ -23,56 +23,29 @@
     }}'>
 
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="image-layer"
-                         style="background-image: url(assets/images/backgrounds/main-slider-1-1.jpg);"></div>
-                    <div class="image-layer-overlay"></div>
-                    <div class="container">
-                        <div class="swiper-slide-inner">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <h2> سفر و ماجرا جویی</h2>
-                                    <p>دوست داری کجا بری؟</p>
+                @foreach($sliders as $slider)
+                    <div class="swiper-slide">
+                        <div class="image-layer"
+                             style="background-image: url({{$slider->image_url}});"></div>
+                        <div class="image-layer-overlay"></div>
+                        <div class="container">
+                            <div class="swiper-slide-inner">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <h2> سفر و ماجرا جویی</h2>
+                                        <p>دوست داری کجا بری؟</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>-->
-                </div>
-                <div class="swiper-slide">
-                    <div class="image-layer"
-                         style="background-image: url(assets/images/backgrounds/main-slider-1-2.jpg);"></div>
-                    <div class="image-layer-overlay"></div>
-                    <div class="container">
-                        <div class="swiper-slide-inner">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <h2> سفر و ماجرا جویی</h2>
-                                    <p>دوست داری کجا بری؟</p>
-                                </div>
-                            </div>
-                        </div>
+                        -->
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="image-layer"
-                         style="background-image: url(assets/images/backgrounds/main-slider-1-3.jpg);"></div>
-                    <div class="image-layer-overlay"></div>
-                    <div class="container">
-                        <div class="swiper-slide-inner">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <h2> سفر و ماجرا جویی</h2>
-                                    <p>دوست داری کجا بری؟</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="main-slider-nav">
 
-                <div class="main-slider-button-next"><span class="icon-right-arrow"></span> </div>
+                <div class="main-slider-button-next"><span class="icon-right-arrow"></span></div>
                 <div class="main-slider-button-prev"><span class="icon-right-arrow"></span></div>
             </div>
         </div>
@@ -117,7 +90,7 @@
         <div class="container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">لیست مقصد</span>
-                <h2 class="section-title__title">به مکانهای عجیب و غریب بروید</h2>
+                <h2 class="section-title__title">به شهرهاي پرطرفدار بروید</h2>
             </div>
             <div class="row masonary-layout">
                 <div class="col-xl-3 col-lg-3">
@@ -207,276 +180,40 @@
     <section class="popular-tours">
         <div class="popular-tours__container">
             <div class="section-title text-center">
-                <span class="section-title__tagline">تورهای ویژه</span>
-                <h2 class="section-title__title">محبوب ترین تورها</h2>
+                <span class="section-title__tagline">اقامتگاه ها</span>
+                <h2 class="section-title__title">
+                    اخيراً
+                    اضافه شده
+                </h2>
             </div>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="popular-tours__carousel owl-theme owl-carousel">
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-1.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
+                        @foreach($hotels as $hotel)
+                            <div class="popular-tours__single">
+                                <div class="popular-tours__img">
+                                    <img
+                                        src="@if($hotel->galleries()->first()){{$hotel->galleries()->first()->image_url}}@else {{asset('assets/images/resources/popular-tours__img-2.jpg')}} @endif"
+                                        alt="">
+                                    {{-- <div class="popular-tours__icon">
+                                         <a href="tour-details.html">
+                                             <i class="fa fa-heart"></i>
+                                         </a>
+                                     </div>--}}
+                                </div>
+                                <div class="popular-tours__content">
+                                    <div class="popular-tours__stars">
+                                        <i class="fa fa-star"></i> 8.0 عالی
+                                    </div>
+                                    <h3 class="popular-tours__title"><a
+                                            href="{{route('client.hotel.show',$hotel)}}">{{$hotel->name}}</a>
+                                    </h3>
+                                    <p class="popular-tours__rate"><span>{{$hotel->cost}} تومان</span> /هر شب</p>
                                 </div>
                             </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-2.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">عمق ساحل را کشف کنید</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-3.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">عمق ساحل را کشف کنید</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-4.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">عمق ساحل را کشف کنید</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-1.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">عمق ساحل را کشف کنید</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-2.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-3.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">عمق ساحل را کشف کنید</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-4.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-1.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-2.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-3.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="popular-tours__single">
-                            <div class="popular-tours__img">
-                                <img src="assets/images/resources/popular-tours__img-4.jpg" alt="">
-                                <div class="popular-tours__icon">
-                                    <a href="tour-details.html">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="popular-tours__content">
-                                <div class="popular-tours__stars">
-                                    <i class="fa fa-star"></i> 8.0 عالی
-                                </div>
-                                <h3 class="popular-tours__title"><a href="tour-details.html">تور 2 روزه پارک ملی</a></h3>
-                                <p class="popular-tours__rate"><span>1800 تومان</span> /هر نفر</p>
-                                <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="tour-details.html">3 روز</a></li>
-                                    <li><a href="tour-details.html">+12 </a></li>
-                                    <li><a href="tour-details.html">لس آنجلس</a></li>
-                                </ul>
-                            </div>
-                        </div>
+
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -502,167 +239,25 @@
         </div>
         <div class="container">
             <div class="section-title text-center">
-                <span class="section-title__tagline">توصیفات و بررسی ها</span>
-                <h2 class="section-title__title">آنچه آنها می گویند</h2>
+                <span class="section-title__tagline">شهر ها</span>
+                <h2 class="section-title__title">محبوب ترين ها </h2>
             </div>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="testimonial-one__carousel owl-theme owl-carousel">
-                        <div class="testimonial-one__single">
+                        @foreach($cities as $city)
+                            <div class="testimonial-one__single">
 
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
+                                <div class="testimonail-one__content">
+
+                                    <h2 class="testimonial-one__text">{{$city->name}}</h2>
+                                    <div class="testimonial-one__client-info">
+                                        <h3 class="testimonial-one__client-name">{{$city->slug}}</h3>
+                                        <p class="testimonial-one__client-title">مُجا</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">شرلی اسمیت</h3>
-                                    <p class="testimonial-one__client-title">مشتری</p>
-                                </div>
-                            </div>
-                        </div>
-
-
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -677,45 +272,41 @@
             <ul class="list-unstyled gallery-one__content clearfix">
                 <li class="wow fadeInUp" data-wow-delay="100ms">
                     <div class="gallery-one__img-box">
-                        <img src="assets/images/gallery/gallery-one-img-1.jpg" alt="">
+                        <img src="assets/images/gallery/hotel.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-1.jpg">مازندران</a>
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-1.jpg">هتل</a>
                         </div>
                     </div>
                 </li>
                 <li class="wow fadeInUp" data-wow-delay="200ms">
                     <div class="gallery-one__img-box">
-                        <img src="assets/images/gallery/gallery-one-img-2.jpg" alt="">
+                        <img src="assets/images/gallery/hostel.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-2.jpg"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-2.jpg">هاستل</a>
                         </div>
                     </div>
                 </li>
                 <li class="wow fadeInUp" data-wow-delay="300ms">
                     <div class="gallery-one__img-box">
-                        <img src="assets/images/gallery/gallery-one-img-3.jpg" alt="">
+                        <img src="assets/images/gallery/apartment.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-3.jpg"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-3.jpg">آپارتمان</a>
                         </div>
                     </div>
                 </li>
                 <li class="wow fadeInUp" data-wow-delay="400ms">
                     <div class="gallery-one__img-box">
-                        <img src="assets/images/gallery/gallery-one-img-4.jpg" alt="">
+                        <img src="assets/images/gallery/cottage-4.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-4.jpg"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-4.jpg">کلبه</a>
                         </div>
                     </div>
                 </li>
                 <li class="wow fadeInUp" data-wow-delay="500ms">
                     <div class="gallery-one__img-box">
-                        <img src="assets/images/gallery/gallery-one-img-5.jpg" alt="">
+                        <img src="assets/images/gallery/villa.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-5.jpg"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a class="img-popup" href="assets/images/gallery/villa.jpg">ويلا</a>
                         </div>
                     </div>
                 </li>
@@ -742,7 +333,7 @@
                     </div>
                     <div class="col-xl-3 col-lg-3">
                         <div class="news-one__top-right">
-                            <a href="news-details.html" class="news-one__btn thm-btn">دیدن همه </a>                            </div>
+                            <a href="news-details.html" class="news-one__btn thm-btn">دیدن همه </a></div>
                     </div>
                 </div>
             </div>
