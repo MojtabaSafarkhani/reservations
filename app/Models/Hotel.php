@@ -62,6 +62,11 @@ class Hotel extends Model
         return $this->hasMany(Order::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function isCapacityExists($value)
     {
         $exists = collect($this->capacity)->contains($value);
@@ -113,5 +118,16 @@ class Hotel extends Model
     public function hasFeatures(Feature $feature)
     {
         return $this->features()->where('feature_id', $feature->id)->exists();
+    }
+
+    public function getHotelRatingAttribute()
+    {
+        $rating = round($this->comments->pluck('rating')->avg(),2);
+
+        if ($rating == 0) {
+            return  'امتیاز ثبت نشده است';
+        }
+
+        return $rating;
     }
 }

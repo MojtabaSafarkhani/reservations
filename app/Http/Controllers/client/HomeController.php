@@ -17,11 +17,28 @@ class HomeController extends Controller
         $cities = City::query()->orderByDesc('id')->limit(10)->get();
         $hotels = Hotel::query()->where('is_published', 'ok')
             ->orderByDesc('id')->limit(10)->get();
+        $mostLikedHotel = Hotel::query()->where('is_published', 'ok')->get();
+
+        $hotelWithMostLiked = [];
+        foreach ($mostLikedHotel as $hotel) {
+
+            if (count($hotelWithMostLiked) < 10) {
+                $hotelWithMostLiked [] = $hotel->hotel_rating > 3.5 ? $hotel : null;
+                $hotelWithMostLiked = array_filter($hotelWithMostLiked, function ($item) {
+
+                    return $item !== null;
+
+                });
+            }
+
+        }
+
 
         return view('home1', [
             'cities' => $cities,
             'categories' => $categories,
             'hotels' => $hotels,
+            'mostLikeHotels' => $hotelWithMostLiked,
         ]);
     }
 

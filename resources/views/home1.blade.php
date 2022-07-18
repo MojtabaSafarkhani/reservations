@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="tour-search-box">
-                        <form class="tour-search-one" action="tour-sidebar.html">
+                        <form class="tour-search-one" action="{{route('client.hotels.search')}}">
                             <div class="tour-search-one__inner">
                                 <div class="tour-search-one__inputs">
                                     <div class="tour-search-one__input-box">
@@ -69,16 +69,20 @@
                                         <input type="text" placeholder="کلید واژه" name="city" id="city">
                                     </div>
                                     <div class="tour-search-one__input-box">
-                                        <label for="category">نام شهر</label>
+                                        <label for="category">نام دسته بندی</label>
                                         <input type="text" placeholder="کلید واژه" name="category" id="category">
                                     </div>
                                 </div>
                                 <div class="tour-search-one__btn-wrap">
                                     <button type="submit" class="thm-btn tour-search-one__btn">پیدا کن</button>
                                 </div>
+
                             </div>
+
                         </form>
                     </div>
+                    @error('error') <span
+                        style="color: red;text-align: center; display: block;margin-top: 10px;">{{$message}}</span> @enderror
                 </div>
             </div>
         </div>
@@ -203,11 +207,57 @@
                                 </div>
                                 <div class="popular-tours__content">
                                     <div class="popular-tours__stars">
-                                        <i class="fa fa-star"></i> 8.0 عالی
+                                        <i class="fa fa-star"></i> {{$hotel->hotel_rating}}
                                     </div>
                                     <h3 class="popular-tours__title"><a
                                             href="{{route('client.hotel.show',$hotel)}}">{{$hotel->name}}</a>
                                     </h3>
+                                    <h5 class="popular-tours__title_city">
+                                        {{$hotel->city->name}}</h5>
+                                    <p class="popular-tours__rate"><span>{{$hotel->cost}} تومان</span> /هر شب</p>
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-tours">
+        <div class="popular-tours__container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">اقامتگاه ها</span>
+                <h2 class="section-title__title">
+                    محبوب ترين ها
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="popular-tours__carousel owl-theme owl-carousel">
+                        @foreach($mostLikeHotels as $hotel)
+                            <div class="popular-tours__single">
+                                <div class="popular-tours__img">
+                                    <img
+                                        src="@if($hotel->galleries()->first()){{$hotel->galleries()->first()->image_url}}@else {{asset('assets/images/resources/popular-tours__img-2.jpg')}} @endif"
+                                        alt="">
+                                    {{-- <div class="popular-tours__icon">
+                                         <a href="tour-details.html">
+                                             <i class="fa fa-heart"></i>
+                                         </a>
+                                     </div>--}}
+                                </div>
+                                <div class="popular-tours__content">
+                                    <div class="popular-tours__stars">
+                                        <i class="fa fa-star"></i> {{$hotel->hotel_rating}}
+                                    </div>
+                                    <h3 class="popular-tours__title"><a
+                                            href="{{route('client.hotel.show',$hotel)}}">{{$hotel->name}}</a>
+                                    </h3>
+                                    <h5 class="popular-tours__title_city">
+                                        {{$hotel->city->name}}</h5>
                                     <p class="popular-tours__rate"><span>{{$hotel->cost}} تومان</span> /هر شب</p>
                                 </div>
                             </div>
