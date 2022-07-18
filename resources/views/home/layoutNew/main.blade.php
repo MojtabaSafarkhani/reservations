@@ -61,20 +61,24 @@
                             <div class="main-menu-wrapper__main-menu">
                                 <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                 <ul class="main-menu__list">
-                                    <li class="dropdown current">
+                                    <li class="dropdown @if(request()->routeIs('home')) current @endif">
                                         <a href="{{route('home')}}">خانه</a>
                                     </li>
                                     @if(auth()->user())
                                         <li class="dropdown">
                                             <a>{{auth()->user()->name}}</a>
                                         </li>
-                                        <li class="dropdown">
+                                        <li class="dropdown @if(request()->routeIs('profile.index')) current @endif">
                                             <a href="{{route('profile.index')}}">پروفايل</a>
                                             @if(auth()->user()->role->title==='host')
                                                 <ul>
                                                     <li><a href="{{route('client.host.index')}}">مشخصات</a></li>
                                                 </ul>
                                             @endif
+                                        </li>
+
+                                        <li class="dropdown @if(request()->routeIs('likes.index')) current @endif">
+                                            <a href="{{route('likes.index')}}">علاقه مندي ها</a>
                                         </li>
                                         @if(auth()->user()->role->hasPermissions('read_dashboard'))
                                             <li class="dropdown">

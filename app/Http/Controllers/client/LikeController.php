@@ -17,9 +17,13 @@ class LikeController extends Controller
 
     public function index()
     {
+        $hotelsIds = auth()->user()->likes->pluck('id');
+
+        $hotels = Hotel::query()->whereIn('id', $hotelsIds)->paginate(6);
+
         return view('client.likes.index', [
 
-            'hotels' => auth()->user()->likes,
+            'hotels' => $hotels,
 
         ]);
     }

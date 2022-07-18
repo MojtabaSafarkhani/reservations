@@ -54,4 +54,9 @@ class HomeController extends Controller
         ]);
 
     }
+
+    public function categoryShowAll(Request $request)
+    {
+
+    }
 }

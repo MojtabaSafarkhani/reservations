@@ -47,6 +47,7 @@ Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->n
 Route::get('/search', [SearchController::class, 'search'])->name('client.hotels.search');
 Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel'])->name('client.hotel.show');
 Route::get('/payment/check/{reserve}', [PaymentController::class, 'checkLink'])->name('payment.check');
+Route::get('/{category}',[HomeController::class,'categoryShowAll'])->name('category.show.all');
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {
 
