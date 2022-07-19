@@ -9,6 +9,7 @@ use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
+
 class HomeController extends Controller
 {
     public function index()
@@ -55,8 +56,32 @@ class HomeController extends Controller
 
     }
 
-    public function categoryShowAll(Request $request)
+    public function categoryShowAll(Category $category)
     {
+
+
+        $hotels = $category->hotels()->paginate(6);
+
+        return view('client.showAll.categories.index', [
+            'hotels' => $hotels,
+            'category' => $category,
+        ]);
+
+    }
+
+    public function CityShowAll(City $city)
+    {
+
+
+        $ids = $city->where('city_id', $city->id)->orWhere('id', $city->id)->pluck('id');
+
+        $hotels = Hotel::query()->whereIn('city_id', $ids)->paginate(6);
+
+        return view('client.showAll.cities.index', [
+            'hotels' => $hotels,
+            'city' => $city,
+        ]);
+
 
     }
 }

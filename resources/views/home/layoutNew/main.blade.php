@@ -6,45 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> رزرو اقامتگاه</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/Moja.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/Moja.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/Moja.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/Moja.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/Moja.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/Moja.png"/>
 
     <meta name="description" content="Tevily HTML Template For Tour"/>
 
     <!-- fonts -->
 
 
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css"/>
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css"/>
-    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css"/>
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css"/>
-    <link rel="stylesheet" href="assets/vendors/odometer/odometer.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/tevily-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/reey-font/stylesheet.css"/>
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/twentytwenty/twentytwenty.css"/>
-    <link rel="stylesheet" href="assets/vendors/bxslider/jquery.bxslider.css"/>
-    <link rel="stylesheet" href="assets/vendors/bootstrap-select/css/bootstrap-select.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/vegas/vegas.min.css"/>
-    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css"/>
-    <link rel="stylesheet" href="assets/vendors/timepicker/timePicker.css"/>
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/animate/animate.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/animate/custom-animate.css"/>
+    <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/jarallax/jarallax.css"/>
+    <link rel="stylesheet" href="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css"/>
+    <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.pips.css"/>
+    <link rel="stylesheet" href="/assets/vendors/odometer/odometer.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/swiper/swiper.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/tevily-icons/style.css">
+    <link rel="stylesheet" href="/assets/vendors/tiny-slider/tiny-slider.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/reey-font/stylesheet.css"/>
+    <link rel="stylesheet" href="/assets/vendors/owl-carousel/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/owl-carousel/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/twentytwenty/twentytwenty.css"/>
+    <link rel="stylesheet" href="/assets/vendors/bxslider/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="/assets/vendors/bootstrap-select/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/vegas/vegas.min.css"/>
+    <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.css"/>
+    <link rel="stylesheet" href="/assets/vendors/timepicker/timePicker.css"/>
 
     <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/tevily.css"/>
-    <link rel="stylesheet" href="assets/css/tevily-responsive.css"/>
+    <link rel="stylesheet" href="/assets/css/tevily.css"/>
+    <link rel="stylesheet" href="/assets/css/tevily-responsive.css"/>
 </head>
 
 <body>
 <div class="preloader">
-    <img class="preloader__image" width="60" src="assets/images/favicons/Moja.png" alt=""/>
+    <img class="preloader__image" width="60" src="/assets/images/favicons/Moja.png" alt=""/>
 </div>
 <!-- /.preloader -->
 <div class="page-wrapper">
@@ -56,7 +56,7 @@
                     <div class="main-menu-wrapper-inner clearfix">
                         <div class="main-menu-wrapper__left clearfix">
                             <div class="main-menu-wrapper__logo">
-                                <a href="{{route('home')}}"><img src="assets/images/favicons/Moja.png" alt=""></a>
+                                <a href="{{route('home')}}"><img src="/assets/images/favicons/Moja.png" alt=""></a>
                             </div>
                             <div class="main-menu-wrapper__main-menu">
                                 <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
@@ -132,7 +132,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                             <div class="footer-widget__column footer-widget__about">
                                 <div class="footer-widget__about-logo">
-                                    <a href="index.html"><img src="assets/images/favicons/Moja-bac-tosi.png"
+                                    <a href="index.html"><img src="/assets/images/favicons/Moja-bac-tosi.png"
                                                               alt=""></a>
                                 </div>
                                 <p class="footer-widget__about-text">به آژانس سفر و تور ما خوش آمدید. لورم به سادگی متن
@@ -221,7 +221,7 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-2.png" width="155"
+            <a href="index.html" aria-label="logo image"><img src="/assets/images/resources/logo-2.png" width="155"
                                                               alt=""/></a>
         </div>
         <!-- /.logo-box -->
@@ -257,36 +257,36 @@
 <!-- /.search-popup -->
 
 
-<script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
-<script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendors/jarallax/jarallax.min.js"></script>
-<script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-<script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-<script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-<script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-<script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-<script src="assets/vendors/nouislider/nouislider.min.js"></script>
-<script src="assets/vendors/odometer/odometer.min.js"></script>
-<script src="assets/vendors/swiper/swiper.min.js"></script>
-<script src="assets/vendors/tiny-slider/tiny-slider.min.js"></script>
-<script src="assets/vendors/wnumb/wNumb.min.js"></script>
-<script src="assets/vendors/wow/wow.js"></script>
-<script src="assets/vendors/isotope/isotope.js"></script>
-<script src="assets/vendors/countdown/countdown.min.js"></script>
-<script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-<script src="assets/vendors/twentytwenty/twentytwenty.js"></script>
-<script src="assets/vendors/twentytwenty/jquery.event.move.js"></script>
-<script src="assets/vendors/bxslider/jquery.bxslider.min.js"></script>
-<script src="assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-<script src="assets/vendors/vegas/vegas.min.js"></script>
-<script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
-<script src="assets/vendors/timepicker/timePicker.js"></script>
-<script src="assets/vendors/bootstrap-datepicker.min.js"></script>
-<script src="assets/vendors/bootstrap-datepicker.fa.min.js"></script>
+<script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendors/jarallax/jarallax.min.js"></script>
+<script src="/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="/assets/vendors/nouislider/nouislider.min.js"></script>
+<script src="/assets/vendors/odometer/odometer.min.js"></script>
+<script src="/assets/vendors/swiper/swiper.min.js"></script>
+<script src="/assets/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="/assets/vendors/wnumb/wNumb.min.js"></script>
+<script src="/assets/vendors/wow/wow.js"></script>
+<script src="/assets/vendors/isotope/isotope.js"></script>
+<script src="/assets/vendors/countdown/countdown.min.js"></script>
+<script src="/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="/assets/vendors/twentytwenty/twentytwenty.js"></script>
+<script src="/assets/vendors/twentytwenty/jquery.event.move.js"></script>
+<script src="/assets/vendors/bxslider/jquery.bxslider.min.js"></script>
+<script src="/assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="/assets/vendors/vegas/vegas.min.js"></script>
+<script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="/assets/vendors/timepicker/timePicker.js"></script>
+<script src="/assets/vendors/bootstrap-datepicker.min.js"></script>
+<script src="/assets/vendors/bootstrap-datepicker.fa.min.js"></script>
 
 
 <!-- template js -->
-<script src="assets/js/tevily.js"></script>
+<script src="/assets/js/tevily.js"></script>
 </body>
 
 </html>

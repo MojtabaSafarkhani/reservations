@@ -299,10 +299,12 @@
                             <div class="testimonial-one__single">
 
                                 <div class="testimonail-one__content">
-
-                                    <h2 class="testimonial-one__text">{{$city->name}}</h2>
+                                    <a href="{{route('city.show.all',$city)}}">
+                                        <h2 class="testimonial-one__text">{{$city->name}}</h2>
+                                    </a>
                                     <div class="testimonial-one__client-info">
-                                        <h3 class="testimonial-one__client-name">{{$city->slug}}</h3>
+                                        <a href="{{route('city.show.all',$city)}}"><h3
+                                                class="testimonial-one__client-name">{{$city->slug}}</h3></a>
                                         <p class="testimonial-one__client-title">مُجا</p>
                                     </div>
                                 </div>
@@ -324,7 +326,7 @@
                     <div class="gallery-one__img-box">
                         <img src="assets/images/gallery/hotel.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-1.jpg">هتل</a>
+                            <a href="{{route('category.show.all',['category'=>'hotel'])}}">هتل</a>
                         </div>
                     </div>
                 </li>
@@ -332,7 +334,7 @@
                     <div class="gallery-one__img-box">
                         <img src="assets/images/gallery/hostel.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-2.jpg">هاستل</a>
+                            <a href="{{route('category.show.all',['category'=>'hostel'])}}">هاستل</a>
                         </div>
                     </div>
                 </li>
@@ -340,7 +342,7 @@
                     <div class="gallery-one__img-box">
                         <img src="assets/images/gallery/apartment.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-3.jpg">آپارتمان</a>
+                            <a href="{{route('category.show.all',['category'=>'apartment'])}}">آپارتمان</a>
                         </div>
                     </div>
                 </li>
@@ -348,7 +350,7 @@
                     <div class="gallery-one__img-box">
                         <img src="assets/images/gallery/cottage-4.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-4.jpg">کلبه</a>
+                            <a href="{{route('category.show.all',['category'=>'cottage'])}}">کلبه</a>
                         </div>
                     </div>
                 </li>
@@ -356,7 +358,7 @@
                     <div class="gallery-one__img-box">
                         <img src="assets/images/gallery/villa.jpg" alt="">
                         <div class="gallery-one__iocn">
-                            <a class="img-popup" href="assets/images/gallery/villa.jpg">ويلا</a>
+                            <a href="{{route('category.show.all',['category'=>'villa'])}}">ويلا</a>
                         </div>
                     </div>
                 </li>
