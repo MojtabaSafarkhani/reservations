@@ -22,8 +22,8 @@ class CitySeeder extends Seeder
         ]);
         City::query()->insert([
 
-            'name'=>'شيراز',
-            'slug'=>'shiraz',
+            'name'=>'همدان',
+            'slug'=>'hamedan',
 
         ]);
         City::query()->insert([
@@ -61,8 +61,8 @@ class CitySeeder extends Seeder
         ]);
         City::query()->insert([
 
-            'name'=>'مشهد',
-            'slug'=>'mashhad',
+            'name'=>'اصفهان',
+            'slug'=>'esfahan',
 
         ]);
 

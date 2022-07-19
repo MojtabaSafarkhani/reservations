@@ -93,20 +93,18 @@
     <section class="destinations-one">
         <div class="container">
             <div class="section-title text-center">
-                <span class="section-title__tagline">لیست مقصد</span>
-                <h2 class="section-title__title">به شهرهاي پرطرفدار بروید</h2>
+                <span class="section-title__tagline"> لیست مقصد ها</span>
+                <h2 class="section-title__title">جذاب ترين شهرها</h2>
             </div>
             <div class="row masonary-layout">
                 <div class="col-xl-3 col-lg-3">
                     <div class="destinations-one__single">
                         <div class="destinations-one__img">
-                            <img src="assets/images/destination/destination-1-1.png" alt="">
+                            <img src="assets/images/destination/tehran.jpg" alt="">
                             <div class="destinations-one__content">
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">اسپانیا</a>
+                                <h2 class="destinations-one__title"><a
+                                        href="{{route('city.show.all',['city'=>'tehran'])}}">تهران</a>
                                 </h2>
-                            </div>
-                            <div class="destinations-one__button">
-                                <a href="#">6 تور</a>
                             </div>
                         </div>
                     </div>
@@ -114,28 +112,24 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="destinations-one__single">
                         <div class="destinations-one__img">
-                            <img src="assets/images/destination/destination-1-2.png" alt="">
+                            <img src="assets/images/destination/mazandaran.jpg" alt="">
                             <div class="destinations-one__content">
-                                <p class="destinations-one__sub-title">حیات وحش</p>
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">اسپانیا</a>
+                                <h2 class="destinations-one__title"><a
+                                        href="{{route('city.show.all',['city'=>'mazandaran'])}}">مازندران</a>
                                 </h2>
                             </div>
-                            <div class="destinations-one__button">
-                                <a href="#">6 تور</a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3">
                     <div class="destinations-one__single">
                         <div class="destinations-one__img">
-                            <img src="assets/images/destination/destination-1-3.png" alt="">
+                            <img src="assets/images/destination/hamedan.jpg" alt="">
                             <div class="destinations-one__content">
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">اسپانیا</a>
+                                <h2 class="destinations-one__title"><a
+                                        href="{{route('city.show.all',['city'=>'hamedan'])}}">همدان</a>
                                 </h2>
-                            </div>
-                            <div class="destinations-one__button">
-                                <a href="#">6 تور</a>
                             </div>
                         </div>
                     </div>
@@ -144,13 +138,10 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="destinations-one__single">
                         <div class="destinations-one__img">
-                            <img src="assets/images/destination/destination-1-4.png" alt="">
+                            <img src="assets/images/destination/Rasht.jpg" alt="">
                             <div class="destinations-one__content">
                                 <h2 class="destinations-one__title"><a
-                                        href="destinations-details.html">اسپانیا</a></h2>
-                            </div>
-                            <div class="destinations-one__button">
-                                <a href="#">6 تور</a>
+                                        href="{{route('city.show.all',['city'=>'rasht'])}}">رشت</a></h2>
                             </div>
                         </div>
                     </div>
@@ -158,14 +149,10 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="destinations-one__single">
                         <div class="destinations-one__img">
-                            <img src="assets/images/destination/destination-1-5.png" alt="">
+                            <img src="assets/images/destination/esfahan.jpg" alt="">
                             <div class="destinations-one__content">
-                                <p class="destinations-one__sub-title">حیات وحش</p>
                                 <h2 class="destinations-one__title"><a
-                                        href="destinations-details.html">اسپانیا</a></h2>
-                            </div>
-                            <div class="destinations-one__button">
-                                <a href="#">6 تور</a>
+                                        href="{{route('city.show.all',['city'=>'esfahan'])}}">اصفهان</a></h2>
                             </div>
                         </div>
                     </div>
@@ -179,7 +166,9 @@
     <!--About One Start-->
 
     <!--About One End-->
-
+    <br>
+    <br>
+    <br>
     <!--Popular Tours Start-->
     <section class="popular-tours">
         <div class="popular-tours__container">
