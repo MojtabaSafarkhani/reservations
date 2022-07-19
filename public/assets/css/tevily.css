@@ -1859,6 +1859,8 @@ ul {
     border-radius: var(--thm-border-radius);
     transform: scale(1);
     transition: transform 500ms ease;
+    height: 15vw;
+    object-fit: cover
 }
 
 .destinations-one__single:hover .destinations-one__img img {
