@@ -2233,6 +2233,7 @@ ul {
     margin-top: 4px;
     margin-bottom: 7px;
 }
+
 .popular-tours__title_city {
     font-size: 16px;
     font-weight: 700;
@@ -6141,7 +6142,7 @@ ul {
     float: left;
 }
 
-.tour-details__bottom-right a {
+.tour-details__bottom-right button {
     position: relative;
     display: inline-block;
     background-color: #faf5ee;
@@ -6154,13 +6155,18 @@ ul {
     transition: all 500ms ease;
 }
 
-.tour-details__bottom-right a i {
+.tour-details__bottom-right button i {
     padding-left: 10px;
 }
 
-.tour-details__bottom-right a:hover {
+.tour-details__bottom-right button:hover {
     color: var(--thm-base);
     background-color: var(--thm-primary);
+}
+
+.like button {
+    background-color: red;
+    font-weight: bolder;!important;
 }
 
 /*--------------------------------------------------------------
@@ -6581,7 +6587,11 @@ ul {
 
 
 .tour-details__review-comment-top-img img {
+    width: 100%;
     border-radius: 50%;
+    height: 5vw;
+    object-fit: cover;
+
 }
 
 .tour-details__review-comment-top-content {

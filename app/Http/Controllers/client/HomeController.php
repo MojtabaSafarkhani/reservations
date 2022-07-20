@@ -56,6 +56,19 @@ class HomeController extends Controller
 
     }
 
+    public function showNew(Hotel $hotel)
+    {
+        if ($hotel->is_published !== 'ok') {
+
+            abort(403);
+        }
+
+        return view('client.hotels.show1', [
+            'hotel' => $hotel
+        ]);
+
+    }
+
     public function categoryShowAll(Category $category)
     {
 

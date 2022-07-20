@@ -256,7 +256,7 @@
 
 <!-- /.search-popup -->
 
-
+@yield('script')
 <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
 <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendors/jarallax/jarallax.min.js"></script>

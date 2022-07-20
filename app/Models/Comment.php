@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,13 +23,19 @@ class Comment extends Model
         return $this->belongsTo(Hotel::class);
     }
 
-  /*  public function parent()
+    public function getDateInPersianAttribute()
     {
-        return $this->belongsTo(Comment::class, 'comment_id');
+        $persianDate = $this->created_at->toJalali();
+        return $persianDate->format('%d - %B - %Y');
     }
 
-    public function children()
-    {
-        return $this->hasMany(Comment::class, 'comment_id');
-    }*/
+    /*  public function parent()
+      {
+          return $this->belongsTo(Comment::class, 'comment_id');
+      }
+
+      public function children()
+      {
+          return $this->hasMany(Comment::class, 'comment_id');
+      }*/
 }

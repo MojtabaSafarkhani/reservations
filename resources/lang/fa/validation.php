@@ -172,7 +172,7 @@ return array(
         'percent' => 'درصد',
         'images' => 'تصویر',
         'userName' => 'نام کاربری',
-        'comment' => 'متن نظرات شما',
+        'comment' => 'پیام',
         'coupon' => 'کد تخفیف',
         'amount' => 'مقدار تخفیف',
         'expire' => 'زمان تخفیف',
@@ -186,11 +186,12 @@ return array(
         'national_code' => 'کد ملي',
         'national_card_photo' => 'عکس کارت ملي',
         'cost' => 'مبلغ',
-        'capacity'=>'ظرفيت',
-        'capacity.*'=>'ظرفيت',
-        'license'=>'مجوز',
-        'check_in'=>'روز ورود',
-        'check_out'=>'روز خروج',
-        'total_person'=>'تعداد نفرات'
+        'capacity' => 'ظرفيت',
+        'capacity.*' => 'ظرفيت',
+        'license' => 'مجوز',
+        'check_in' => 'روز ورود',
+        'check_out' => 'روز خروج',
+        'total_person' => 'تعداد نفرات',
+        'rating' => 'امتياز'
     ),
 );
