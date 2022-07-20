@@ -32,13 +32,15 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> سفر و ماجرا جویی</h2>
-                                        <p>دوست داری کجا بری؟</p>
+                                        <a href="{{route('city.show.all',['city'=>$slider->link])}}">
+                                            <h2> سفر و ماجرا جویی</h2>
+                                            <p>دوست داری کجا بری؟</p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        -->
+
                     </div>
                 @endforeach
             </div>
@@ -354,109 +356,8 @@
             </ul>
         </div>
     </section>
-    <!--Gallery Oned End-->
 
 
-    <!--Why Choose End-->
-
-    <!--News One Start-->
-    <section class="news-one">
-        <div class="container">
-            <div class="news-one__top">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-9">
-                        <div class="news-one__top-left">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">از پست وبلاگ</span>
-                                <h2 class="section-title__title">اخبار و مقالات</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3">
-                        <div class="news-one__top-right">
-                            <a href="news-details.html" class="news-one__btn thm-btn">دیدن همه </a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="news-one__bottom">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                        <!--News One Single-->
-                        <div class="news-one__single">
-                            <div class="news-one__img">
-                                <img src="assets/images/blog/news-one-img-1.jpg" alt="">
-                                <a href="news-details.html">
-                                    <span class="news-one__plus"></span>
-                                </a>
-                                <div class="news-one__date">
-                                    <p>28 <br> <span>مرداد</span></p>
-                                </div>
-                            </div>
-                            <div class="news-one__content">
-                                <ul class="list-unstyled news-one__meta">
-                                    <li><a href="news-details.html"><i class="far fa-user-circle"></i>مدیر</a></li>
-                                    <li><a href="news-details.html"><i class="far fa-comments"></i>2 نظر</a>
-                                    </li>
-                                </ul>
-                                <h3 class="news-one__title">
-                                    <a href="news-details.html">سفر به زیباترین مکانهای جهان</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                        <!--News One Single-->
-                        <div class="news-one__single">
-                            <div class="news-one__img">
-                                <img src="assets/images/blog/news-one-img-2.jpg" alt="">
-                                <a href="news-details.html">
-                                    <span class="news-one__plus"></span>
-                                </a>
-                                <div class="news-one__date">
-                                    <p>28 <br> <span>مرداد</span></p>
-                                </div>
-                            </div>
-                            <div class="news-one__content">
-                                <ul class="list-unstyled news-one__meta">
-                                    <li><a href="news-details.html"><i class="far fa-user-circle"></i>مدیر</a></li>
-                                    <li><a href="news-details.html"><i class="far fa-comments"></i>2 نظر</a>
-                                    </li>
-                                </ul>
-                                <h3 class="news-one__title">
-                                    <a href="news-details.html">سفر به زیباترین مکانهای جهان</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                        <!--News One Single-->
-                        <div class="news-one__single">
-                            <div class="news-one__img">
-                                <img src="assets/images/blog/news-one-img-3.jpg" alt="">
-                                <a href="news-details.html">
-                                    <span class="news-one__plus"></span>
-                                </a>
-                                <div class="news-one__date">
-                                    <p>28 <br> <span>مرداد</span></p>
-                                </div>
-                            </div>
-                            <div class="news-one__content">
-                                <ul class="list-unstyled news-one__meta">
-                                    <li><a href="news-details.html"><i class="far fa-user-circle"></i>مدیر</a></li>
-                                    <li><a href="news-details.html"><i class="far fa-comments"></i>2 نظر</a>
-                                    </li>
-                                </ul>
-                                <h3 class="news-one__title">
-                                    <a href="news-details.html">سفر به زیباترین مکانهای جهان</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--News One End-->
 
 
 @endsection
