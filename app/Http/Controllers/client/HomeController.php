@@ -62,9 +62,11 @@ class HomeController extends Controller
 
             abort(403);
         }
+        $hotelsInSameCategory = $this->getHotelsInSameCategory($hotel);
 
         return view('client.hotels.show1', [
-            'hotel' => $hotel
+            'hotel' => $hotel,
+            'hotelsInSameCategory' => $hotelsInSameCategory,
         ]);
 
     }
@@ -96,5 +98,16 @@ class HomeController extends Controller
         ]);
 
 
+    }
+
+    /**
+     * @param Hotel $hotel
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getHotelsInSameCategory(Hotel $hotel)
+    {
+        return Hotel::query()
+            ->where('id', '!=', $hotel->id)
+            ->where('category_id', $hotel->category_id)->take(3)->get();
     }
 }

@@ -6166,7 +6166,8 @@ ul {
 
 .like button {
     background-color: red;
-    font-weight: bolder;!important;
+    font-weight: bolder;
+!important;
 }
 
 /*--------------------------------------------------------------
@@ -7011,11 +7012,16 @@ ul {
 
 .tour-details-two__last-minute-image img {
     border-radius: var(--thm-border-radius);
+    width: 65px;
+    height: 3vw;
+    object-fit: cover;
+
 }
 
 .tour-details-two__last-minute-content {
     position: relative;
     top: -6px;
+
 }
 
 .tour-details-two__last-minute-content h6 {
@@ -7684,4 +7690,18 @@ ul {
     flex-wrap: wrap;
     align-items: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
+}
+
+.message_error {
+    font-size: 12px;
+    padding: 5px;
+}
+
+.alert_message_client {
+    font-size: 12px;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    z-index: 9999;
+    border-radius: 0px;
 }
