@@ -16,20 +16,24 @@ class CategorySeeder extends Seeder
     {
         Category::query()->insert([
             [
-                'title'=>'هتل',
-                'slug'=>'hotel',
+                'title' => 'هتل',
+                'slug' => 'hotel',
             ],
             [
-                'title'=>'هاستل',
-                'slug'=>'hostel',
+                'title' => 'هاستل',
+                'slug' => 'hostel',
             ],
             [
-                'title'=>'آپارتمان',
-                'slug'=>'apartment',
+                'title' => 'آپارتمان',
+                'slug' => 'apartment',
             ],
             [
-                'title'=>'کلبه',
-                'slug'=>'cottage',
+                'title' => 'کلبه',
+                'slug' => 'cottage',
+            ],
+            [
+                'title' => 'ويلا',
+                'slug' => 'villa',
             ],
 
         ]);

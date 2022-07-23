@@ -37,7 +37,7 @@ class HotelController extends Controller
     {
         return view('client.hotels.create', [
             'categories' => Category::all(),
-            'cities' => City::all(),
+            'cities' => City::query()->where('city_id', '!=', null)->get(),
         ]);
     }
 

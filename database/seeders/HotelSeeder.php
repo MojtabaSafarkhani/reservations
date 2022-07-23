@@ -20,7 +20,7 @@ class HotelSeeder extends Seeder
     {
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره یک',
             'phone' => '02133256710',
@@ -35,7 +35,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره دو',
             'phone' => '02133256720',
@@ -50,7 +50,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره سه',
             'phone' => '02133256710',
@@ -65,7 +65,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره چهار',
             'phone' => '02133256710',
@@ -80,7 +80,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره 5',
             'phone' => '02133256555',
@@ -95,7 +95,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره 6',
             'phone' => '0213325666',
@@ -110,11 +110,11 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره 7',
             'phone' => '02133256777',
-            'description' => 'هتل شماره 6 یکی از بهترین هتل های ایران است که در سال 1360 ساخته شده است.',
+            'description' => 'هتل شماره 7 یکی از بهترین هتل های ایران است که در سال 1360 ساخته شده است.',
             'address' => 'ايران ',
             'is_published' => 'ok',
             'cost' => 102000,
@@ -125,7 +125,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره 8',
             'phone' => '02133256777',
@@ -140,7 +140,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره 9',
             'phone' => '02133256777',
@@ -155,7 +155,7 @@ class HotelSeeder extends Seeder
         ]);
         Hotel::query()->create([
             'host_id' => Host::query()->inRandomOrder()->value('id'),
-            'city_id' => City::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'name' => 'هتل شماره 10',
             'phone' => '02133256101',
@@ -164,6 +164,96 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2,3,4,5,6,7],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 11',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 11 یکی از بهترین هتل های ایران است که در سال 1311 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,2,3],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 12',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 12 یکی از بهترین هتل های ایران است که در سال 1312 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,4,5],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 13',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 13 یکی از بهترین هتل های ایران است که در سال 1313 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,2],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 14',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 14 یکی از بهترین هتل های ایران است که در سال 1314 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,2],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 15',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 15 یکی از بهترین هتل های ایران است که در سال 1351 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,3,4],
+            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+
+
+        ]);
+        Hotel::query()->create([
+            'host_id' => Host::query()->inRandomOrder()->value('id'),
+            'city_id' => City::query()->where('city_id', '!=', null)->inRandomOrder()->value('id'),
+            'category_id' => Category::query()->inRandomOrder()->value('id'),
+            'name' => 'هتل شماره 16',
+            'phone' => '02133256101',
+            'description' => 'هتل شماره 16 یکی از بهترین هتل های ایران است که در سال 1316 ساخته شده است.',
+            'address' => 'ايران ',
+            'is_published' => 'ok',
+            'cost' => 108000,
+            'capacity' => [1,6,7],
             'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
 
 

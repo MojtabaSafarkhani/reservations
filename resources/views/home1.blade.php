@@ -143,7 +143,7 @@
                             <img src="assets/images/destination/Rasht.jpg" alt="">
                             <div class="destinations-one__content">
                                 <h2 class="destinations-one__title"><a
-                                        href="{{route('city.show.all',['city'=>'rasht'])}}">رشت</a></h2>
+                                        href="{{route('city.show.all',['city'=>'gilan'])}}">گيلان</a></h2>
                             </div>
                         </div>
                     </div>

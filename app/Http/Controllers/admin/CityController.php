@@ -14,7 +14,7 @@ class CityController extends Controller
     {
         return view('admin.cities.index', [
 
-            'cities' => City::all(),
+            'cities' => City::query()->paginate(6),
 
         ]);
     }
@@ -48,7 +48,7 @@ class CityController extends Controller
     {
         return view('admin.cities.edit', [
 
-            'cities' => City::all(),
+            'cities' => City::query()->where('city_id', null)->get(),
             'city' => $city,
         ]);
     }

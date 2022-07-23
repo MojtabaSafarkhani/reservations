@@ -50,5 +50,5 @@
 
         </div>
     </div>
-
+{{$cities->links()}}
 @endsection

@@ -48,8 +48,15 @@ class CitySeeder extends Seeder
         ]);
         City::query()->insert([
 
+            'name'=>'گيلان',
+            'slug'=>'gilan',
+
+        ]);
+        City::query()->insert([
+
             'name'=>'رشت',
-            'slug'=>'Rasht',
+            'slug'=>'rasht',
+            'city_id'=>6
 
         ]);
         City::query()->insert([
@@ -63,6 +70,47 @@ class CitySeeder extends Seeder
 
             'name'=>'اصفهان',
             'slug'=>'esfahan',
+
+        ]);
+        City::query()->insert([
+
+            'name'=>'تهران',
+            'slug'=>'city-tehran',
+            'city_id'=>1,
+
+        ]);
+        City::query()->insert([
+
+            'name'=>'همدان',
+            'slug'=>'city-hamedan',
+            'city_id'=>2,
+
+        ]);
+        City::query()->insert([
+
+            'name'=>'اصفهان',
+            'slug'=>'city-esfahan',
+            'city_id'=>9,
+
+        ]);
+        City::query()->insert([
+
+            'name'=>'ساري',
+            'slug'=>'sari',
+            'city_id'=>3,
+
+        ]);
+        City::query()->insert([
+
+            'name'=>'لرستان',
+            'slug'=>'lorestan',
+
+        ]);
+        City::query()->insert([
+
+            'name'=>'خرم آباد',
+            'slug'=>'khoramabad',
+            'city_id'=>14,
 
         ]);
 
