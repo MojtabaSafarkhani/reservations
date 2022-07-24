@@ -68,7 +68,7 @@
   content: "\e90d";
 }
 .icon-clock:before {
-  content: "\e90e";
+  content: "\260E";
 }
 .icon-place:before {
   content: "\e90f";
@@ -77,5 +77,5 @@
   content: "\e910";
 }
 .icon-plane:before {
-  content: "\e911";
+  content: "\1F5DF";
 }

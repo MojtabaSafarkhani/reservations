@@ -29,10 +29,10 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$feature->title}}</td>
-                            <td><img src="{{$feature->image_url}}"  width="30px"></td>
+                            <td><img src="{{$feature->image_url}}" width="30px"></td>
 
                             <td>
-                                <a href="{{route('features.edit',$feature)}}"  class="btn btn-success">ويرايش</a>
+                                <a href="{{route('features.edit',$feature)}}" class="btn btn-success">ويرايش</a>
                             </td>
                             <td>
                                 <form action="{{route('features.destroy',$feature)}}" method="post">
@@ -49,5 +49,5 @@
 
         </div>
     </div>
-
+    {{$features->links()}}
 @endsection

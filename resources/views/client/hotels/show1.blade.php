@@ -158,6 +158,7 @@
                                                         <div class="text">
                                                             <p>{{$feature->title}}
                                                                 <img
+                                                                    style="margin-right: 10px;margin-top: 7px;"
                                                                     src="{{str_replace('public','/storage',$feature->image)}}"
                                                                     alt=""
                                                                     width="25px">

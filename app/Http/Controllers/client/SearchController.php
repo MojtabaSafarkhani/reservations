@@ -24,7 +24,7 @@ class SearchController extends Controller
 
 
                 $ids = $cityCollect->towns->pluck('id');
-                
+
                 $hotels = Hotel::query()->where('is_published', 'ok')
                     ->join('cities', 'hotels.city_id', '=', 'cities.id')
                     ->join('categories', 'hotels.category_id', '=', 'categories.id')

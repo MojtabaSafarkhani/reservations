@@ -15,7 +15,7 @@ class FeatureController extends Controller
     {
         return view('admin.features.index', [
 
-            'features' => Feature::all(),
+            'features' => Feature::query()->paginate(4),
 
         ]);
     }

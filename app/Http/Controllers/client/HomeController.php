@@ -15,25 +15,13 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $cities = City::query()->orderByDesc('id')->limit(10)->get();
+
+        $cities = City::query()->where('city_id', '=', null)->limit(10)->get();
+
         $hotels = Hotel::query()->where('is_published', 'ok')
             ->orderByDesc('id')->limit(10)->get();
-        $mostLikedHotel = Hotel::query()->where('is_published', 'ok')->get();
 
-        $hotelWithMostLiked = [];
-        foreach ($mostLikedHotel as $hotel) {
-
-            if (count($hotelWithMostLiked) < 10) {
-                $hotelWithMostLiked [] = $hotel->hotel_rating > 3.5 ? $hotel : null;
-                $hotelWithMostLiked = array_filter($hotelWithMostLiked, function ($item) {
-
-                    return $item !== null;
-
-                });
-            }
-
-        }
-
+        $hotelWithMostLiked = $this->getHotelWithMostLiked();
 
         return view('home1', [
             'cities' => $cities,
@@ -109,5 +97,29 @@ class HomeController extends Controller
         return Hotel::query()
             ->where('id', '!=', $hotel->id)
             ->where('category_id', $hotel->category_id)->take(3)->get();
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function getHotelWithMostLiked(): \Illuminate\Support\Collection
+    {
+        $mostLikedHotel = Hotel::query()->where('is_published', 'ok')->get();
+
+        $hotelWithMostLiked = [];
+        foreach ($mostLikedHotel as $hotel) {
+
+            if (count($hotelWithMostLiked) < 10) {
+                $hotelWithMostLiked [] = $hotel->hotel_rating > 3.5 ? $hotel : null;
+                $hotelWithMostLiked = array_filter($hotelWithMostLiked, function ($item) {
+
+                    return $item !== null;
+
+                });
+
+            }
+        }
+        $hotelWithMostLiked = collect($hotelWithMostLiked)->sortBy('hotel_rating', SORT_DESC, true);
+        return $hotelWithMostLiked;
     }
 }

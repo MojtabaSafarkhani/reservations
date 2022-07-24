@@ -14,13 +14,14 @@ class Hotel extends Model
 
     protected $guarded = [];
 
+
     protected $casts = [
 
         'capacity' => 'array',
 
     ];
 
-    protected $appends = ['status_translate'];
+    protected $appends = ['status_translate', 'hotel_rating'];
 
     public function getRouteKeyName()
     {
@@ -122,10 +123,10 @@ class Hotel extends Model
 
     public function getHotelRatingAttribute()
     {
-        $rating = round($this->comments->pluck('rating')->avg(),2);
+        $rating = round($this->comments->pluck('rating')->avg(), 2);
 
         if ($rating == 0) {
-            return  'امتیاز ثبت نشده است';
+            return 'امتیاز ثبت نشده است';
         }
 
         return $rating;
