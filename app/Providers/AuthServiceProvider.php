@@ -6,6 +6,7 @@ use App\Models\Hotel;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -48,6 +49,15 @@ class AuthServiceProvider extends ServiceProvider
             return $order->status === 'wait';
 
         });
+        Gate::define('UserHasAccessToReview', function (User $user, Hotel $hotel) {
+
+            return DB::table('reserves')
+                ->join('orders', 'orders.id', '=', 'reserves.order_id')
+                ->where('orders.user_id', auth()->user()->id)
+                ->where('hotel_id', $hotel->id)
+                ->where('reserves.status', 'ok')->exists();
+        });
+      
         //
     }
 }

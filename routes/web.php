@@ -124,6 +124,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
     Route::get('/hotels-license', [HotelController::class, 'downLoad'])->name('license.download');
 
     Route::get('/host/reserve', [HostReserveController::class, 'index'])->name('host.reserve.index');
+    Route::get('/host/comments', [ClientCommentController::class, 'index'])->name('host.comments.index');
 
 
 });

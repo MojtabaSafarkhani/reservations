@@ -1,6 +1,7 @@
-@extends("admin.layout.main")
+@extends("home.layout.main")
 
 @section('content')
+    @include('client.profile.layout.aside')
 
     <div class="container">
         <div class="row">
@@ -9,7 +10,6 @@
             </div>
         </div>
     </div>
-    @include('admin.notification')
     <div class="container mt-5 g-3 ">
         <div class="row  align-items-center justify-content-center text-center">
 
@@ -46,7 +46,10 @@
                                                             aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    {{$comment->comment}}
+                                                    <p>{{$comment->comment}}</p>
+                                                    @for($i=1;$i<=$comment->rating;$i++)
+                                                   <i class="fa fa-star text-warning"></i>
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>

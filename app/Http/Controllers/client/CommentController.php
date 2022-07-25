@@ -8,6 +8,7 @@ use App\Http\Requests\Client\Comments\CreateCommentRequest;
 use App\Models\Comment;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CommentController extends Controller
 {
@@ -34,6 +35,13 @@ class CommentController extends Controller
 
     public function store(CreateCommentRequest $request, Hotel $hotel)
     {
+        $commentIsExists = $this->getCommentExists($hotel);
+
+        if ($commentIsExists) {
+            return redirect()->back()->withErrors(['comment' => 'نظر شما براي اين اقامتگاه قبلا ثبت شده است!']);
+        }
+        Gate::authorize('UserHasAccessToReview', $hotel);
+
         Comment::query()->create([
             'user_id' => auth()->user()->id,
             'hotel_id' => $hotel->id,
@@ -42,5 +50,16 @@ class CommentController extends Controller
         ]);
 
         return redirect(route('client.hotel.show', $hotel));
+    }
+
+    /**
+     * @param Hotel $hotel
+     * @return bool
+     */
+    public function getCommentExists(Hotel $hotel): bool
+    {
+        return Comment::query()
+            ->where('user_id', auth()->user()->id)
+            ->where('hotel_id', $hotel->id)->exists();
     }
 }
