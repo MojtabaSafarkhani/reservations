@@ -51,13 +51,19 @@ class AuthServiceProvider extends ServiceProvider
         });
         Gate::define('UserHasAccessToReview', function (User $user, Hotel $hotel) {
 
+
             return DB::table('reserves')
-                ->join('orders', 'orders.id', '=', 'reserves.order_id')
-                ->where('orders.user_id', auth()->user()->id)
-                ->where('hotel_id', $hotel->id)
-                ->where('reserves.status', 'ok')->exists();
+                    ->join('orders', 'orders.id', '=', 'reserves.order_id')
+                    ->where('orders.user_id', auth()->user()->id)
+                    ->where('hotel_id', $hotel->id)
+                    ->where('reserves.status', 'ok')->exists();
+
         });
-      
+        Gate::define('UserHasCommentForHotel', function (User $user, Hotel $hotel) {
+
+            return $user->comments()->where('hotel_id', $hotel->id)->exists();
+        });
+
         //
     }
 }

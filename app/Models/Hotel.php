@@ -131,4 +131,15 @@ class Hotel extends Model
 
         return $rating;
     }
+
+    public function getCountOfCommentsAttribute()
+    {
+        $countOfComments = $this->comments()->count();
+
+        if ($countOfComments == 0) {
+
+            return 'صفر';
+        }
+        return $countOfComments;
+    }
 }
