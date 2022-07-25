@@ -211,6 +211,13 @@
         crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
 @yield('script')
 
 

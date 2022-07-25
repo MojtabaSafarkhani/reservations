@@ -32,7 +32,7 @@
                     <td>{{$order->check_out_to_persian}}</td>
 
                     <td>
-                        <span class="btn btn-{{$order->status_to_persian['class']}} btn-sm "
+                        <span class=" btn-{{$order->status_to_persian['class']}} btn-sm "
                               @can('JustOneTimeToChangeStatusOfOrder',$order)
                               data-bs-toggle="tooltip"
                               data-bs-placement="top" title="تغيير وضعيت"

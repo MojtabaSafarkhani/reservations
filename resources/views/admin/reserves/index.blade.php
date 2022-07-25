@@ -22,7 +22,7 @@
                             <td>نام مهمان</td>
                             <td>نام اقامتگاه</td>
                             <td>شماره تراکنش</td>
-                            <td>هزینه کل(تومان)</td>
+                            <td> جزییات</td>
                             <td>وضعيت</td>
                         </tr>
                         </thead>
@@ -33,13 +33,51 @@
                                 <td>{{$reserve->order->user->name}}</td>
                                 <td>{{$reserve->order->hotel->name}}</td>
                                 <td>{{$reserve->transaction_id}}</td>
-                                <td>{{$reserve->total_cost}}</td>
+                                <td>
+                                     <span class=" btn-primary btn-sm "
+                                           data-bs-toggle="tooltip"
+                                           data-bs-placement="top" title="نمايش جزييات"
+                                     >
+                            <button type="button" class="btn btn-sm  fw-bold "
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#reserve-{{$reserve->u_string}}"
+                            >
+                                جزييات
+                            </button>
+                        </span>
+
+                                </td>
                                 <td>
                                     <span
                                         class="{{$reserve->status_translate['color']}} p-1 fw-bold rounded-3 ">{{$reserve->status_translate['message']}}
                                 </span>
                                 </td>
                             </tr>
+
+                            <div class="modal fade" id="reserve-{{$reserve->u_string}}" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">نمايش جزييات</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="fw-bold">نام مهمان:</p>
+                                            <p>{{$reserve->order->user->name}}</p>
+                                            <p class="fw-bold">نام اقامتگاه:</p>
+                                            <p>{{$reserve->order->hotel->name}}</p>
+                                            <p class="fw-bold">روز ورود:</p>
+                                            <p>{{$reserve->order->check_in_to_persian}}</p>
+                                            <p class="fw-bold">روز خروج:</p>
+                                            <p>{{$reserve->order->check_out_to_persian}}</p>
+                                            <p class="fw-bold">کل هزينه:</p>
+                                            <p>{{$reserve->total_cost}}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                         </tbody>
                     </table>
