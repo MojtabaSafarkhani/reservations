@@ -35,6 +35,8 @@ class CommentController extends Controller
 
     public function store(CreateCommentRequest $request, Hotel $hotel)
     {
+        Gate::authorize('UserHasAccessToReview',$hotel);
+
         $commentIsExists = $this->getCommentExists($hotel);
 
         if ($commentIsExists) {

@@ -523,9 +523,9 @@
                                 @endcannot
 
                             @endcan
-                                @can('UserHasCommentForHotel',$hotel)
-                                    <p class="text-center fw-bold text-dark">نظر شما قبلا ثبت شده است!</p>
-                                @endcan
+                            @can('UserHasCommentForHotel',$hotel)
+                                <p class="text-center fw-bold text-dark">نظر شما قبلا ثبت شده است!</p>
+                            @endcan
                         @endauth
                     </div>
                 </div>
@@ -573,33 +573,6 @@
                             @endcan
                         @else
                             <p class="text-center">براي رزرو اين اقامتگاه وارد حساب کاربري خود شويد!</p>
-                        @endif
-                        @if($hotelsInSameCategory->count()>0)
-                            <div class="tour-details-two__last-minute">
-                                <h3 class="tour-details-two__sidebar-title">در دسته بندي مشابه</h3>
-                                <ul class="tour-details-two__last-minute-list list-unstyled">
-                                    @foreach($hotelsInSameCategory as $hotel)
-                                        <li>
-                                            <div class="tour-details-two__last-minute-image">
-                                                <img
-                                                    src="@if($hotel->galleries()->first())
-                                                    {{$hotel->galleries()->first()->image_url}}
-                                                    @else
-                                                    {{asset('assets/images/resources/popular-tours__img-2.jpg')}}
-                                                    @endif"
-                                                    alt="">
-                                            </div>
-                                            <div class="tour-details-two__last-minute-content">
-                                                <h6>{{$hotel->cost}} تومان</h6>
-                                                <a href="{{route('client.hotel.show',$hotel)}}">
-                                                    <h5>{{$hotel->name}}</h5>
-                                                </a>
-                                                <p>{{$hotel->city->name}}</p>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
                         @endif
                     </div>
                 </div>

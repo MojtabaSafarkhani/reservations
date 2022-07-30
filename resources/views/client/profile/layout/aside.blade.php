@@ -26,7 +26,7 @@
                             <ul class="collapse  nav flex-column ms-1" id="userReserve" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="{{route('user.reserve.index')}}" class="nav-link px-0"> <span
-                                            class="d-none d-sm-inline">ليست پرداختي های شما</span>
+                                            class="d-none d-sm-inline"> پرداختي های شما</span>
                                     </a>
                                 </li>
 
@@ -37,7 +37,7 @@
                                 <a href="#hotels" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                     <i class="bi bi-house-fill"></i> <span
                                         class="ms-1 d-none d-sm-inline">اقامتگاه</span> </a>
-                                <ul class="collapse  nav flex-column ms-1" id="hotels" data-bs-parent="#menu">
+                                <ul class="collapse  @if(request()->routeIs('client.hotel.*')) show @endif   nav flex-column ms-1" id="hotels" data-bs-parent="#menu">
                                     <li class="w-100">
                                         <a href="{{route('client.hotel.create')}}" class="nav-link px-0"> <span
                                                 class="d-none d-sm-inline">افزودن اقامتگاه</span>
@@ -69,7 +69,7 @@
                                 <ul class="collapse  nav flex-column ms-1" id="hostReserve" data-bs-parent="#menu">
                                     <li>
                                         <a href="{{route('host.reserve.index')}}" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline">ليست پرداخت ها براي شما</span>
+                                                class="d-none d-sm-inline"> پرداختی ها براي شما</span>
                                         </a>
                                     </li>
                                 </ul>

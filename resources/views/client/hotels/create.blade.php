@@ -2,10 +2,10 @@
 
 
 @section('content')
+    @include('client.profile.layout.aside')
+    <div class="container-fluid mb-2">
 
-    <div class="container-fluid">
-
-        <div class="row vh-100 align-items-center justify-content-center m-auto">
+        <div class="row  align-items-center justify-content-center m-auto">
             <div class="col-md-8 bg-white rounded-2 p-3 m-3  ">
                 <form action="{{route('client.hotel.store')}}" method="post" class="row g-3 align-middle" novalidate
                       enctype="multipart/form-data">

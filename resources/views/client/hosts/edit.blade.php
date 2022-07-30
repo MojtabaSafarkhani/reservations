@@ -6,7 +6,7 @@
     <div class="container-fluid">
 
         <div class="row vh-100 align-items-center justify-content-center m-auto">
-            <div class="col-md-4 bg-white rounded-2 p-3 m-3  ">
+            <div class="col-md-4 bg-white rounded-2 p-2 m-2  ">
                 <form action="{{route('host.update',$host)}}" method="post" class="" novalidate
                       enctype="multipart/form-data">
                     @csrf

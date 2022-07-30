@@ -46,7 +46,6 @@ Route::get('/homeNew', function () {
 Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->name('payment.callback');
 Route::get('/search', [SearchController::class, 'search'])->name('client.hotels.search');
 Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel'])->name('client.hotel.show');
-Route::get('/hotels/showNew/{hotel}', [HomeController::class, 'showNew'])->name('client.hotel.showNew');
 Route::get('/payment/check/{reserve}', [PaymentController::class, 'checkLink'])->name('payment.check');
 
 //route for admin

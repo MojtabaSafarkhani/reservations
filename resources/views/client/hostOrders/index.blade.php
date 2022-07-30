@@ -10,6 +10,7 @@
             class="table table-hover table-striped table-light table-bordered align-middle text-center  ">
             <thead>
             <tr>
+                <td>#</td>
                 <td>نام اقامتگاه</td>
                 <td>نام مهمان</td>
                 <td>تعداد نفرات</td>
@@ -22,8 +23,9 @@
             <tbody>
 
 
-            @foreach($orders  as $order)
+            @foreach($orders  as $key=>$order)
                 <tr style="height: 70px">
+                    <td>{{$key+1}}</td>
                     <td>{{$order->hotel->name}}</td>
                     <td>{{$order->user->name}}</td>
                     <td>{{$order->total_person}}</td>

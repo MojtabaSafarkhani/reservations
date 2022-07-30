@@ -1,7 +1,7 @@
 @extends("home.layout.main")
 
 @section('content')
-
+    @include('client.profile.layout.aside')
     <div class="container mt-2 p-2">
         <div class="row">
             <div class="col-md-5 ms-5">
@@ -12,7 +12,7 @@
     <div class="my-5"></div>
     <div class="container">
         <div class="row ">
-            <div class="col-md-6 mx-auto">
+            <div class="col-md-9 mx-auto">
                 @include('client.notifications.notification')
             </div>
         </div>

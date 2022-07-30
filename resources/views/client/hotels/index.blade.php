@@ -1,7 +1,7 @@
 @extends("home.layout.main")
 
 @section('content')
-
+    @include('client.profile.layout.aside')
     <div class="container-fluid mt-2 p-2">
         <div class="row">
             <div class="col-md-5 ms-2 ms-5">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5 g-3 ">
+    <div class="container mt-2 g-3 ">
         <div class="row  align-items-center justify-content-center text-center">
 
             <div class="col-md-8 m-auto">
@@ -80,6 +80,6 @@
     </div>
 
 
-
+    {{$hotels->links()}}
 @endsection
 

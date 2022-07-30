@@ -38,26 +38,15 @@ class HomeController extends Controller
             abort(403);
         }
 
-        return view('client.hotels.show', [
-            'hotel' => $hotel
-        ]);
-
-    }
-
-    public function showNew(Hotel $hotel)
-    {
-        if ($hotel->is_published !== 'ok') {
-
-            abort(403);
-        }
         $hotelsInSameCategory = $this->getHotelsInSameCategory($hotel);
 
-        return view('client.hotels.show1', [
+        return view('client.hotels.show', [
             'hotel' => $hotel,
             'hotelsInSameCategory' => $hotelsInSameCategory,
         ]);
 
     }
+
 
     public function categoryShowAll(Category $category)
     {

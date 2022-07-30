@@ -27,9 +27,10 @@ class HotelController extends Controller
 
     public function index()
     {
+        $hotels = Hotel::query()->where('host_id', auth()->user()->host->id)->paginate(5);
 
         return view('client.hotels.index', [
-            'hotels' => auth()->user()->host->hotels
+            'hotels' => $hotels
         ]);
     }
 
@@ -93,7 +94,8 @@ class HotelController extends Controller
 
     public function show(Hotel $hotel)
     {
-        return view('client.hotels.show', [
+        Gate::authorize('HotelsForRealHost', $hotel);
+        return view('client.hotels.host-show', [
 
             'hotel' => $hotel,
         ]);
