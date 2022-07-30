@@ -10,7 +10,7 @@
         </div>
     </div>
     @include('admin.notification')
-    <div class="container mt-5 g-3 ">
+    <div class="container mt-2 g-3 ">
         <div class="row  align-items-center justify-content-center text-center">
 
             <div class="col-md-10 m-auto">
@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                         @foreach($hotels as $key=>$hotel)
-                            <tr style="height: 50px">
+                            <tr style="height: 20px">
                                 <td>{{$key+1}}</td>
                                 <td>{{$hotel->name}}</td>
                                 <td><a href="{{route('admin.download.license',['path'=>$hotel->license])}}"

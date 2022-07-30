@@ -52,7 +52,7 @@ class HomeController extends Controller
     {
 
 
-        $hotels = $category->hotels()->paginate(6);
+        $hotels = $category->hotels()->where('is_published', 'ok')->paginate(6);
 
         return view('client.showAll.categories.index', [
             'hotels' => $hotels,
@@ -67,7 +67,7 @@ class HomeController extends Controller
 
         $ids = $city->where('city_id', $city->id)->orWhere('id', $city->id)->pluck('id');
 
-        $hotels = Hotel::query()->whereIn('city_id', $ids)->paginate(6);
+        $hotels = Hotel::query()->where('is_published', 'ok')->whereIn('city_id', $ids)->paginate(6);
 
         return view('client.showAll.cities.index', [
             'hotels' => $hotels,
