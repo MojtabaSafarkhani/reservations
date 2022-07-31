@@ -3,12 +3,14 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container background_for_login"
+         style="background-image: url({{asset('/storage/images/icon/background.jpg')}});">
 
-        <div class="row mt-5  align-items-center justify-content-center p-3">
-            <h2 class="text-center text-dark "> سامانه رزرو اقامتگاه</h2>
-            <div class="col-md-4 bg-white rounded-2 mt-3 ">
-
+        <div class="row vh-100  align-items-center justify-content-center p-3">
+            <a href="{{route('home')}}" class="text-center"><img
+                    src="{{asset('storage/images/icon/Moja.png')}}" width="60px" alt=""> </a>
+            <div class="col-md-4 bg-white rounded-2   "  style="box-shadow: 0px 0px 14px 3px">
+                <h2 class="text-dark text-center p-3">فراموشی رمز</h2>
                 <form action="{{route('password.email')}}" method="post" class="p-3"
                       novalidate>
                     @csrf
@@ -27,7 +29,7 @@
             @if (session('status'))
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 m-auto text-center bg-success my-4 p-2">
+                        <div class="col-md-4 m-auto text-center bg-opacity-10 fw-bold p-2">
                             <div class="">
                                 {{ session('status') }}
                             </div>

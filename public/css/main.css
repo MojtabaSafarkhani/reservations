@@ -44,3 +44,11 @@ body {
 .like {
     color: red;
 }
+
+.background_for_login {
+
+   background-repeat: no-repeat;
+    background-size: cover;
+   background-position: center;
+
+}

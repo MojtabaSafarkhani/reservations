@@ -3,11 +3,13 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container background_for_login"
+         style="background-image: url({{asset('/storage/images/icon/background.jpg')}});">
 
         <div class="row vh-100 align-items-center justify-content-center p-3">
-            <h2 class="text-center text-dark"> سامانه رزرو اقامتگاه</h2>
-            <div class="col-md-4 bg-white rounded-2 ">
+            <a href="{{route('home')}}" class="text-center text-dark"><img
+                    src="{{asset('storage/images/icon/Moja.png')}}" width="60px" alt=""> </a>
+            <div class="col-md-4 bg-white rounded-2 " style="box-shadow: 0px 0px 14px 3px">
 
                 <h2 class="text-dark text-center p-3">ورود</h2>
                 <form action="/login" method="post" class="needs-validations was_validated" novalidate>
@@ -38,20 +40,21 @@
                     </div>
                 </form>
             </div>
-
-        </div>
-    </div>
-    @if (session('status'))
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 m-auto text-center bg-success p-2">
-                    <div class="">
-                        {{ session('status') }}
+            @if (session('status'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 m-auto text-center bg-opacity-10 fw-bold p-2">
+                            <div class="">
+                                {{ session('status') }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
+                </div>
+            @endif
         </div>
-    @endif
+
+    </div>
+
 
 @endsection
