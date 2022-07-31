@@ -40,13 +40,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/homeNew', function () {
-    return view('home1');
-});
+
 Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->name('payment.callback');
 Route::get('/search', [SearchController::class, 'search'])->name('client.hotels.search');
 Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel'])->name('client.hotel.show');
 Route::get('/payment/check/{reserve}', [PaymentController::class, 'checkLink'])->name('payment.check');
+Route::get('/call-back-show/{reserve}',[PaymentController::class,'show'])->name('client.show.callBack');
 
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {

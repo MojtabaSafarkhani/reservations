@@ -42,11 +42,21 @@ class PaymentController extends Controller
 
         }
 
-        $user = $reserve->order->user;
 
-        auth()->login($user);
+        return redirect(route('client.show.callBack', [
 
-        return redirect(route('home'));
+            'reserve' => $reserve,
+
+        ]));
+
+    }
+
+    public function show(Reserve $reserve)
+    {
+        return view('client.reserves.callBack', [
+
+            'reserve' => $reserve
+        ]);
     }
 
     /**

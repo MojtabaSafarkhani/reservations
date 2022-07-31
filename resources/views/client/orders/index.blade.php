@@ -5,7 +5,7 @@
 
 
 
-    <div class="col-md-8 mx-auto  mt-5 vh-100 ">
+    <div class="col-md-9 mx-auto  mt-5 vh-100 ">
         <table
             class="table table-hover table-striped table-light table-bordered align-middle text-center  ">
             <thead>
