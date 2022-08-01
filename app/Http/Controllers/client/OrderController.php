@@ -38,6 +38,12 @@ class OrderController extends Controller
 
         $check_out = $this->getDateInEnglish($request->get('check_out'));
 
+        if ($this->isDayPastedOrDayEqualToDay($check_in)) {
+
+            return redirect()->back()->withErrors(['check_in' => "روز ورود گذشته است!"]);
+
+        }
+
         if ($this->getExistsOrder($hotel, $check_in, $check_out)) {
 
             return redirect()->back()->withErrors(['total_person' => "درخواست شما قبلا ثبت شده است لطفا منتظر بمانيد!"]);
@@ -108,6 +114,21 @@ class OrderController extends Controller
                     $query->orWhereBetween('check_in', [$check_in, $check_out])
                         ->orWhereBetween('check_out', [$check_in, $check_out]);
                 })->exists();
+    }
+
+    /**
+     * @param string $check_in
+     * @return bool
+     */
+    public function isDayPastedOrDayEqualToDay(string $check_in): bool
+    {
+        $today = Carbon::today()->format('Y/m/d');
+
+        $isCheckInEqualToday = Carbon::parse($check_in)->equalTo($today);
+
+        $isCheckInPasted = Carbon::parse($check_in)->isBefore($today);
+        
+        return $isCheckInEqualToday|| $isCheckInPasted;
     }
 
 
