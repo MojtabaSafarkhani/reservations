@@ -217,8 +217,6 @@ class HotelController extends Controller
     {
         if ($request->hasFile('license')) {
 
-            Storage::delete($hotel->license);
-
             $path = $request->file('license')->storePublicly('public/images/license');
 
         } else {

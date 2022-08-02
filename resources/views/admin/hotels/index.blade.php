@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h4>ليست هتل ها</h4>
+                <h4>ليست اقامتگاه ها</h4>
             </div>
         </div>
     </div>
@@ -22,6 +22,7 @@
                             <td>نام</td>
                             <td>مجوز بومگردي</td>
                             <td>نمایش</td>
+                            <td>ویرایش یا حذف</td>
                             <td>وضعيت</td>
                         </tr>
                         </thead>
@@ -33,6 +34,48 @@
                                 <td><a href="{{route('admin.download.license',['path'=>$hotel->license])}}"
                                        class="btn btn-secondary">دانلود</a></td>
                                 <td><a href="{{route('admin.hotels.show',$hotel)}}" class="btn btn-success">نمايش</a>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#hotel-{{$hotel->id}}">
+
+                                        ويرايش يا حذف
+                                    </button>
+
+                                    <div class="modal fade" id="hotel-{{$hotel->id}}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">حذف يا ويرايش اقامتگاه</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>شما ميتوانيد اقامتگاه {{$hotel->name}}
+                                                        را
+                                                        ویرایش یا حذف کنید!
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                                    </form>
+                                                    <form action="{{route('admin.hotel.edit',$hotel)}}" method="get">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success"
+                                                                data-bs-dismiss="modal">ویرایش
+                                                        </button>
+                                                    </form>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </td>
                                 <td><p id="status-text-{{$hotel->id}}">{{$hotel->status_translate}}</p>
                                     <button type="button" id="accept-hotels" onClick="accept_hotels({{$hotel->id}});"

@@ -140,7 +140,6 @@ class HostController extends Controller
 
             $path = $request->file('national_card_photo')->storePublicly('public/images/hosts');
 
-            Storage::delete($host->national_card_photo);
 
         } else {
 

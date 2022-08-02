@@ -45,7 +45,7 @@ Route::get('/order/payment/callback', [PaymentController::class, 'callBack'])->n
 Route::get('/search', [SearchController::class, 'search'])->name('client.hotels.search');
 Route::get('/hotels/show/{hotel}', [HomeController::class, 'showHotel'])->name('client.hotel.show');
 Route::get('/payment/check/{reserve}', [PaymentController::class, 'checkLink'])->name('payment.check');
-Route::get('/call-back-show/{reserve}',[PaymentController::class,'show'])->name('client.show.callBack');
+Route::get('/call-back-show/{reserve}', [PaymentController::class, 'show'])->name('client.show.callBack');
 
 //route for admin
 Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"])->prefix('/admin')->group(function () {
@@ -69,8 +69,10 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::post('/hotels-reject', [HotelAdminController::class, 'reject'])->name('hotels.reject');
     Route::get('/hotels-license', [HotelAdminController::class, 'download'])->name('admin.download.license');
     Route::get('/reserves', [ReserveController::class, 'index'])->name('admin.reserve.index');
-
+    Route::get('/hotels/{hotel}/edit', [HotelAdminController::class, 'edit'])->name('admin.hotel.edit');
+    Route::patch('/hotels/{hotel}/update', [HotelAdminController::class, 'update'])->name('admin.hotel.update');
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('admin.comments.destroy');
+
 
 });
 

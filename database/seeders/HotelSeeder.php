@@ -29,7 +29,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 128000,
             'capacity' => [1, 2, 3],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -44,7 +44,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 228000,
             'capacity' => [3,4,5],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -59,7 +59,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 125000,
             'capacity' => [1, 2, 3,4,5,6,7],
-            'license' =>"public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' =>"public/images/license/license.jpg",
 
 
         ]);
@@ -74,7 +74,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 122000,
             'capacity' => [5,6,7],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -89,7 +89,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 102000,
             'capacity' => [4,5,6],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -104,7 +104,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 102000,
             'capacity' => [1,2,3],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -119,7 +119,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 102000,
             'capacity' => [1,2,3],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -134,7 +134,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2,3,4,5],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -149,7 +149,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2,3,4,5,6,7],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -164,7 +164,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2,3,4,5,6,7],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -179,7 +179,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2,3],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -194,7 +194,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,4,5],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -209,7 +209,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -224,7 +224,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,2],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -239,7 +239,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,3,4],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
@@ -254,7 +254,7 @@ class HotelSeeder extends Seeder
             'is_published' => 'ok',
             'cost' => 108000,
             'capacity' => [1,6,7],
-            'license' => "public/images/hosts/5GzMz3w6sxmZI1yccenFk5X6ZRa5727hUqzoak5T.jpg",
+            'license' => "public/images/license/license.jpg",
 
 
         ]);
