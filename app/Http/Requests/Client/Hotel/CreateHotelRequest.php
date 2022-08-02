@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Client\Hotel;
 
+use App\Rules\CheckCityIdForCreateHotel;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateHotelRequest extends FormRequest
@@ -27,7 +28,7 @@ class CreateHotelRequest extends FormRequest
             'name' => ['required', 'max:60'],
             'phone' => ['required', 'max:30'],
             'category_id' => ['required', 'exists:categories,id', 'numeric'],
-            'city_id' => ['required', 'exists:cities,id', 'numeric'],
+            'city_id' => ['required', 'exists:cities,id', 'numeric',new CheckCityIdForCreateHotel()],
             'cost' => ['required','lte:99999999','gte:10000'],
             'description' => ['required', 'max:500', 'min:10'],
             'address' => ['required', 'max:500', 'min:10'],

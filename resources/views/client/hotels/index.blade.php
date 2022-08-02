@@ -20,7 +20,7 @@
     <div class="container mt-2 g-3 ">
         <div class="row  align-items-center justify-content-center text-center">
 
-            <div class="col-md-8 m-auto">
+            <div class="col-md-9 m-auto">
                 <table class="table table-hover table-striped table-light table-bordered align-middle ">
                     <thead>
                     <tr>
@@ -51,7 +51,7 @@
                                 <a href="{{route('hotels.show',$hotel)}}"
                                    class="btn btn-success">نمايش</a>
                             </td>
-                            <td class="  align-items-center justify-content-evenly">
+                            <td class=" ">
                                 @php
                                     $translate=$hotel->getIsPulishedTranslateAttribute();
                                 @endphp
