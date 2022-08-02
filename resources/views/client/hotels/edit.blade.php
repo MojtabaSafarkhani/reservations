@@ -4,7 +4,7 @@
 @section('content')
     @include('client.profile.layout.aside')
     <div class="container-fluid">
-
+        <h3>ويرايش اقامتگاه: {{$hotel->name}}</h3>
         <div class="row  align-items-center justify-content-center m-auto">
             <div class="col-md-8 bg-white rounded-2 p-3 m-3  ">
                 <form action="{{route('client.hotels.update',$hotel)}}" method="post" class="row g-3 align-middle"
@@ -98,7 +98,8 @@
 
                         <div class="form-check form-check-inline mb-1 col-6 col-md-4">
                             <input class="form-check-input "
-                                   type="checkbox" id="inlineCheckbox0" value="0" name="capacity[]" @if($hotel->isCapacityExists(0)) checked @endif>
+                                   type="checkbox" id="inlineCheckbox0" value="0" name="capacity[]"
+                                   @if($hotel->isCapacityExists(0)) checked @endif>
                             <label class="form-check-label" for="inlineCheckbox0">هيچ کدام</label>
 
                         </div>

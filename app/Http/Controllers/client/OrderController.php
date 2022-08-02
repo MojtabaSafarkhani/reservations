@@ -127,7 +127,7 @@ class OrderController extends Controller
         $isCheckInEqualToday = Carbon::parse($check_in)->equalTo($today);
 
         $isCheckInPasted = Carbon::parse($check_in)->isBefore($today);
-        
+
         return $isCheckInEqualToday|| $isCheckInPasted;
     }
 

@@ -57,25 +57,12 @@ class HotelController extends Controller
 
         $path = $request->file('license')->storePublicly('public/images/license');
 
-
-        /*
-         *
-         *
-         * */
         if ($this->notZeroAndAnyCapacity($request)) {
 
             return redirect((route('client.hotel.create')))
                 ->withErrors(['capacity' => 'امکان انتخاب همزمان (هيچ کدام) با باقي ظرفيت ها فراهم نيست!'])
                 ->withInput();
         }
-
-        /*
-         *
-         *
-         *
-         *
-         * */
-
 
         $host->hotels()->create([
             'name' => $request->get('name'),
@@ -105,15 +92,11 @@ class HotelController extends Controller
     {
         Gate::authorize('HotelsForRealHost', $hotel);
 
-        $this->CheckStatusHotel($hotel);
-
-
         return view('client.hotels.edit', [
 
             'hotel' => $hotel,
             'categories' => Category::all(),
-            'cities' => City::all(),
-
+            'cities' => City::query()->where('city_id', '!=', null)->get(),
 
         ]);
     }
@@ -122,12 +105,16 @@ class HotelController extends Controller
     {
         Gate::authorize('HotelsForRealHost', $hotel);
 
-        $this->CheckStatusHotel($hotel);
+        if ($this->notZeroAndAnyCapacity($request)) {
+
+            return redirect((route('client.hotels.edit',$hotel)))
+                ->withErrors(['capacity' => 'امکان انتخاب همزمان (هيچ کدام) با باقي ظرفيت ها فراهم نيست!'])
+                ->withInput();
+        }
 
         $host = auth()->user()->host;
 
         if ($this->getNameHotelIsExistsForUpdate($request, $hotel, $host)) {
-
 
             return redirect()->back()->withErrors(['name' => 'این نام قبلا توسط شما انتخاب شده است!'])->withInput();
         }
@@ -242,10 +229,10 @@ class HotelController extends Controller
     }
 
     /**
-     * @param CreateHotelRequest $request
+     * @param Request $request
      * @return bool
      */
-    public function notZeroAndAnyCapacity(CreateHotelRequest $request): bool
+    public function notZeroAndAnyCapacity(Request $request): bool
     {
         return collect($request->get('capacity'))->contains(0) &&
             collect($request->get('capacity'))->hasAny([1, 2, 3, 4, 5, 6, 7]);
