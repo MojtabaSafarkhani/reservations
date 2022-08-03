@@ -26,6 +26,7 @@ class CreateHotelsTable extends Migration
             $table->bigInteger('cost');
             $table->json('capacity');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

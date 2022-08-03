@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Host;
 use App\Models\City;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Hotel extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     protected $guarded = [];
 
