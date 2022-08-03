@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
-    <title>وبسايت رزرو اقامتگاه</title>
+    <title> رزرو اقامتگاه</title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/Moja.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/Moja.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/Moja.png"/>
 </head>
 <header>
     <div class="p-1 homeHeader text-white ">
