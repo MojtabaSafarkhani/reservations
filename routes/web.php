@@ -126,6 +126,7 @@ Route::middleware(['auth', HostMiddleware::class])->group(function () {
 
     Route::get('/host/reserve', [HostReserveController::class, 'index'])->name('host.reserve.index');
     Route::get('/host/comments', [ClientCommentController::class, 'index'])->name('host.comments.index');
+    Route::delete('/hotels/{hotel}/destroy}', [HotelController::class, 'destroy'])->name('client.hotel.destroy');
 
 
 });

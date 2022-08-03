@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         return view('admin.categories.index', [
 
-            'categories' => Category::all(),
+            'categories' => Category::query()->paginate(5),
 
         ]);
 

@@ -180,7 +180,14 @@ class HotelAdminController extends Controller
 
     public function destroy(Hotel $hotel)
     {
+        session()->flash('success',"اقامتگاه
+         $hotel->name
+           با موفقیت حذف شد!
+           ");
+
         $hotel->delete();
+
+
 
         return redirect(route('hotels.index'));
 

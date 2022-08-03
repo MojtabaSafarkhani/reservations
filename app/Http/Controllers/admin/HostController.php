@@ -37,7 +37,15 @@ class HostController extends Controller
         $photo = $request->get('path');
         $array = explode('.', $photo);
         $ext = end($array);
+
         $path = public_path() . $photo;
+
+        if (!file_exists($path)) {
+
+            return redirect()->back();
+
+        }
+
         $name = Carbon::now() . "." . $ext;
         return response()->download($path, $name);
 

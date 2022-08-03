@@ -49,4 +49,6 @@
         </div>
     </div>
 
+    {{$categories->links()}}
+
 @endsection

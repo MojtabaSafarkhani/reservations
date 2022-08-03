@@ -12,7 +12,7 @@
     <div class="my-5"></div>
     <div class="container">
         <div class="row ">
-            <div class="col-md-6 mx-auto">
+            <div class="col-md-12 mx-auto">
                 @include('client.notifications.notification')
             </div>
         </div>
@@ -61,13 +61,48 @@
                                 </span>
                             </td>
                             <td>
-                                    <button type="button" class="btn" data-bs-toggle="tooltip"
-                                            data-bs-placement="top"
-                                            title="ويرايش اطلاعات">
-                                        <a href="{{route('client.hotels.edit',$hotel)}}" class="fs-5 text-dark"><i
-                                                class="bi bi-pen-fill"></i>
-                                        </a>
+
+                                <button type="button" class="btn btn-primary"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#hotel-{{$hotel->id}}">
+
+                                        ويرايش يا حذف
                                     </button>
+
+                                    <div class="modal fade" id="hotel-{{$hotel->id}}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">حذف يا ويرايش اقامتگاه</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>شما ميتوانيد اقامتگاه {{$hotel->name}}
+                                                        را
+                                                        ویرایش یا حذف کنید!
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="{{route('client.hotel.destroy',$hotel)}}"
+                                                          method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                                    </form>
+                                                    <form action="{{route('client.hotels.edit',$hotel)}}" method="get">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success"
+                                                                data-bs-dismiss="modal">ویرایش
+                                                        </button>
+                                                    </form>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                             </td>
                         </tr>

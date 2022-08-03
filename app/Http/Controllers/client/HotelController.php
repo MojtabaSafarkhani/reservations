@@ -107,7 +107,7 @@ class HotelController extends Controller
 
         if ($this->notZeroAndAnyCapacity($request)) {
 
-            return redirect((route('client.hotels.edit',$hotel)))
+            return redirect((route('client.hotels.edit', $hotel)))
                 ->withErrors(['capacity' => 'امکان انتخاب همزمان (هيچ کدام) با باقي ظرفيت ها فراهم نيست!'])
                 ->withInput();
         }
@@ -234,5 +234,17 @@ class HotelController extends Controller
     {
         return collect($request->get('capacity'))->contains(0) &&
             collect($request->get('capacity'))->hasAny([1, 2, 3, 4, 5, 6, 7]);
+    }
+
+    public function destroy(Hotel $hotel)
+    {
+        session()->flash('success', "اقامتگاه
+         $hotel->name
+           با موفقیت حذف شد!
+           ");
+
+        $hotel->delete();
+
+        return redirect(route('client.hotel.index'));
     }
 }
