@@ -20,7 +20,7 @@ class Comment extends Model
 
     public function hotel()
     {
-        return $this->belongsTo(Hotel::class);
+        return $this->belongsTo(Hotel::class)->withTrashed();
     }
 
     public function getDateInPersianAttribute()

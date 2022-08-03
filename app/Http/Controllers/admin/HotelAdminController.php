@@ -177,4 +177,12 @@ class HotelAdminController extends Controller
 
         return $path;
     }
+
+    public function destroy(Hotel $hotel)
+    {
+        $hotel->delete();
+
+        return redirect(route('hotels.index'));
+
+    }
 }

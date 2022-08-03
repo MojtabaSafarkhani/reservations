@@ -23,7 +23,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        $hotelIds = auth()->user()->host->hotels->pluck('id');
+        $hotelIds = Hotel::withTrashed()->where('host_id', auth()->user()->host->id)->pluck('id');
 
         $comments = Comment::query()->whereIn('hotel_id', $hotelIds)->paginate(6);
 

@@ -72,6 +72,7 @@ Route::middleware(['auth', CheckPermissionsMiddleware::class . ":read_dashboard"
     Route::get('/hotels/{hotel}/edit', [HotelAdminController::class, 'edit'])->name('admin.hotel.edit');
     Route::patch('/hotels/{hotel}/update', [HotelAdminController::class, 'update'])->name('admin.hotel.update');
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('admin.comments.destroy');
+    Route::delete('/hotels/{hotel}/destroy', [HotelAdminController::class, 'destroy'])->name('admin.hotel.destroy');
 
 
 });

@@ -59,7 +59,9 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <form action="" method="post">
+                                                    <form action="{{route('admin.hotel.destroy',$hotel)}}"
+                                                          method="post">
+                                                        @method('DELETE')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger">حذف</button>
                                                     </form>
