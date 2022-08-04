@@ -2,11 +2,11 @@
 
 
 @section('content')
-
+    @include('client.profile.layout.aside')
     <div class="container-fluid">
-
-        <div class="row vh-100 align-items-center justify-content-center m-auto">
-            <div class="col-md-4 bg-white rounded-2 p-3 m-3  ">
+        <div class="mb-4"><h3 >ثبت مشخصات</h3></div>
+        <div class="row align-items-center justify-content-center m-auto">
+            <div class="col-md-6 bg-white rounded-2 p-3 m-3  ">
                 <form action="{{route('host.register.post')}}" method="post" class="" novalidate enctype="multipart/form-data" >
                     @csrf
                     <div class="mb-2">

@@ -2,11 +2,11 @@
 
 
 @section('content')
-
+    @include('client.profile.layout.aside')
     <div class="container-fluid">
-
-        <div class="row vh-100 align-items-center justify-content-center m-auto">
-            <div class="col-md-4 bg-white rounded-2 p-2 m-2  ">
+        <div class="mb-4"><h3 >ويرايش اطلاعات ميزبان: {{$host->national_code}}</h3></div>
+        <div class="row  align-items-center justify-content-center m-auto">
+            <div class="col-md-6 bg-white rounded-2 p-2   ">
                 <form action="{{route('host.update',$host)}}" method="post" class="" novalidate
                       enctype="multipart/form-data">
                     @csrf
@@ -60,8 +60,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-center " style="max-height: 500px;max-width: 500px" >
-                            <img  class="w-auto h-auto image-fluid img-thumbnail"  src="{{$host->image_url}}">
+                        <div class="modal-body text-center " style="max-height: 500px;max-width: 500px">
+                            <img class="w-auto h-auto image-fluid img-thumbnail" src="{{$host->image_url}}">
                         </div>
 
                     </div>

@@ -51,7 +51,7 @@
                             <span
                                 class="fw-bolder p-1 rounded-3  {{$status['class']}}">{{$status['message']}}</span>
 
-                            @if($host->status==="nok")
+                           {{-- @if($host->status==="nok")--}}
 
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
                                         title="ويرايش اطلاعات">
@@ -61,7 +61,7 @@
                                 </button>
 
 
-                            @endif
+                         {{--   @endif--}}
 
                         </td>
 

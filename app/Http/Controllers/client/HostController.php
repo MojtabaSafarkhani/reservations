@@ -95,12 +95,12 @@ class HostController extends Controller
 
     public function edit()
     {
-        if (auth()->user()->host->status !== 'nok') {
+        /*if (auth()->user()->host->status !== 'nok') {
 
             session()->flash('warning', 'اطلاعات شما نیاز به ویرایش ندارد!');
 
             return redirect(route('client.host.index'));
-        }
+        }*/
 
         return view('client.hosts.edit', [
 
