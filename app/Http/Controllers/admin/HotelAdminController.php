@@ -82,6 +82,11 @@ class HotelAdminController extends Controller
 
         ]);
 
+        session()->flash('success',"اقامتگاه
+        $hotel->name
+         با موفقيت ويرايش شد!
+        ");
+
         return redirect(route('hotels.index'));
     }
 
