@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             HotelSeeder::class,
             CommentSeeder::class,
+            FeatureSeeder::class,
+            FeatureHotelSeeder::class,
+            LikeSeeder::class,
+            SliderSeeder::class,
+            GallerySeeder::class,
+
 
         ]);
     }
