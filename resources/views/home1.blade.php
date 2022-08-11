@@ -234,11 +234,6 @@
                                     <img
                                         src="@if($hotel->galleries()->first()){{$hotel->galleries()->first()->image_url}}@else {{asset('assets/images/resources/popular-tours__img-2.jpg')}} @endif"
                                         alt="">
-                                    {{-- <div class="popular-tours__icon">
-                                         <a href="tour-details.html">
-                                             <i class="fa fa-heart"></i>
-                                         </a>
-                                     </div>--}}
                                 </div>
                                 <div class="popular-tours__content">
                                     <div class="popular-tours__stars">

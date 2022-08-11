@@ -22,7 +22,7 @@ class SliderSeeder extends Seeder
 
         for ($i = 0; $i <= 2; $i++) {
 
-            $randomFile = $images[rand(0, count($images) - 1)];
+            $randomFile = $images[$i];
 
             Slider::query()->create([
                 'image' => $randomFile,
