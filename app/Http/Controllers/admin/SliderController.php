@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Slider\CreateSliderRequest;
 use App\Http\Requests\Slider\UpdateSliderRequest;
+use App\Models\City;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -22,13 +23,16 @@ class SliderController extends Controller
 
     public function create()
     {
-        return view('admin.sliders.create');
+        return view('admin.sliders.create', [
+
+            'links' => City::query()->where('city_id', '!=', null)->get(),
+        ]);
     }
 
     public function store(CreateSliderRequest $request)
     {
 
-        if (Slider::all()->count()>=3){
+        if (Slider::all()->count() >= 3) {
 
             session()->flash('delete', "بیشتر از 3 اسلایدر نمی توان داشت!");
 
@@ -53,7 +57,8 @@ class SliderController extends Controller
     public function edit(Slider $slider)
     {
         return view('admin.sliders.edit', [
-            'slider' => $slider
+            'slider' => $slider,
+            'links' => City::query()->where('city_id', '!=', null)->get(),
         ]);
     }
 

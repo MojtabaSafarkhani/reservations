@@ -25,9 +25,12 @@
                     </div>
                     <div class="m-3 ">
                         <label class="form-label" for="link">لينک</label>
-                        <input type="text" class="form-control  @error('link') is-invalid @enderror " id="link"
-                               placeholder="لينک را وارد کنيد(به انگليسي)"
-                               name="link" value="{{old('link')}}">
+                        <select class="form-select  @error('link') is-invalid @enderror " id="link"
+                                  name="link">
+                            @foreach($links as $link)
+                                <option value="{{$link->slug}}">{{$link->name}}</option>
+                            @endforeach
+                        </select>
                         @error('link') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="m-3 ">
