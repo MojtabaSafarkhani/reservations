@@ -19,7 +19,14 @@
     <div class="px-3 homeHeader text-white ">
         <div class="container-fluid ">
             <div class="row align-middle">
-                <ul class="nav col-12 my-md-0 text-small mw-100 align-items-center">
+                <ul class="nav col-12 my-md-0 text-small mw-100 align-items-center d-flex">
+                    <li>
+                        <a href="{{route('home')}}"
+                           class="nav-link  "
+                        >
+                            <img src="{{asset('assets/images/favicons/Moja.png')}}" width="35px" class="rounded-1" alt="">
+                        </a>
+                    </li>
                     @if(auth()->user())
                         <li>
                             <div class="dropdown nav-link text-white ">
@@ -56,37 +63,24 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="">
-                            <a href="{{route('home')}}"
-                               class="nav-link text-white mt-1  @if(request()->routeIs('home')) disable fw-bolder text-muted pe-none @endif ">
-                                خانه
-                            </a>
-                        </li>
+
 
                         @if(auth()->user()->role->hasPermissions('read_dashboard'))
                             <li>
                                 <a href="{{route('admin.dashboard')}}"
-                                   class="nav-link text-white mt-1 "
+                                   class="nav-link text-white mt-1 @if(request()->routeIs('admin.dashboard')) disable fw-bolder text-muted pe-none @endif "
                                 >
                                     پنل مديريت
                                 </a>
                             </li>
 
                         @endif
+                    <div class="me-auto"></div>
+                        <div class="text-start">
 
+                            <span type="button" class="p-2 rounded-1 text-dark fw-bold bg-warning">{{\Hekmatinasser\Verta\Verta::now()->format('Y/m/d')}}</span>
+                        </div>
 
-
-                    @else
-                        <li>
-                            <a href="/register" class="nav-link text-white mt-1">
-                                ثبت نام
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/login" class="nav-link text-white mt-1">
-                                ورود
-                            </a>
-                        </li>
                     @endif
 
                 </ul>

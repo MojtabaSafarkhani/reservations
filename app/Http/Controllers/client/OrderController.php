@@ -59,14 +59,13 @@ class OrderController extends Controller
 
         }
 
-
         Order::query()->create([
             'user_id' => auth()->user()->id,
             'hotel_id' => $hotel->id,
             'check_in' => $check_in,
             'check_out' => $check_out,
             'total_person' => $request->get('total_person'),
-            'total_cost' => $total_days * $hotel->cost,
+            'total_cost' => $this->calculateCost($hotel, $request, $total_days),
         ]);
 
         session()->flash('success', 'درخواست شما باموفقيت ثبت شد در صورت تاييد، ايميل پرداخت براي شما ارسال ميشود!');
@@ -128,7 +127,26 @@ class OrderController extends Controller
 
         $isCheckInPasted = Carbon::parse($check_in)->isBefore($today);
 
-        return $isCheckInEqualToday|| $isCheckInPasted;
+        return $isCheckInEqualToday || $isCheckInPasted;
+    }
+
+    /**
+     * @param Hotel $hotel
+     * @param CreateOrderRequest $request
+     * @param int $total_days
+     * @return float|int
+     */
+    public function calculateCost(Hotel $hotel, CreateOrderRequest $request, int $total_days)
+    {
+        if (collect($hotel->capacity)->contains(0)) {
+
+            $cost = $request->get('total_person') * $hotel->cost;
+
+        } else {
+            $cost = $total_days * $hotel->cost;
+        }
+
+        return $cost;
     }
 
 
