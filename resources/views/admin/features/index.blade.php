@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h4>ليست ويژگي ها</h4>
+                <h4>ليست ويژگی ها</h4>
             </div>
         </div>
     </div>

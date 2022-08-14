@@ -50,7 +50,16 @@
                         <div class="tour-details__top-inner">
                             <div class="tour-details__top-left">
                                 <h2 class="tour-details__top-title">{{$hotel->name}}</h2>
-                                <p class="tour-details__top-rate"><span>{{$hotel->cost}} تومان</span> /هر شب</p>
+                                <p class="tour-details__top-rate">
+                                    <span>{{number_format($hotel->cost)}} تومان</span>
+                                    @if($hotel->HotelContainsZero())
+                                        /هر نفر
+                                    @else
+                                        /هر شب
+
+                                    @endif
+
+                                </p>
                             </div>
                             <div class="tour-details__top-right">
                                 <ul class="list-unstyled tour-details__top-list">
@@ -590,7 +599,7 @@
                                                     alt="">
                                             </div>
                                             <div class="tour-details-two__last-minute-content">
-                                                <h6>{{$hotel->cost}} تومان</h6>
+                                                <h6>{{number_format($hotel->cost)}} تومان</h6>
                                                 <a href="{{route('client.hotel.show',$hotel)}}">
                                                     <h5>{{$hotel->name}}</h5>
                                                 </a>

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h4>ایجاد دسته بندي ها</h4>
+                <h4>ایجاد دسته بندی ها</h4>
             </div>
         </div>
     </div>

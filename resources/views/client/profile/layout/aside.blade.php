@@ -22,11 +22,11 @@
                         <li>
                             <a href="#userReserve" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="bi bi-currency-dollar"></i><span
-                                    class="ms-1 d-none d-sm-inline">ليست پرداختي ها</span> </a>
+                                    class="ms-1 d-none d-sm-inline">ليست پرداختی ها</span> </a>
                             <ul class="collapse  nav flex-column ms-1" id="userReserve" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="{{route('user.reserve.index')}}" class="nav-link px-0"> <span
-                                            class="d-none d-sm-inline"> پرداختي های شما</span>
+                                            class="d-none d-sm-inline"> پرداختی های شما</span>
                                     </a>
                                 </li>
 
@@ -69,7 +69,7 @@
                                 <ul class="collapse  nav flex-column ms-1" id="hostReserve" data-bs-parent="#menu">
                                     <li>
                                         <a href="{{route('host.reserve.index')}}" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline"> پرداختی ها براي شما</span>
+                                                class="d-none d-sm-inline"> پرداختی ها برای شما</span>
                                         </a>
                                     </li>
                                 </ul>

@@ -27,7 +27,7 @@
                     <td>{{$order->hotel->name}}</td>
                     <td>{{$order->user->name}}</td>
                     <td>{{$order->total_person}}</td>
-                    <td>{{$order->total_cost}}</td>
+                    <td>{{number_format($order->total_cost)}}</td>
                     <td>{{$order->check_in_to_persian}}</td>
                     <td>{{$order->check_out_to_persian}}</td>
                     <td>

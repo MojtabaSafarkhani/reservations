@@ -205,7 +205,14 @@
                                     </h3>
                                     <h5 class="popular-tours__title_city">
                                         {{$hotel->city->name}}</h5>
-                                    <p class="popular-tours__rate"><span>{{$hotel->cost}} تومان</span> /هر شب</p>
+                                    <p class="popular-tours__rate"><span>{{number_format($hotel->cost)}} تومان</span>
+                                        @if($hotel->HotelContainsZero())
+                                            /هر نفر
+                                        @else
+                                            /هر شب
+
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
 
@@ -244,7 +251,15 @@
                                     </h3>
                                     <h5 class="popular-tours__title_city">
                                         {{$hotel->city->name}}</h5>
-                                    <p class="popular-tours__rate"><span>{{$hotel->cost}} تومان</span> /هر شب</p>
+                                    <p class="popular-tours__rate"><span>{{number_format($hotel->cost)}} تومان</span>
+                                        @if($hotel->HotelContainsZero())
+                                            /هر نفر
+                                        @else
+                                            /هر شب
+
+                                        @endif
+
+                                    </p>
                                 </div>
                             </div>
 

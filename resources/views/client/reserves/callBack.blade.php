@@ -76,7 +76,7 @@
                                         <p>هزينه کل</p>
                                     </div>
                                     <div class="destinations-details__overview-right">
-                                        <p>{{$reserve->total_cost}}</p>
+                                        <p>{{number_format($reserve->total_cost)}}</p>
                                     </div>
                                 </li>
                                 <li>

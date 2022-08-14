@@ -69,7 +69,7 @@
                                             <p class="fw-bold">روز خروج:</p>
                                             <p>{{$reserve->order->check_out_to_persian}}</p>
                                             <p class="fw-bold">کل هزينه:</p>
-                                            <p>{{$reserve->total_cost}}</p>
+                                            <p>{{number_format($reserve->total_cost)}}</p>
                                         </div>
 
                                     </div>

@@ -79,7 +79,7 @@
                         <div class="me-auto"></div>
                         <div class="text-start">
 
-                            <span type="button" class="p-2 rounded-1 text-dark fw-bold bg-warning">{{\Hekmatinasser\Verta\Verta::now()->format('Y/m/d')}}</span>
+                            <span  class="p-1 rounded-1 text-dark fw-bold bg-warning">{{\Hekmatinasser\Verta\Verta::now()->format('Y/m/d')}}</span>
                         </div>
                     @endif
 
@@ -102,17 +102,17 @@
                     id="menu">
                     <li class="nav-item">
                         <a href="#category" data-bs-toggle="collapse" class="nav-link px-0  text-white">
-                            <i class="bi bi-bookmark-fill"></i> <span class="ms-1 d-none d-sm-inline">دسته بندي</span>
+                            <i class="bi bi-bookmark-fill"></i> <span class="ms-1 d-none d-sm-inline">دسته بندی</span>
                         </a>
                         <ul class="collapse @if(request()->routeIs('categories.*')) show @endif nav flex-column ms-1 "
                             id="category" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="{{route('categories.create')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline ">ايجاد دسته بندي</span> </a>
+                                        class="d-none d-sm-inline ">ايجاد دسته بندی</span> </a>
                             </li>
                             <li>
                                 <a href="{{route('categories.index')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">ليست دسته بندي ها</span> </a>
+                                        class="d-none d-sm-inline">ليست دسته بندی ها</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -164,17 +164,17 @@
                     <li class="nav-item">
                         <a href="#features" data-bs-toggle="collapse" class="nav-link px-0  text-white">
                             <i class="bi bi-clipboard2-plus-fill"></i><span
-                                class="ms-1 d-none d-sm-inline">ويژگي ها</span>
+                                class="ms-1 d-none d-sm-inline">ويژگی ها</span>
                         </a>
                         <ul class="collapse @if(request()->routeIs('features.*')) show @endif nav flex-column ms-1 "
                             id="features" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="{{route('features.create')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline ">ايجاد ويژگي</span> </a>
+                                        class="d-none d-sm-inline ">ايجاد ويژگی</span> </a>
                             </li>
                             <li>
                                 <a href="{{route('features.index')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">ليست ويژگي ها</span> </a>
+                                        class="d-none d-sm-inline">ليست ويژگی ها</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -192,13 +192,13 @@
                     </li>
                     <li class="nav-item">
                         <a href="#reserve" data-bs-toggle="collapse" class="nav-link px-0  text-white">
-                            <i class="bi bi-currency-dollar"></i> <span class="ms-1 d-none d-sm-inline">پرداختي ها</span>
+                            <i class="bi bi-currency-dollar"></i> <span class="ms-1 d-none d-sm-inline">پرداختی ها</span>
                         </a>
                         <ul class="collapse @if(request()->routeIs('admin.reserve.*')) show @endif nav flex-column ms-1 "
                             id="reserve" data-bs-parent="#menu">
                             <li>
                                 <a href="{{route('admin.reserve.index')}}" class="nav-link px-0 text-white"> <span
-                                        class="d-none d-sm-inline">ليست پرداختي ها</span> </a>
+                                        class="d-none d-sm-inline">ليست پرداختی ها</span> </a>
                             </li>
                         </ul>
                     </li>

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Hotel extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $guarded = [];
 
@@ -142,5 +142,10 @@ class Hotel extends Model
             return 'صفر';
         }
         return $countOfComments;
+    }
+
+    public function HotelContainsZero()
+    {
+        return collect($this->capacity)->contains(0);
     }
 }

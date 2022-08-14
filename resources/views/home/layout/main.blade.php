@@ -78,7 +78,7 @@
                     <div class="me-auto"></div>
                         <div class="text-start">
 
-                            <span type="button" class="p-2 rounded-1 text-dark fw-bold bg-warning">{{\Hekmatinasser\Verta\Verta::now()->format('Y/m/d')}}</span>
+                            <span  class="p-1 rounded-1 text-dark fw-bold bg-warning">{{\Hekmatinasser\Verta\Verta::now()->format('Y/m/d')}}</span>
                         </div>
 
                     @endif
