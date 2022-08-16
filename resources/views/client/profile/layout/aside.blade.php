@@ -9,11 +9,11 @@
                         <li>
                             <a href="#userOrders" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="bi bi-basket-fill"></i><span
-                                    class="ms-1 d-none d-sm-inline">سفارش های شما</span> </a>
+                                    class="ms-1 d-none d-sm-inline">سفارش های من</span> </a>
                             <ul class="collapse  nav flex-column ms-1" id="userOrders" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="{{route('user.orders.index')}}" class="nav-link px-0"> <span
-                                            class="d-none d-sm-inline">ليست سفارش های شما</span>
+                                            class="d-none d-sm-inline">ليست سفارش های من</span>
                                     </a>
                                 </li>
 
@@ -22,7 +22,7 @@
                         <li>
                             <a href="#userReserve" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="bi bi-currency-dollar"></i><span
-                                    class="ms-1 d-none d-sm-inline">ليست پرداختی ها</span> </a>
+                                    class="ms-1 d-none d-sm-inline">پرداختی های من</span> </a>
                             <ul class="collapse  nav flex-column ms-1" id="userReserve" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="{{route('user.reserve.index')}}" class="nav-link px-0"> <span
