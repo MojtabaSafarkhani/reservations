@@ -20,7 +20,7 @@
     <div class="container mt-2 g-3 ">
         <div class="row  align-items-center justify-content-center text-center">
 
-            <div class="col-md-9 m-auto">
+            <div class="col-md-10 m-auto">
                 <table class="table table-hover table-striped table-light table-bordered align-middle ">
                     <thead>
                     <tr>

@@ -95,12 +95,7 @@ class HostController extends Controller
 
     public function edit()
     {
-        /*if (auth()->user()->host->status !== 'nok') {
 
-            session()->flash('warning', 'اطلاعات شما نیاز به ویرایش ندارد!');
-
-            return redirect(route('client.host.index'));
-        }*/
 
         return view('client.hosts.edit', [
 
@@ -133,7 +128,7 @@ class HostController extends Controller
         return redirect(route('client.host.index'));
     }
 
-    //Check the uploaded host image or used old image
+
     private function checkUpload(Request $request, Host $host)
     {
         if ($request->has('national_card_photo')) {
@@ -150,16 +145,13 @@ class HostController extends Controller
     }
 
 
-    // check the national code not exists in hosts
+
 
     private function checkCodeUnique(Request $request, Host $host)
     {
 
-        $codeIsExists = Host::query()->where('national_code', $request->get('national_code'))
+        return Host::query()->where('national_code', $request->get('national_code'))
             ->where('id', '!=', $host->id)->exists();
-
-
-        return $codeIsExists;
 
 
     }

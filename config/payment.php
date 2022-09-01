@@ -97,10 +97,10 @@ return [
             'apiPaymentUrl' => 'https://idpay.ir/p/ws/',
             'apiSandboxPaymentUrl' => 'https://idpay.ir/p/ws-sandbox/',
             'apiVerificationUrl' => 'https://api.idpay.ir/v1.1/payment/verify',
-            'merchantId' => '',
-            'callbackUrl' => 'http://yoursite.com/path/to',
+            'merchantId' => '123456789123456789123456789123456789',
+            'callbackUrl' => 'http://127.0.0.1:8000/order/payment/callback',
             'description' => 'payment using idpay',
-            'sandbox' => false, // set it to true for test environments
+            'sandbox' => true, // set it to true for test environments
         ],
         'irankish' => [
             'apiPurchaseUrl' => 'https://ikc.shaparak.ir/XToken/Tokens.xml',
@@ -123,8 +123,8 @@ return [
             'apiPurchaseUrl' => 'https://pec.shaparak.ir/NewIPGServices/Sale/SaleService.asmx?wsdl',
             'apiPaymentUrl' => 'https://pec.shaparak.ir/NewIPG/',
             'apiVerificationUrl' => 'https://pec.shaparak.ir/NewIPGServices/Confirm/ConfirmService.asmx?wsdl',
-            'merchantId' => '',
-            'callbackUrl' => 'http://yoursite.com/path/to',
+            'merchantId' => '123456789123456789123456789123456789',
+            'callbackUrl' => 'http://127.0.0.1:8000/order/payment/callback',
             'description' => 'payment using parsian',
         ],
         'pasargad' => [
@@ -143,7 +143,7 @@ return [
             'apiPaymentUrl' => 'https://pay.ir/pg/',
             'apiVerificationUrl' => 'https://pay.ir/pg/verify',
             'merchantId' => 'test', // set it to `test` for test environments
-            'callbackUrl' => 'http://yoursite.com/path/to',
+            'callbackUrl' => 'http://127.0.0.1:8000/order/payment/callback',
             'description' => 'payment using payir',
         ],
         'paypal' => [
@@ -263,10 +263,10 @@ return [
             'apiPaymentUrl' => 'https://gateway.zibal.ir/start/',
             'apiVerificationUrl' => 'https://gateway.zibal.ir/v1/verify',
 
-            'mode' => 'normal', // can be normal, direct
+            'mode' => 'direct', // can be normal, direct
 
-            'merchantId' => '',
-            'callbackUrl' => 'http://yoursite.com/path/to',
+            'merchantId' => '123456789',
+            'callbackUrl' => 'http://127.0.0.1:8000/order/payment/callback',
             'description' => 'payment using zibal',
         ],
         'sepordeh' => [

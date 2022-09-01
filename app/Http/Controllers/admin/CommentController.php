@@ -19,12 +19,7 @@ class CommentController extends Controller
 
     public function destroy(Comment $comment)
     {
-        /*if ($comment->children()->count() > 0) {
-            session()->flash('delete',
-                "کامنت به دليل داشتن زير مجموعه قابل حذف نيست"
-            );
-            return redirect(route('admin.comments.index'));
-        }*/
+
 
         $comment->delete();
 

@@ -29,7 +29,7 @@ class UpdateHotelRequest extends FormRequest
             'phone' => ['required', 'max:30'],
             'category_id' => ['required', 'exists:categories,id', 'numeric'],
             'city_id' => ['required', 'exists:cities,id', 'numeric',new CheckCityIdForCreateHotel()],
-            'cost' => ['required', 'lte:99999999', 'gte:10000'],
+            'cost' => ['required','numeric', 'lte:99999999', 'gte:10000'],
             'description' => ['required', 'max:500', 'min:10'],
             'address' => ['required', 'max:500', 'min:10'],
             'capacity' => ['required','array',],

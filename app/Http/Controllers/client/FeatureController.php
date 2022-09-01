@@ -8,6 +8,7 @@ use App\Http\Requests\Client\Features\FeatureAddRequest;
 use App\Models\Feature;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class FeatureController extends Controller
 {
@@ -18,6 +19,8 @@ class FeatureController extends Controller
 
     public function create(Hotel $hotel)
     {
+        Gate::authorize('HotelsForRealHost', $hotel);
+
         return view('client.features.create', [
 
             'features' => Feature::all(),
@@ -28,6 +31,8 @@ class FeatureController extends Controller
 
     public function store(Hotel $hotel, FeatureAddRequest $request)
     {
+        Gate::authorize('HotelsForRealHost', $hotel);
+
         $hotel->features()->sync($request->get('features'));
 
         return redirect(route('features.hotel.create', $hotel));

@@ -13,7 +13,7 @@
                     <div class="col-md-6 mb-2">
                         <label for="name" class="form-label">نام</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                               id="name" value="{{old('name')}}" placeholder="نام اقامتگاه را وارد کنيد">
+                               id="name" value="{{old('name')}}" placeholder="نام اقامتگاه را وارد کنيد" autocomplete="off">
                         @error('name') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror
                     </div>
                     <div class="col-md-6 mb-2">

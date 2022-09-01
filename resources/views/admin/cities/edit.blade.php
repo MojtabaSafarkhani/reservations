@@ -21,7 +21,7 @@
                     @method("PATCH")
                     <div class="m-3 ">
                         <label class="form-label" for="name">نام</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror " id="name"
+                        <input type="text" class="form-control @error('name') is-invalid @enderror " id="name" autocomplete="off"
                                placeholder="نام شهر را وارد کنيد"
                                name="name" value="{{$city->name}}">
                         @error('name') <span class="invalid-feedback mt-1">{{$message}}</span>@enderror

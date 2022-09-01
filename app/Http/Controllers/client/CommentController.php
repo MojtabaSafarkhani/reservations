@@ -42,7 +42,6 @@ class CommentController extends Controller
         if ($commentIsExists) {
             return redirect()->back()->withErrors(['comment' => 'نظر شما براي اين اقامتگاه قبلا ثبت شده است!']);
         }
-        Gate::authorize('UserHasAccessToReview', $hotel);
 
         Comment::query()->create([
             'user_id' => auth()->user()->id,

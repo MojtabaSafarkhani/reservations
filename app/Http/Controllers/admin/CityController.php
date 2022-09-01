@@ -92,7 +92,7 @@ class CityController extends Controller
         }
 
         session()->flash('delete',
-            "دسته بندي  $city->title حذف شد.! "
+            "شهر  $city->name  حذف شد.! "
         );
 
         //must be search that hotel not in category

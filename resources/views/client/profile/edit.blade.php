@@ -17,7 +17,7 @@
                     @method("PATCH")
                     <div class="mb-2">
                         <label for="name" class="form-label">نام</label>
-                        <input type="text" name="name" placeholder="نام خود را وارد کنید"
+                        <input type="text" name="name" placeholder="نام خود را وارد کنید" autocomplete="off"
                                class="form-control @error('name') is-invalid @enderror" id="name"
                                value="{{$user->name}}"
                                aria-describedby="emailHelp">
